@@ -1,15 +1,20 @@
-import dotenv from 'dotenv';
-import express, { Express, Request, Response } from 'express';
+import 'dotenv/config';
+import express from 'express';
+import { run } from './src/packages/db/mongo';
 
-dotenv.config();
+function main() {
+  const app = express();
+  const port = process.env.PORT;
 
-const app = express();
-const port = process.env.PORT;
+  run().catch(console.dir);
 
-app.get('/', (req, res) => {
-  res.send('Express + TypeScript Server');
-});
+  app.get('/', (req, res) => {
+    res.send('Express + TypeScript Server');
+  });
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+  app.listen(port, () => {
+    console.log(`[server]: Server is running at http://localhost:${port}`);
+  });
+}
+
+main();
