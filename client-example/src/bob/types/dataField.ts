@@ -1,29 +1,26 @@
 export type DataFieldSchema_String = {
-  type: string;
+  type: 'string';
   name: string;
-  value: string;
-  defaultValue: string;
+  defaultValue?: string;
 };
 
 export type DataFieldSchema_Number = {
-  type: number;
+  type: 'number';
   name: string;
-  value: number;
-  defaultValue: number;
+  defaultValue?: number;
 };
 
 export type DataFieldSchema_Boolean = {
-  type: boolean;
+  type: 'boolean';
   name: string;
-  value: boolean;
-  defaultValue: boolean;
+  defaultValue?: boolean;
 };
 
 export type DataFieldSchema_Object = {
-  type: object;
+  type: 'object';
   name: string;
-  value: DataFieldSchema_Object;
-  defaultValue: DataFieldSchema_Object;
+  subfields: DataFieldSchema[];
+  //   defaultSubfields?: DataFieldSchema[];
 };
 
 export type DataFieldSchema =
