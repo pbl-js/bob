@@ -1,7 +1,10 @@
 import { DataFieldSchema } from './dataField';
 
-export type RegisteredComponent = {
+export type RegisteredComponentSchema = {
   name: string;
-  component: any;
   propsSchema: DataFieldSchema[];
 };
+
+export type RegisteredComponent = {
+  component: string;
+} & RegisteredComponentSchema;
