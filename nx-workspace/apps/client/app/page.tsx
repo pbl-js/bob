@@ -1,4 +1,4 @@
-import { BobSection } from '@/bob/BobSection';
+import { BobSection } from '../bob/BobSection';
 import Image from 'next/image';
 
 export default function Home() {

@@ -1,7 +1,5 @@
-// const registeredComponents = window.pblBuilder.customComponents;
-
+import { ComponentType } from 'react';
 import { RegisteredComponent } from './types/bob';
-import { DataFieldSchema } from './types/dataField';
 
 export class BOB {
   static _instance: BOB;
@@ -22,7 +20,7 @@ export class BOB {
 
   static registerComponent(
     name: RegisteredComponent['name'],
-    component: RegisteredComponent['component'],
+    component: ComponentType,
     propsSchema: RegisteredComponent['propsSchema']
   ): void {
     const isComponentExisted = this._customComponents.some(

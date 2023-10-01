@@ -1,3 +1,4 @@
+import { ComponentType } from 'react';
 import { DataFieldSchema } from './dataField';
 
 export type RegisteredComponentSchema = {
@@ -6,5 +7,5 @@ export type RegisteredComponentSchema = {
 };
 
 export type RegisteredComponent = {
-  component: string;
+  component: ComponentType;
 } & RegisteredComponentSchema;

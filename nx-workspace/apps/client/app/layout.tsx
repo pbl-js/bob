@@ -1,5 +1,5 @@
-import { BOB } from '@/bob/bobInstance';
-import './globals.css';
+import { BOB } from '../bob/bobInstance';
+import './global.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 BOB.init('example-of-api-key');
 
 const ProductTile = dynamic(
-  async () => (await import('@/components/ProductTile/ProductTile')).default
+  async () => (await import('../components/ProductTile/ProductTile')).default
 );
 
 BOB.registerComponent('testProductTile', ProductTile, [
