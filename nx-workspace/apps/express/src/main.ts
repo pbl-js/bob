@@ -1,14 +1,23 @@
-import 'dotenv/config';
+/**
+ * This is not a production server yet!
+ * This is only a minimal backend to get started.
+ */
+
 import express from 'express';
-import { client, run } from './src/packages/db/mongo';
+import { client, run } from './packages/db/mongo';
+import * as path from 'path';
 
 async function main() {
   const app = express();
-  const port = process.env.PORT;
 
   await run().catch(console.dir);
+  app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-  app.get('/', async (req, res) => {
+  app.get('/api', (req, res) => {
+    res.send({ message: 'Welcome to express!' });
+  });
+
+  app.get('/register-component', async (req, res) => {
     await client.connect();
     const myDB = client.db('mongotron');
     const modelSchemaCollection = myDB.collection('model-schema');
@@ -40,9 +49,11 @@ async function main() {
     res.send('Express + TypeScript Server');
   });
 
-  app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+  const port = process.env.PORT || 3333;
+  const server = app.listen(port, () => {
+    console.log(`Listening at http://localhost:${port}/api`);
   });
+  server.on('error', console.error);
 }
 
 main();
