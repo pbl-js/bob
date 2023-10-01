@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { RegisteredComponent } from './types/bob';
+import { RegisteredComponent } from '@types';
 
 export class BOB {
   static _instance: BOB;

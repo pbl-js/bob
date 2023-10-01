@@ -1,6 +1,8 @@
 import { BOB } from '../bobInstance';
-import { RegisteredComponentSchema } from '../types/bob';
-import { PostMessage_ToDashboard_RegisterComponents } from '../types/postMessage';
+import {
+  PostMessage_ToDashboard_RegisterComponents,
+  RegisteredComponentSchema,
+} from '@types';
 
 export function postMessage_registerComponents() {
   const registeredComponents = BOB._customComponents;
