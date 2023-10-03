@@ -1,11 +1,11 @@
 import { ComponentType } from 'react';
 import { DataFieldSchema } from './dataField';
 
-export type RegisteredComponentSchema = {
+export type ComponentSchema = {
   name: string;
   propsSchema: DataFieldSchema[];
 };
 
 export type RegisteredComponent = {
   component: ComponentType;
-} & RegisteredComponentSchema;
+} & ComponentSchema;

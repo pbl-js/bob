@@ -1,20 +1,25 @@
-import { RegisteredComponentSchema } from './bob';
+import { ComponentSchema } from './bob';
 
-type RegisterComponent = 'register-components';
-type DoSomething = 'do-something';
-
-export type PostMessageType_ToDashboard = RegisterComponent | DoSomething;
+export enum PostMessageType_ToDashboard {
+  REGISTER_COMPONENTS = 'register-components',
+  SEND_COMPONENT_DOM_DATA = 'send-component-dom-data',
+  RENDER_SECTION = 'render-section',
+}
 
 export type PostMessage_ToDashboard_RegisterComponents = {
-  messageType: RegisterComponent;
+  messageType: PostMessageType_ToDashboard.REGISTER_COMPONENTS;
   messageData: {
-    registeredComponents: RegisteredComponentSchema[];
+    registeredComponents: ComponentSchema[];
   };
 };
 
 export type PostMessage_ToDashboard_DoSomething = {
-  messageType: DoSomething;
+  messageType: PostMessageType_ToDashboard.RENDER_SECTION;
   messageData: {
     test: string;
   };
 };
+
+export type PostMessage_ToDashboard =
+  | PostMessage_ToDashboard_RegisterComponents
+  | PostMessage_ToDashboard_DoSomething;
