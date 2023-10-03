@@ -3,7 +3,7 @@ import {
   PostMessage_ToDashboard,
   PostMessageType_ToDashboard,
 } from '@types';
-import { postRegisteredComponents } from '../utils/api/mutations';
+import { postRegisteredComponents } from '../../utils/api/mutations';
 
 export const receiveMessage = async (
   event: MessageEvent<PostMessage_ToDashboard>,

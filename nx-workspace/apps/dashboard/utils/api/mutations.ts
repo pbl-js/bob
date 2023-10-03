@@ -1,4 +1,8 @@
+'use server';
+
 import { ComponentSchema } from '@types';
+import { revalidateTag } from 'next/cache';
+import { REGISTERED_COMPONENTS } from './tags';
 
 export async function postRegisteredComponents(
   components: ComponentSchema[]
@@ -10,11 +14,9 @@ export async function postRegisteredComponents(
       'Content-Type': 'application/json',
     },
   });
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+  revalidateTag(REGISTERED_COMPONENTS);
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed update registered components');
   }
 

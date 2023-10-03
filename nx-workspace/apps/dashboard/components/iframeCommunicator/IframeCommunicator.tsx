@@ -1,6 +1,6 @@
 import React from 'react';
 import { IframeComunicator_Client } from './IframeCommunicator.client';
-import { getRegisteredComponents } from '../utils/api/fetchers';
+import { getRegisteredComponents } from '../../utils/api/fetchers';
 
 export const IframeComunicator = async () => {
   const registeredComponents = await getRegisteredComponents();
