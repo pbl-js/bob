@@ -7,15 +7,18 @@ export default function Home() {
       <IframeComunicator />
       <main className="flex min-h-screen bg-slate-800">
         <div className="w-full h-full flex">
-          <div className="w-[350px]">
+          <div className="w-[350px] p-3">
+            <h3 className="mb-3">Registered components</h3>
             <RegisteredComponentListing />
           </div>
+
           <iframe
             className="block w-full h-[80vh] border-none"
             src="http://localhost:4444"
             title="Iframe dashboard"
             id="cms-editor-iframe"
           />
+
           <div className="w-[200px]"></div>
         </div>
       </main>
