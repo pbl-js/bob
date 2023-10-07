@@ -1,10 +1,6 @@
-import { Express, Request, Response } from 'express';
+import { Express } from 'express';
 import { client } from '../../packages/db/mongo';
-import {
-  ComponentSchema,
-  dataFieldSchemaArraySchema,
-  dataFieldSchemaSchema,
-} from '@types';
+import { ComponentSchema, dataFieldSchemaArraySchema } from '@types';
 import { z } from 'zod';
 
 export async function registerComponentsController(app: Express) {
@@ -14,6 +10,7 @@ export async function registerComponentsController(app: Express) {
     const modelSchemaCollection = myDB.collection('component-schema');
 
     const result = await modelSchemaCollection.find({}).toArray();
+    await client.close();
     res.json(result);
   });
 

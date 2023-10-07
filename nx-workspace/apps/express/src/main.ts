@@ -4,6 +4,7 @@ import * as path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { registerComponentsController } from './packages/registerComponents/controller';
+import { pageBlueprintController } from './packages/pageBlueprint/controller';
 
 async function main() {
   const app = express();
@@ -18,6 +19,7 @@ async function main() {
   });
 
   registerComponentsController(app);
+  pageBlueprintController(app);
 
   const port = process.env.PORT || 3333;
   const server = app.listen(port, () => {
