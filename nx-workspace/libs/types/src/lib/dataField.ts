@@ -28,3 +28,5 @@ export type DataFieldSchema =
   | DataFieldSchema_Number
   | DataFieldSchema_Boolean
   | DataFieldSchema_Object;
+
+export type DataFieldSchemaArray = DataFieldSchema[];
