@@ -4,7 +4,6 @@ import clsx from 'clsx';
 
 export const RegisteredComponentListing = async () => {
   const registeredComponents = await getRegisteredComponents();
-  console.log(registeredComponents);
 
   return (
     <div className="grid grid-cols-2 gap-2">

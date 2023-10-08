@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import { getPageBlueprints } from '../../utils/api/fetchers';
+import Link from 'next/link';
+import { CONTENT_PAGE } from '../../utils/routes';
 
 export const PageBlueprintsListing = async () => {
   const pageBlueprints = await getPageBlueprints();
@@ -11,7 +13,8 @@ export const PageBlueprintsListing = async () => {
   return (
     <div className="grid grid-cols-1 gap-2">
       {pageBlueprints.map((pageBlueprint) => (
-        <div
+        <Link
+          href={`${CONTENT_PAGE}/${pageBlueprint.name}`}
           className={clsx(
             'flex items-center bg-slate-700 rounded-md px-4 h-[60px]',
             'text-m break-words text-slate-300 cursor-pointer'
@@ -19,7 +22,7 @@ export const PageBlueprintsListing = async () => {
           key={1}
         >
           {pageBlueprint.name}
-        </div>
+        </Link>
       ))}
     </div>
   );
