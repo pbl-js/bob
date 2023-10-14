@@ -20,8 +20,9 @@ export async function pageContentController(app: Express) {
     const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
 
     const result = await pageContentCollection.find({}).toArray();
-    await client.close();
+
     res.json(result);
+    await client.close();
   });
 
   app.post('/api/page-content', async (req, res, next) => {
@@ -57,16 +58,16 @@ export async function pageContentController(app: Express) {
       }
 
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
-
+      console.log(blueprintFromClient);
       const insertResult = await pageContentCollection.insertOne({
         '@blueprintId': blueprintFromClient['@blueprintId'],
-        name: blueprintFromClient['@blueprintId'],
+        name: blueprintFromClient.name,
         fields: [],
         components: [],
       });
 
-      await client.close();
       res.json(insertResult);
+      await client.close();
     } catch (err) {
       next(err);
     }

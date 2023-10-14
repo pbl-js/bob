@@ -3,6 +3,7 @@ import { client } from '../../packages/db/mongo';
 import {
   ComponentSchema,
   PageBlueprint,
+  PageBlueprint_MongoModel,
   dataFieldSchemaArraySchema,
   pageBlueprintSchema,
 } from '@types';
@@ -15,9 +16,12 @@ export async function pageBlueprintController(app: Express) {
     const myDB = client.db('mongotron');
     const pageBlueprintCollection = myDB.collection(PAGE_BLUEPRINT_COLLECTION);
 
-    const result = await pageBlueprintCollection.find({}).toArray();
-    await client.close();
+    const result = (await pageBlueprintCollection
+      .find({})
+      .toArray()) as unknown as PageBlueprint_MongoModel;
+
     res.json(result);
+    await client.close();
   });
 
   app.post('/api/page-blueprint', async (req, res, next) => {
@@ -51,8 +55,8 @@ export async function pageBlueprintController(app: Express) {
         blueprintFromClient
       );
 
-      await client.close();
       res.json(insertResult);
+      await client.close();
     } catch (err) {
       next(err);
     }

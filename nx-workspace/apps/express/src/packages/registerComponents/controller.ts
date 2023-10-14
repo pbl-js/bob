@@ -10,8 +10,9 @@ export async function registerComponentsController(app: Express) {
     const modelSchemaCollection = myDB.collection('component-schema');
 
     const result = await modelSchemaCollection.find({}).toArray();
-    await client.close();
+
     res.json(result);
+    await client.close();
   });
 
   app.post('/api/register-component', async (req, res, next) => {
@@ -56,8 +57,8 @@ export async function registerComponentsController(app: Express) {
         }
       );
 
-      client.close();
       res.send('Component registered');
+      client.close();
     } catch (err) {
       next(err);
     }

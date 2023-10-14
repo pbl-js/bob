@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import { DataFieldSchemaArray } from './dataField';
 
 export type PageBlueprint = {
@@ -5,6 +6,14 @@ export type PageBlueprint = {
   description: string;
   fieldsSchema: DataFieldSchemaArray;
 };
+
+export type PageBlueprint_MongoModel = PageBlueprint & {
+  _id: ObjectId;
+};
+
+export type PageBlueprint_GetRequest = (PageBlueprint & {
+  _id: string;
+})[];
 
 export type SectionBlueprint = {
   name: string;

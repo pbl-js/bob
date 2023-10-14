@@ -5,7 +5,6 @@ import { CONTENT_PAGE } from '../../utils/routes';
 
 export const PageBlueprintsListing = async () => {
   const pageBlueprints = await getPageBlueprints();
-
   if (!pageBlueprints) return 'error with fetching';
 
   if (pageBlueprints.length === 0) return 'No blueprints to render';
@@ -14,12 +13,12 @@ export const PageBlueprintsListing = async () => {
     <div className="grid grid-cols-1 gap-2">
       {pageBlueprints.map((pageBlueprint) => (
         <Link
-          href={`${CONTENT_PAGE}/${pageBlueprint.name}`}
+          href={`${CONTENT_PAGE}/${pageBlueprint._id}`}
           className={clsx(
             'flex items-center bg-slate-700 rounded-md px-4 h-[60px]',
             'text-m break-words text-slate-300 cursor-pointer'
           )}
-          key={1}
+          key={pageBlueprint._id}
         >
           {pageBlueprint.name}
         </Link>
