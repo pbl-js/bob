@@ -12,16 +12,28 @@ import { PAGE_BLUEPRINT_COLLECTION } from '../db/collections';
 
 export async function pageBlueprintController(app: Express) {
   app.get('/api/page-blueprint', async (req, res) => {
-    await client.connect();
-    const myDB = client.db('mongotron');
-    const pageBlueprintCollection = myDB.collection(PAGE_BLUEPRINT_COLLECTION);
+    const getData = async () => {
+      await client.connect();
+      const myDB = client.db('mongotron');
+      const pageBlueprintCollection = myDB.collection(
+        PAGE_BLUEPRINT_COLLECTION
+      );
 
-    const result = (await pageBlueprintCollection
-      .find({})
-      .toArray()) as unknown as PageBlueprint_MongoModel;
+      const result = (await pageBlueprintCollection
+        .find({})
+        .toArray()) as unknown as PageBlueprint_MongoModel;
 
-    res.json(result);
-    await client.close();
+      return result;
+    };
+
+    try {
+      const data = await getData();
+      await res.json(data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      // await client.close();
+    }
   });
 
   app.post('/api/page-blueprint', async (req, res, next) => {

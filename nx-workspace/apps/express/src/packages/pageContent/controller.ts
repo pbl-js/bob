@@ -15,11 +15,45 @@ import { ObjectId } from 'mongodb';
 
 export async function pageContentController(app: Express) {
   app.get('/api/page-content', async (req, res) => {
+    const getData = async () => {
+      const querySchema = z.object({
+        blueprintId: z.string().refine((val) => ObjectId.isValid(val)),
+      });
+      const query = querySchema.parse(req.query);
+
+      await client.connect();
+      const myDB = client.db('mongotron');
+      const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
+
+      const result = await pageContentCollection
+        .find({ '@blueprintId': new ObjectId(query.blueprintId) })
+        .toArray();
+      return result;
+    };
+
+    try {
+      const data = await getData();
+      await res.json(data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      // await client.close();
+    }
+  });
+
+  app.delete('/api/page-content:id', async (req, res) => {
     await client.connect();
     const myDB = client.db('mongotron');
     const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
 
-    const result = await pageContentCollection.find({}).toArray();
+    const paramsSchema = z.object({
+      id: z.string().refine((val) => ObjectId.isValid(val)),
+    });
+    const params = paramsSchema.parse(req.params);
+
+    const result = await pageContentCollection.findOneAndDelete({
+      _id: new ObjectId(params.id),
+    });
 
     res.json(result);
     await client.close();
@@ -60,7 +94,7 @@ export async function pageContentController(app: Express) {
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
       console.log(blueprintFromClient);
       const insertResult = await pageContentCollection.insertOne({
-        '@blueprintId': blueprintFromClient['@blueprintId'],
+        '@blueprintId': new ObjectId(blueprintFromClient['@blueprintId']),
         name: blueprintFromClient.name,
         fields: [],
         components: [],

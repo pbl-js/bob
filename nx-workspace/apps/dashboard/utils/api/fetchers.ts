@@ -27,6 +27,7 @@ export async function getRegisteredComponents(): Promise<
 export async function getPageBlueprints(): Promise<
   PageBlueprint_GetRequest | undefined
 > {
+  console.log('getPageBlueprints is called');
   const res = await fetch('http://localhost:8000/api/page-blueprint', {
     next: { tags: [PAGE_BLUEPRINT] },
   });
@@ -42,14 +43,14 @@ export async function getPageContent(
   blueprintId: string
 ): Promise<PageContent_GetRequest | undefined> {
   try {
+    console.log('getPageContent is called');
     const url = new URL('http://localhost:8000/api/page-content');
     url.search = new URLSearchParams({
       blueprintId,
     }).toString();
 
     const res = await fetch(url.toString(), {
-      // next: { tags: [PAGE_CONTENT] },
-      cache: 'no-cache',
+      next: { tags: [PAGE_CONTENT] },
     });
 
     if (!res.ok) {

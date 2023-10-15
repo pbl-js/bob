@@ -12,7 +12,7 @@ export default async function Home({ params }: HomeProps) {
   const matchedPageBlueprint = pageBlueprints?.find(
     (el) => el._id === params.blueprintId
   );
-
+  console.log('params', params);
   if (!matchedPageBlueprint) return <div>Invalid blueprint id</div>;
 
   return (
