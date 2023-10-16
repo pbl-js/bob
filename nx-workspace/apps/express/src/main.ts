@@ -1,5 +1,5 @@
 import express from 'express';
-import { run } from './packages/db/mongo';
+import { client as mongoClient, run } from './packages/db/mongo';
 import * as path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';

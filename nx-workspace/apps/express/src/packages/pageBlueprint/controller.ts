@@ -13,7 +13,6 @@ import { PAGE_BLUEPRINT_COLLECTION } from '../db/collections';
 export async function pageBlueprintController(app: Express) {
   app.get('/api/page-blueprint', async (req, res) => {
     const getData = async () => {
-      await client.connect();
       const myDB = client.db('mongotron');
       const pageBlueprintCollection = myDB.collection(
         PAGE_BLUEPRINT_COLLECTION
@@ -31,15 +30,11 @@ export async function pageBlueprintController(app: Express) {
       await res.json(data);
     } catch (err) {
       console.log(err);
-    } finally {
-      // await client.close();
     }
   });
 
   app.post('/api/page-blueprint', async (req, res, next) => {
     try {
-      await client.connect();
-
       const reqBodySchema = pageBlueprintSchema;
 
       const blueprintFromClient = reqBodySchema.parse(req.body);
@@ -68,7 +63,6 @@ export async function pageBlueprintController(app: Express) {
       );
 
       res.json(insertResult);
-      await client.close();
     } catch (err) {
       next(err);
     }

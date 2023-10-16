@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { getPageBlueprints } from '../../../utils/api/fetchers';
 import { PageContentListing } from '../../../components/PageContentListing/PageContentListing';
+import { Refresher } from '../../../components/Refresher/Refresher';
 
 type HomeProps = {
   params: { blueprintId: string };
@@ -21,6 +22,7 @@ export default async function Home({ params }: HomeProps) {
         <h3 className="mb-3">Content</h3>
         <PageContentListing blueprintId={matchedPageBlueprint._id} />
       </div>
+      <Refresher />
     </main>
   );
 }

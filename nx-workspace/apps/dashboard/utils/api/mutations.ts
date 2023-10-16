@@ -2,7 +2,7 @@
 
 import { ComponentSchema } from '@types';
 import { revalidateTag } from 'next/cache';
-import { REGISTERED_COMPONENTS } from './tags';
+import { PAGE_CONTENT, REGISTERED_COMPONENTS } from './tags';
 
 export async function postRegisteredComponents(
   components: ComponentSchema[]
@@ -18,6 +18,32 @@ export async function postRegisteredComponents(
 
   if (!res.ok) {
     throw new Error('Failed update registered components');
+  }
+
+  return res.json();
+}
+
+export async function deletePageContent(
+  id: string
+): Promise<ComponentSchema[] | undefined> {
+  console.log('deletePageContent is called');
+
+  const url = new URL('http://localhost:8000/api/page-content');
+  url.search = new URLSearchParams({
+    id,
+  }).toString();
+
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  revalidateTag(PAGE_CONTENT);
+
+  if (!res.ok) {
+    throw new Error('Failed delete page content');
   }
 
   return res.json();

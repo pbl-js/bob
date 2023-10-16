@@ -5,20 +5,16 @@ import { z } from 'zod';
 
 export async function registerComponentsController(app: Express) {
   app.get('/api/register-component', async (req, res) => {
-    await client.connect();
     const myDB = client.db('mongotron');
     const modelSchemaCollection = myDB.collection('component-schema');
 
     const result = await modelSchemaCollection.find({}).toArray();
 
     res.json(result);
-    await client.close();
   });
 
   app.post('/api/register-component', async (req, res, next) => {
     try {
-      await client.connect();
-
       // TODO: Validate components to register
       const reqBodySchema = z.array(
         z.object({
@@ -58,7 +54,6 @@ export async function registerComponentsController(app: Express) {
       );
 
       res.send('Component registered');
-      client.close();
     } catch (err) {
       next(err);
     }

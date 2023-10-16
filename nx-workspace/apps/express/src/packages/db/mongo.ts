@@ -21,6 +21,7 @@ export async function run() {
     );
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // TODO: FIgure out what to do with db connection
+    // await client.close();
   }
 }

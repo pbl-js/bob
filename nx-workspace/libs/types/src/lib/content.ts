@@ -4,9 +4,11 @@ export type PageContent = {
   components: any[];
 };
 
-export type PageContent_GetRequest = (PageContent & {
+export type PageContentModel = PageContent & {
   _id: string;
-})[];
+};
+
+export type PageContent_GetResponse = PageContentModel[];
 
 export type SectionContent = {
   name: string;

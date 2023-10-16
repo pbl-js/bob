@@ -2,7 +2,7 @@ import {
   ComponentSchema,
   PageBlueprint,
   PageBlueprint_GetRequest,
-  PageContent_GetRequest,
+  PageContent_GetResponse,
 } from '@types';
 import { PAGE_BLUEPRINT, PAGE_CONTENT, REGISTERED_COMPONENTS } from './tags';
 
@@ -41,7 +41,7 @@ export async function getPageBlueprints(): Promise<
 
 export async function getPageContent(
   blueprintId: string
-): Promise<PageContent_GetRequest | undefined> {
+): Promise<PageContent_GetResponse | undefined> {
   try {
     console.log('getPageContent is called');
     const url = new URL('http://localhost:8000/api/page-content');
@@ -61,5 +61,6 @@ export async function getPageContent(
     return res.json();
   } catch (err) {
     console.log('DUPA', err);
+    throw new Error('Failed to fetch page-content');
   }
 }
