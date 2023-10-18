@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { RegisteredComponentListing } from '../../components/RegisteredComponentsListing/RegisteredComponentListing';
-import { IframeComunicator } from '../../components/iframeCommunicator/IframeCommunicator';
+import { RegisteredComponentListing } from '../../../components/RegisteredComponentsListing/RegisteredComponentListing';
+import { IframeComunicator } from '../../../components/iframeCommunicator/IframeCommunicator';
+import { PAGE_CONTENT } from '../../../utils/api/tags';
 
 export default function Home() {
   return (
@@ -9,7 +10,10 @@ export default function Home() {
       <main className="flex min-h-screen bg-slate-800">
         <div className="w-full h-full flex">
           <div className="w-[350px] p-3">
-            <Link href="/" className="w-10 h-10 bg-slate-700 rounded-md mb-3">
+            <Link
+              href={PAGE_CONTENT}
+              className="flex items-center justify-center w-10 h-10 bg-slate-700 rounded-md mb-3 text-slate-400"
+            >
               {'<'}
             </Link>
             <h3 className="mb-3">Registered components</h3>

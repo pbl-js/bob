@@ -4,6 +4,8 @@ import React, { useTransition } from 'react';
 import { deletePageContent } from '../../utils/api/mutations';
 import { PageContentModel } from '@types';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { EDITOR_PAGE } from '../../utils/routes';
 
 type Props = {
   pageContentItem: PageContentModel;
@@ -12,15 +14,18 @@ type Props = {
 export const PageContentItem = ({ pageContentItem }: Props) => {
   const [isPending, startTransition] = useTransition();
 
-  const deleteAction = () =>
-    startTransition(async () => {
+  const deleteAction = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    return startTransition(async () => {
       await deletePageContent(pageContentItem._id);
     });
+  };
 
   return (
-    <div
+    <Link
+      href={`${EDITOR_PAGE}/${pageContentItem._id}`}
       className={clsx(
-        'relative bg-slate-700 rounded-md py-5 px-2 pl-5',
+        'relative z-0 bg-slate-700 rounded-md py-5 px-2 pl-5',
         'text-base break-words text-slate-300 cursor-pointer'
       )}
       key={pageContentItem._id}
@@ -36,6 +41,6 @@ export const PageContentItem = ({ pageContentItem }: Props) => {
       >
         {isPending ? 'Deleting...' : 'Delete'}
       </button>
-    </div>
+    </Link>
   );
 };
