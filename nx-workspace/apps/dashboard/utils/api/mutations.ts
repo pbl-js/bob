@@ -23,9 +23,7 @@ export async function postRegisteredComponents(
   return res.json();
 }
 
-export async function deletePageContent(
-  id: string
-): Promise<ComponentSchema[] | undefined> {
+export async function deletePageContent(id: string): Promise<ComponentSchema[] | undefined> {
   console.log('deletePageContent is called');
 
   const url = new URL('http://localhost:8000/api/page-content');
@@ -47,4 +45,18 @@ export async function deletePageContent(
   }
 
   return res.json();
+}
+
+type AddComponentToPageContentArgs = {
+  componentBlueprintId: string;
+  pageContentId: string;
+  parentId: string;
+};
+
+export async function addComponentToPageContent({
+  componentBlueprintId,
+  pageContentId,
+  parentId,
+}: AddComponentToPageContentArgs) {
+  return null;
 }

@@ -7,10 +7,7 @@ import {
   pageBlueprintSchema,
 } from '@types';
 import { z } from 'zod';
-import {
-  PAGE_BLUEPRINT_COLLECTION,
-  PAGE_CONTENT_COLLECTION,
-} from '../db/collections';
+import { PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT_COLLECTION } from '../db/collections';
 import { ObjectId } from 'mongodb';
 
 export async function pageContentController(app: Express) {
@@ -33,6 +30,36 @@ export async function pageContentController(app: Express) {
           }
         : {};
       const result = await pageContentCollection.find(mongoQuery).toArray();
+      return result;
+    };
+
+    try {
+      const data = await getData();
+      await res.json(data);
+    } catch (err) {
+      console.log(err);
+    }
+  });
+
+  app.get('/api/page-content-details', async (req, res) => {
+    const getData = async () => {
+      const querySchema = z.object({
+        pageContentId: z
+          .string()
+          .refine((val) => ObjectId.isValid(val))
+          .optional(),
+      });
+      const query = querySchema.parse(req.query);
+
+      const myDB = client.db('mongotron');
+      const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
+
+      const mongoQuery = query.pageContentId
+        ? {
+            _id: new ObjectId(query.pageContentId),
+          }
+        : {};
+      const result = await pageContentCollection.findOne(mongoQuery);
       return result;
     };
 
@@ -78,9 +105,7 @@ export async function pageContentController(app: Express) {
       // Check if blueprint with provided ID exists
       const myDB = client.db('mongotron');
 
-      const pageBlueprintCollection = myDB.collection(
-        PAGE_BLUEPRINT_COLLECTION
-      );
+      const pageBlueprintCollection = myDB.collection(PAGE_BLUEPRINT_COLLECTION);
 
       const matchPageBlueprintQuery = {
         _id: new ObjectId(blueprintFromClient['@blueprintId']),
@@ -91,9 +116,7 @@ export async function pageContentController(app: Express) {
         )) as unknown as PageBlueprint) || null;
 
       if (!matchPageBlueprint) {
-        res
-          .status(400)
-          .send('There is no page content with provided blueprintId');
+        res.status(400).send('There is no page content with provided blueprintId');
         return;
       }
 
@@ -111,6 +134,26 @@ export async function pageContentController(app: Express) {
       res.json(insertResult);
     } catch (err) {
       next(err);
+    }
+  });
+
+  app.post('/api/page-content/add-component', async (req, res) => {
+    try {
+      const myDB = client.db('mongotron');
+      const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
+
+      const querySchema = z.object({
+        id: z.string().refine((val) => ObjectId.isValid(val)),
+      });
+      const query = querySchema.parse(req.query);
+
+      const result = await pageContentCollection.findOneAndDelete({
+        _id: new ObjectId(query.id),
+      });
+
+      await res.json(result);
+    } catch (err) {
+      res.status(400).json(err);
     }
   });
 }

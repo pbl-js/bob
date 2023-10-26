@@ -2,8 +2,17 @@ import Link from 'next/link';
 import { RegisteredComponentListing } from '../../../components/RegisteredComponentsListing/RegisteredComponentListing';
 import { IframeComunicator } from '../../../components/iframeCommunicator/IframeCommunicator';
 import { PAGE_CONTENT } from '../../../utils/api/tags';
+import { PageProps } from '../../../utils/types/types';
+import { getPageContentDetails } from '../../../utils/api/fetchers';
+import { redirect } from 'next/navigation';
+import { CONTENT_PAGE } from '../../../utils/routes';
+import { Logger } from '../../../components/Logger/Logger';
 
-export default function Home() {
+export default async function Home({ params: { contentId } }: PageProps<{ contentId?: string }>) {
+  if (!contentId) redirect(CONTENT_PAGE);
+
+  const details = await getPageContentDetails(contentId);
+
   return (
     <>
       <IframeComunicator />
@@ -16,7 +25,7 @@ export default function Home() {
             >
               {'<'}
             </Link>
-            <h3 className="mb-3">Registered components</h3>
+            <h3 className="mb-3 text-slate-200">Registered components</h3>
             <RegisteredComponentListing />
           </div>
 
