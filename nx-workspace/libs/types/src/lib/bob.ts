@@ -6,6 +6,24 @@ export type ComponentSchema = {
   propsSchema: DataFieldSchema[];
 };
 
+export type ComponentSchemaResponse = {
+  _id: string;
+  name: string;
+  propsSchema: DataFieldSchema[];
+};
+
+export type ComponentData = {
+  _id: string;
+  name: string;
+  parentId: string;
+};
+
 export type RegisteredComponent = {
   component: ComponentType;
 } & ComponentSchema;
+
+export type PageContentAddComponent_Request = {
+  componentBlueprintId: string;
+  pageContentId: string;
+  componentData: ComponentData;
+};

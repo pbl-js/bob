@@ -1,5 +1,6 @@
 import {
   ComponentSchema,
+  ComponentSchemaResponse,
   PageBlueprint,
   PageBlueprint_GetRequest,
   PageContentDetails_Response,
@@ -7,7 +8,7 @@ import {
 } from '@types';
 import { PAGE_BLUEPRINT, PAGE_CONTENT, PAGE_CONTENT_DETAILS, REGISTERED_COMPONENTS } from './tags';
 
-export async function getRegisteredComponents(): Promise<ComponentSchema[] | undefined> {
+export async function getRegisteredComponents(): Promise<ComponentSchemaResponse[] | undefined> {
   const res = await fetch('http://localhost:8000/api/register-component', {
     next: { tags: [REGISTERED_COMPONENTS] },
   });

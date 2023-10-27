@@ -13,12 +13,14 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
 
   const details = await getPageContentDetails(contentId);
 
+  if (!details) return null;
+
   return (
     <>
       <IframeComunicator />
       <main className="flex min-h-screen bg-slate-800">
         <div className="w-full h-full flex">
-          <div className="w-[350px] p-3">
+          <div className="w-[350px] p-3 text-slate-200">
             <Link
               href={PAGE_CONTENT}
               className="flex items-center justify-center w-10 h-10 bg-slate-700 rounded-md mb-3 text-slate-400"
@@ -26,7 +28,14 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
               {'<'}
             </Link>
             <h3 className="mb-3 text-slate-200">Registered components</h3>
-            <RegisteredComponentListing />
+            <RegisteredComponentListing pageContentId={contentId} />
+            <h3 className="mb-3 text-slate-200">page content details</h3>
+            <p>Name: {details?.name}</p>
+            <p>
+              {details.components.map((component) => (
+                <div key={component.id}>Component name</div>
+              ))}
+            </p>
           </div>
 
           <iframe

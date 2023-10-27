@@ -1,22 +1,25 @@
 import React from 'react';
 import { getRegisteredComponents } from '../../utils/api/fetchers';
 import clsx from 'clsx';
+import { RegisteredComponentItem } from './RegisteredComponentItem';
 
-export const RegisteredComponentListing = async () => {
+type Props = {
+  pageContentId: string;
+};
+
+export const RegisteredComponentListing = async ({ pageContentId }: Props) => {
   const registeredComponents = await getRegisteredComponents();
+
+  if (!registeredComponents) return <p>No registered components</p>;
 
   return (
     <div className="grid grid-cols-2 gap-2">
-      {registeredComponents?.map((component) => (
-        <div
-          className={clsx(
-            'bg-slate-700 rounded-md p-2 h-[60px]',
-            'text-xs break-words text-slate-300 cursor-pointer'
-          )}
+      {registeredComponents.map((component) => (
+        <RegisteredComponentItem
           key={component.name}
-        >
-          {component.name}
-        </div>
+          component={component}
+          pageContentId={pageContentId}
+        />
       ))}
     </div>
   );

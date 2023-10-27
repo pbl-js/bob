@@ -1,6 +1,6 @@
 'use server';
 
-import { ComponentSchema } from '@types';
+import { ComponentSchema, PageContentAddComponent_Request } from '@types';
 import { revalidateTag } from 'next/cache';
 import { PAGE_CONTENT, REGISTERED_COMPONENTS } from './tags';
 
@@ -47,16 +47,24 @@ export async function deletePageContent(id: string): Promise<ComponentSchema[] |
   return res.json();
 }
 
-type AddComponentToPageContentArgs = {
-  componentBlueprintId: string;
-  pageContentId: string;
-  parentId: string;
-};
-
 export async function addComponentToPageContent({
   componentBlueprintId,
   pageContentId,
-  parentId,
-}: AddComponentToPageContentArgs) {
-  return null;
+  componentData,
+}: PageContentAddComponent_Request) {
+  console.log('addComponentToPageContent runs');
+
+  const res = await fetch('http://localhost:8000/api/page-content/add-component', {
+    method: 'POST',
+    body: JSON.stringify({
+      componentBlueprintId,
+      pageContentId,
+      componentData,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return res.json();
 }

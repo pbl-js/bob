@@ -7,7 +7,11 @@ import {
   pageBlueprintSchema,
 } from '@types';
 import { z } from 'zod';
-import { PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT_COLLECTION } from '../db/collections';
+import {
+  COMPONENT_BLUEPRINT_COLLECTION,
+  PAGE_BLUEPRINT_COLLECTION,
+  PAGE_CONTENT_COLLECTION,
+} from '../db/collections';
 import { ObjectId } from 'mongodb';
 
 export async function pageContentController(app: Express) {
@@ -139,19 +143,26 @@ export async function pageContentController(app: Express) {
 
   app.post('/api/page-content/add-component', async (req, res) => {
     try {
+      console.log('POST Endpoint: /api/page-content/add-component');
+      // Validate body
       const myDB = client.db('mongotron');
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
+      const componentBlueprintCollection = myDB.collection(COMPONENT_BLUEPRINT_COLLECTION);
+      // Check if pageContent exists
+      // Check if componentBlueprint exists
 
-      const querySchema = z.object({
-        id: z.string().refine((val) => ObjectId.isValid(val)),
-      });
-      const query = querySchema.parse(req.query);
+      // Validate incoming component data
 
-      const result = await pageContentCollection.findOneAndDelete({
-        _id: new ObjectId(query.id),
-      });
+      // const querySchema = z.object({
+      //   id: z.string().refine((val) => ObjectId.isValid(val)),
+      // });
+      // const query = querySchema.parse(req.query);
 
-      await res.json(result);
+      // const result = await pageContentCollection.findOneAndDelete({
+      //   _id: new ObjectId(query.id),
+      // });
+
+      await res.json({});
     } catch (err) {
       res.status(400).json(err);
     }
