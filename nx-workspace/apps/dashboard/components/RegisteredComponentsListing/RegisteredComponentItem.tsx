@@ -17,7 +17,10 @@ export function RegisteredComponentItem({ component, pageContentId }: Props) {
         addComponentToPageContent({
           componentBlueprintId: component._id,
           pageContentId,
-          parentId: 'root',
+          componentData: {
+            parentId: 'root',
+            name: 'test',
+          },
         })
       }
       className={clsx(

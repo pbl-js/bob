@@ -144,26 +144,42 @@ export async function pageContentController(app: Express) {
   app.post('/api/page-content/add-component', async (req, res) => {
     try {
       console.log('POST Endpoint: /api/page-content/add-component');
+      console.log(`request data: ${JSON.stringify(req.body)}`);
       // Validate body
+      const reqBodySchema = z.object({
+        componentBlueprintId: z.string().min(1),
+        pageContentId: z.string().min(1),
+        componentData: z.object({
+          parentId: z.string().min(1),
+          name: z.string().min(1),
+        }),
+      });
+
+      const body = reqBodySchema.parse(req.body);
+
       const myDB = client.db('mongotron');
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
       const componentBlueprintCollection = myDB.collection(COMPONENT_BLUEPRINT_COLLECTION);
       // Check if pageContent exists
+      const matchContent = await pageContentCollection.findOne({
+        _id: new ObjectId(body.pageContentId),
+      });
+
+      if (!matchContent) return res.status(400).send('no content with provided ID');
       // Check if componentBlueprint exists
 
-      // Validate incoming component data
+      // If parentID === root, check if there is
+      // Check if parent component exists
 
-      // const querySchema = z.object({
-      //   id: z.string().refine((val) => ObjectId.isValid(val)),
-      // });
-      // const query = querySchema.parse(req.query);
+      // Add component
+      const result = await pageContentCollection.updateOne(
+        { _id: new ObjectId(body.pageContentId) },
+        { $push: { components: body.componentData } }
+      );
 
-      // const result = await pageContentCollection.findOneAndDelete({
-      //   _id: new ObjectId(query.id),
-      // });
-
-      await res.json({});
+      await res.json(result);
     } catch (err) {
+      console.log('POST Endpoint: /api/page-content/add-component ERROR: ', err);
       res.status(400).json(err);
     }
   });

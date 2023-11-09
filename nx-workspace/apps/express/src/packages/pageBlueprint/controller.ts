@@ -14,9 +14,7 @@ export async function pageBlueprintController(app: Express) {
   app.get('/api/page-blueprint', async (req, res) => {
     const getData = async () => {
       const myDB = client.db('mongotron');
-      const pageBlueprintCollection = myDB.collection(
-        PAGE_BLUEPRINT_COLLECTION
-      );
+      const pageBlueprintCollection = myDB.collection(PAGE_BLUEPRINT_COLLECTION);
 
       const result = (await pageBlueprintCollection
         .find({})
@@ -40,14 +38,10 @@ export async function pageBlueprintController(app: Express) {
       const blueprintFromClient = reqBodySchema.parse(req.body);
 
       const myDB = client.db('mongotron');
-      const pageBlueprintCollection = myDB.collection(
-        PAGE_BLUEPRINT_COLLECTION
-      );
+      const pageBlueprintCollection = myDB.collection<PageBlueprint>(PAGE_BLUEPRINT_COLLECTION);
 
       //TODO: Add ComponentSchemaMongoModel type
-      const existedBlueprints = (await pageBlueprintCollection
-        .find({})
-        .toArray()) as unknown as PageBlueprint[];
+      const existedBlueprints = await pageBlueprintCollection.find({}).toArray();
 
       const blueprintAlreadyExsists: boolean = existedBlueprints.some(
         (existedBlueprint) => existedBlueprint.name === blueprintFromClient.name
@@ -58,9 +52,7 @@ export async function pageBlueprintController(app: Express) {
         return;
       }
 
-      const insertResult = await pageBlueprintCollection.insertOne(
-        blueprintFromClient
-      );
+      const insertResult = await pageBlueprintCollection.insertOne(blueprintFromClient);
 
       res.json(insertResult);
     } catch (err) {

@@ -16,7 +16,7 @@ export const PageBlueprintsListing = async () => {
           href={`${CONTENT_PAGE}/${pageBlueprint._id}`}
           className={clsx(
             'flex items-center bg-slate-700 rounded-md px-4 h-[60px]',
-            'text-m break-words text-slate-300 cursor-pointer'
+            'break-words text-slate-300 cursor-pointer'
           )}
           key={pageBlueprint._id}
         >

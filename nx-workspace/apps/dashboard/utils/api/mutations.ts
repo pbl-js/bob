@@ -2,7 +2,7 @@
 
 import { ComponentSchema, PageContentAddComponent_Request } from '@types';
 import { revalidateTag } from 'next/cache';
-import { PAGE_CONTENT, REGISTERED_COMPONENTS } from './tags';
+import { PAGE_CONTENT, PAGE_CONTENT_DETAILS, REGISTERED_COMPONENTS } from './tags';
 
 export async function postRegisteredComponents(
   components: ComponentSchema[]
@@ -61,10 +61,12 @@ export async function addComponentToPageContent({
       pageContentId,
       componentData,
     }),
+    cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
+  revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
   return res.json();
 }

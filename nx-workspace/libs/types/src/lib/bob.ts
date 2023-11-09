@@ -1,5 +1,6 @@
 import { ComponentType } from 'react';
 import { DataFieldSchema } from './dataField';
+import { Omit2 } from './helpers';
 
 export type ComponentSchema = {
   name: string;
@@ -25,5 +26,5 @@ export type RegisteredComponent = {
 export type PageContentAddComponent_Request = {
   componentBlueprintId: string;
   pageContentId: string;
-  componentData: ComponentData;
+  componentData: Omit2<ComponentData, '_id'>;
 };

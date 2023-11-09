@@ -10,7 +10,7 @@ import { Logger } from '../../../components/Logger/Logger';
 
 export default async function Home({ params: { contentId } }: PageProps<{ contentId?: string }>) {
   if (!contentId) redirect(CONTENT_PAGE);
-
+  console.log(contentId);
   const details = await getPageContentDetails(contentId);
 
   if (!details) return null;
@@ -19,7 +19,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
     <>
       <IframeComunicator />
       <main className="flex min-h-screen bg-slate-800">
-        <div className="w-full h-full flex">
+        <div className="w-full h-full flex text-sm font-medium">
           <div className="w-[350px] p-3 text-slate-200">
             <Link
               href={PAGE_CONTENT}
@@ -33,7 +33,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             <p>Name: {details?.name}</p>
             <p>
               {details.components.map((component) => (
-                <div key={component.id}>Component name</div>
+                <span key={component.id}>Component name</span>
               ))}
             </p>
           </div>
