@@ -128,6 +128,7 @@ export async function pageContentController(app: Express) {
       // Add page-content
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
       console.log(blueprintFromClient);
+
       const insertResult = await pageContentCollection.insertOne({
         '@blueprintId': new ObjectId(blueprintFromClient['@blueprintId']),
         name: blueprintFromClient.name,
