@@ -11,7 +11,11 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'editor': "280px 1fr 280px"
+      }
+    },
   },
   plugins: [],
 };

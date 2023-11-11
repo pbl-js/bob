@@ -12,8 +12,8 @@ type BobSectionClientProps = {
 } & BobSectionProps;
 
 export const Content = ({ name }: BobSectionClientProps) => {
+  const ref = React.useRef<HTMLDivElement | null>(null);
   const { state } = useSectionData();
-  console.log(state);
 
   useReceiveDashboardData();
 
@@ -22,11 +22,20 @@ export const Content = ({ name }: BobSectionClientProps) => {
   }, []);
 
   React.useEffect(() => {
-    // postMessage_sectionRectData();
+    postMessage_sectionRectData(ref, 'test');
+
+    window.addEventListener('scroll', () => postMessage_sectionRectData(ref, 'test'));
+
+    window.addEventListener('resize', () => postMessage_sectionRectData(ref, 'test'));
+
+    return () => {
+      window.removeEventListener('resize', () => postMessage_sectionRectData(ref, 'test'));
+      window.removeEventListener('scroll', () => postMessage_sectionRectData(ref, 'test'));
+    };
   }, []);
 
   return (
-    <div style={{ border: '1px solid red' }}>
+    <div ref={ref}>
       <h2>Iosdjfisdjfiosdjfio</h2>
       <div>Siema elo jol jol jol</div>
     </div>

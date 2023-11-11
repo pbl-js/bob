@@ -5,7 +5,5 @@ import { getRegisteredComponents } from '../../utils/api/fetchers';
 export const IframeComunicator = async () => {
   const registeredComponents = await getRegisteredComponents();
 
-  return (
-    <IframeComunicator_Client registeredComponents={registeredComponents} />
-  );
+  return <IframeComunicator_Client registeredComponents={registeredComponents} />;
 };

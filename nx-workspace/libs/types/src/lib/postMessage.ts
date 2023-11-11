@@ -20,7 +20,7 @@ export type PostMessage_ToDashboard_SectionRectData = {
   messageType: PostMessageType_ToDashboard.SECTION_RECT_DATA;
   messageData: {
     sectionId: string;
-    domData: BobRect;
+    rectData: BobRect;
   };
 };
 
