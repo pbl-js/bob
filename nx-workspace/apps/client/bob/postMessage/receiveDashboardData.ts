@@ -12,7 +12,6 @@ export function useReceiveDashboardData() {
 
   const receiveMessage = (event: MessageEvent<PostMessage_FromDashboard>) => {
     const { messageType } = event.data;
-
     // if (messageType === PostMessageType_FromDashboard.OPEN_COMUNICATION) {
     //   dispatch({
     //     type: BuilderSectionDataActionKindEnum.OPEN_COMUNICATION,

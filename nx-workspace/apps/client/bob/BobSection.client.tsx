@@ -14,7 +14,7 @@ type BobSectionClientProps = {
 export const Content = ({ name }: BobSectionClientProps) => {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const { state } = useSectionData();
-
+  console.log('sectionData', state);
   useReceiveDashboardData();
 
   React.useEffect(() => {

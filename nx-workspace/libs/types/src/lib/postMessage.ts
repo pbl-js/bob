@@ -1,6 +1,6 @@
 import { ComponentSchema } from './bob';
 import { BobRect } from './common';
-import { PageContent } from './content';
+import { PageContentDetails_Response } from './content';
 
 // TO DASHBOARD
 export enum PostMessageType_ToDashboard {
@@ -37,7 +37,7 @@ export enum PostMessageType_FromDashboard {
 export type PostMessage_FromDashboard_PageContent = {
   messageType: PostMessageType_FromDashboard.PAGE_CONTENT;
   messageData: {
-    pageContent: PageContent;
+    pageContent: PageContentDetails_Response;
   };
 };
 

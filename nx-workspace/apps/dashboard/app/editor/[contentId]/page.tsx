@@ -18,7 +18,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
 
   return (
     <>
-      <IframeComunicator />
+      <IframeComunicator contentId={contentId} />
       <main className="flex min-h-screen w-full bg-slate-800">
         <div className="grid p-3 pb-0 gap-3 grid-cols-editor w-full min-h-screen text-sm font-medium">
           <div className="text-slate-200">

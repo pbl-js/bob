@@ -1,9 +1,18 @@
 import React from 'react';
 import { IframeComunicator_Client } from './IframeCommunicator.client';
-import { getRegisteredComponents } from '../../utils/api/fetchers';
+import { getPageContentDetails, getRegisteredComponents } from '../../utils/api/fetchers';
 
-export const IframeComunicator = async () => {
+export const IframeComunicator = async ({ contentId }: { contentId: string }) => {
   const registeredComponents = await getRegisteredComponents();
+  const pageContentDetails = await getPageContentDetails(contentId);
 
-  return <IframeComunicator_Client registeredComponents={registeredComponents} />;
+  if (!registeredComponents) return;
+  if (!pageContentDetails) return;
+
+  return (
+    <IframeComunicator_Client
+      registeredComponents={registeredComponents}
+      pageContent={pageContentDetails}
+    />
+  );
 };
