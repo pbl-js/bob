@@ -3,7 +3,7 @@ import { getPageBlueprints } from '../../utils/api/fetchers';
 
 export default async function Home() {
   const pageBlueprints = await getPageBlueprints();
-  const firstBlueprintName = pageBlueprints?.[0].name;
+  const firstBlueprintId = pageBlueprints?.[0]?._id;
 
-  redirect(`/content/${firstBlueprintName}`);
+  redirect(`/content/${firstBlueprintId}`);
 }

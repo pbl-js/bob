@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { getPageBlueprints } from '../../../utils/api/fetchers';
 import { PageContentListing } from '../../../components/PageContentListing/PageContentListing';
 import { Refresher } from '../../../components/Refresher/Refresher';
@@ -10,10 +9,8 @@ type HomeProps = {
 
 export default async function Home({ params }: HomeProps) {
   const pageBlueprints = await getPageBlueprints();
-  const matchedPageBlueprint = pageBlueprints?.find(
-    (el) => el._id === params.blueprintId
-  );
-  console.log('params', params);
+  const matchedPageBlueprint = pageBlueprints?.find((el) => el._id === params.blueprintId);
+
   if (!matchedPageBlueprint) return <div>Invalid blueprint id</div>;
 
   return (
