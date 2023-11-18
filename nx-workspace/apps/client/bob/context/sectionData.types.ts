@@ -1,8 +1,8 @@
 import React from 'react';
-import { PageContent, SectionContent } from '@types';
+import { PageContent, PageContentModel } from '@types';
 
 export interface SectionDataState {
-  draft: SectionContent | undefined;
+  draft: PageContentModel | undefined;
   isComunicationOpen: boolean;
   // registeredComponents: ICustomComponent[];
 }

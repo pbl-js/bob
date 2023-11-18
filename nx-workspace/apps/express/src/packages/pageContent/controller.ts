@@ -1,6 +1,7 @@
 import { Express } from 'express';
 import { client } from '../db/mongo';
 import {
+  ComponentContent,
   ComponentSchema,
   PageBlueprint,
   dataFieldSchemaArraySchema,
@@ -173,9 +174,15 @@ export async function pageContentController(app: Express) {
       // Check if parent component exists
 
       // Add component
+
+      const componentToInsert: ComponentContent = {
+        _id: new Object().toString(),
+        name: body.componentData.name,
+        parentId: body.componentData.parentId,
+      };
       const result = await pageContentCollection.updateOne(
         { _id: new ObjectId(body.pageContentId) },
-        { $push: { components: body.componentData } }
+        { $push: { components: componentToInsert } }
       );
 
       await res.json(result);

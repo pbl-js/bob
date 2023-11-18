@@ -6,6 +6,7 @@ import { postMessage_registerComponents } from './postMessage/registerComponents
 import { postMessage_sectionRectData } from './postMessage/sectionRectData';
 import { SectionDataContextProvider, useSectionData } from './context/sectionData.context';
 import { useReceiveDashboardData } from './postMessage/receiveDashboardData';
+import { SectionContentRenderer } from './SectionContentRenderer';
 
 type BobSectionClientProps = {
   name: string;
@@ -22,22 +23,28 @@ export const Content = ({ name }: BobSectionClientProps) => {
   }, []);
 
   React.useEffect(() => {
-    postMessage_sectionRectData(ref, 'test');
+    console.log('run useeffect bob-section', ref, state.draft);
+    if (!state.draft) return;
+    const sectionId = state.draft._id;
 
-    window.addEventListener('scroll', () => postMessage_sectionRectData(ref, 'test'));
+    // TODO: add some kind of rendering status to avoid this
+    setTimeout(() => postMessage_sectionRectData(ref, sectionId), 1000);
 
-    window.addEventListener('resize', () => postMessage_sectionRectData(ref, 'test'));
+    window.addEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
+
+    window.addEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
 
     return () => {
-      window.removeEventListener('resize', () => postMessage_sectionRectData(ref, 'test'));
-      window.removeEventListener('scroll', () => postMessage_sectionRectData(ref, 'test'));
+      window.removeEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
+      window.removeEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     };
-  }, []);
+  }, [state.draft]);
+
+  if (!state.draft) return null;
 
   return (
     <div ref={ref}>
-      <h2>Iosdjfisdjfiosdjfio</h2>
-      <div>Siema elo jol jol jol</div>
+      <SectionContentRenderer components={state.draft.components} />
     </div>
   );
 };

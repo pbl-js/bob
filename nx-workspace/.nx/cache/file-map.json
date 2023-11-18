@@ -79,47 +79,7 @@
       },
       {
         "file": ".gitignore",
-        "hash": "12132901369968695411"
-      },
-      {
-        "file": ".nx/cache/cloud/2311.09.8.hotfix3/index.js",
-        "hash": "6506150100940448045"
-      },
-      {
-        "file": ".nx/cache/cloud/2311.09.8.hotfix3/lib/daemon/process-run-end.js",
-        "hash": "1407987010601608693"
-      },
-      {
-        "file": ".nx/cache/cloud/2311.09.8.hotfix3/lib/heartbeat/heartbeat-process.js",
-        "hash": "5633484099946442012"
-      },
-      {
-        "file": ".nx/cache/cloud/verify.lock",
-        "hash": "3545200319160738117"
-      },
-      {
-        "file": ".nx/cache/d/daemon.log",
-        "hash": "10515690928673412771"
-      },
-      {
-        "file": ".nx/cache/d/server-process.json",
-        "hash": "14074818977396457980"
-      },
-      {
-        "file": ".nx/cache/file-map.json",
-        "hash": "5659317679880178409"
-      },
-      {
-        "file": ".nx/cache/lockfile.hash",
-        "hash": "13683010054474309003"
-      },
-      {
-        "file": ".nx/cache/parsed-lock-file.json",
-        "hash": "3764364151185008655"
-      },
-      {
-        "file": ".nx/cache/project-graph.json",
-        "hash": "3470598431725193767"
+        "hash": "11126243352601075488"
       },
       {
         "file": ".prettierignore",
@@ -160,96 +120,179 @@
       {
         "file": "tsconfig.base.json",
         "hash": "5317030927103226633"
+      },
+      {
+        "file": ".nx/cache/d/server-process.json",
+        "hash": "17839548161515682901"
       }
     ],
     "projectFileMap": {
-      "types": [
+      "client": [
         {
-          "file": "libs/types/.eslintrc.json",
-          "hash": "16896711999632553762"
+          "file": "apps/client/.eslintrc.json",
+          "hash": "14185834360901503744"
         },
         {
-          "file": "libs/types/README.md",
-          "hash": "11044687697001944704"
+          "file": "apps/client/app/api/hello/route.ts",
+          "hash": "495073956729887886"
         },
         {
-          "file": "libs/types/jest.config.ts",
-          "hash": "11027931067439257413"
+          "file": "apps/client/app/global.css",
+          "hash": "15329929398110739341"
         },
         {
-          "file": "libs/types/package.json",
-          "hash": "5149821672334068857",
+          "file": "apps/client/app/layout.tsx",
+          "hash": "6114435952607751008",
           "deps": [
-            "npm:tslib"
+            "npm:next"
           ]
         },
         {
-          "file": "libs/types/project.json",
-          "hash": "2159633584289235756"
+          "file": "apps/client/app/page.module.css",
+          "hash": "4786619528779355986"
         },
         {
-          "file": "libs/types/src/index.ts",
-          "hash": "17141155142401380252"
-        },
-        {
-          "file": "libs/types/src/lib/blueprint.ts",
-          "hash": "7162209508534272761",
+          "file": "apps/client/app/page.tsx",
+          "hash": "8381071794999535225",
           "deps": [
-            "npm:mongodb"
+            "npm:next"
           ]
         },
         {
-          "file": "libs/types/src/lib/blueprint.zod.ts",
-          "hash": "4411302308473730973",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "libs/types/src/lib/bob.ts",
-          "hash": "6352501865786368484",
+          "file": "apps/client/bob/BobSection.client.tsx",
+          "hash": "18445792247612839709",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "libs/types/src/lib/common.ts",
-          "hash": "14556614839112709209"
-        },
-        {
-          "file": "libs/types/src/lib/content.ts",
-          "hash": "10428344336423814628"
-        },
-        {
-          "file": "libs/types/src/lib/dataField.ts",
-          "hash": "4869278711896524527"
-        },
-        {
-          "file": "libs/types/src/lib/dataField.zod.ts",
-          "hash": "2321507981159337843",
+          "file": "apps/client/bob/BobSection.tsx",
+          "hash": "16880439445955069014",
           "deps": [
-            "npm:zod"
+            "npm:react"
           ]
         },
         {
-          "file": "libs/types/src/lib/helpers.ts",
-          "hash": "9589941715318080435"
+          "file": "apps/client/bob/SectionContentRenderer.tsx",
+          "hash": "11063803095790710581",
+          "deps": [
+            "npm:react",
+            "types"
+          ]
         },
         {
-          "file": "libs/types/src/lib/postMessage.ts",
-          "hash": "14413480871217359582"
+          "file": "apps/client/bob/bobInstance.ts",
+          "hash": "9015246845352230399",
+          "deps": [
+            "npm:react",
+            "types"
+          ]
         },
         {
-          "file": "libs/types/tsconfig.json",
-          "hash": "8073770438808017707"
+          "file": "apps/client/bob/context/sectionData.context.tsx",
+          "hash": "8238628240222513033",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
-          "file": "libs/types/tsconfig.lib.json",
-          "hash": "3632393694954060084"
+          "file": "apps/client/bob/context/sectionData.reducer.ts",
+          "hash": "12141375221788745128"
         },
         {
-          "file": "libs/types/tsconfig.spec.json",
-          "hash": "11550347367511341917"
+          "file": "apps/client/bob/context/sectionData.types.ts",
+          "hash": "10899186707673186977",
+          "deps": [
+            "npm:react",
+            "types"
+          ]
+        },
+        {
+          "file": "apps/client/bob/postMessage/componentRectData.ts",
+          "hash": "5850625799513319911"
+        },
+        {
+          "file": "apps/client/bob/postMessage/receiveDashboardData.ts",
+          "hash": "8999347653271671887",
+          "deps": [
+            "types",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/client/bob/postMessage/registerComponents.ts",
+          "hash": "2414359785841360471",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "apps/client/bob/postMessage/sectionRectData.ts",
+          "hash": "15943605802555594247",
+          "deps": [
+            "types"
+          ]
+        },
+        {
+          "file": "apps/client/components/ProductTile/ProductTile.tsx",
+          "hash": "4648807078204420056",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/client/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/client/jest.config.ts",
+          "hash": "17885712224817232223"
+        },
+        {
+          "file": "apps/client/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/client/next.config.js",
+          "hash": "17252635002163063865",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/client/postcss.config.js",
+          "hash": "2759402739052110475",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/client/project.json",
+          "hash": "930586879822884804"
+        },
+        {
+          "file": "apps/client/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/client/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/client/tailwind.config.js",
+          "hash": "13090734457927965885",
+          "deps": [
+            "npm:@nx/react",
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/client/tsconfig.json",
+          "hash": "5486866165998025722"
+        },
+        {
+          "file": "apps/client/tsconfig.spec.json",
+          "hash": "6922413205408300107"
         }
       ],
       "dashboard": [
@@ -344,7 +387,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectLayer.tsx",
-          "hash": "3450602605681401404",
+          "hash": "16703279901880958445",
           "deps": [
             "npm:react",
             "npm:clsx"
@@ -352,7 +395,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/receivePostMessage.ts",
-          "hash": "8627543251353152525",
+          "hash": "16646284353311285133",
           "deps": [
             "types"
           ]
@@ -382,7 +425,7 @@
         },
         {
           "file": "apps/dashboard/components/RegisteredComponentsListing/RegisteredComponentItem.tsx",
-          "hash": "13118023606063669225",
+          "hash": "7967055947771061729",
           "deps": [
             "npm:react",
             "types",
@@ -515,6 +558,48 @@
           "hash": "9530378971587411068"
         }
       ],
+      "client-e2e": [
+        {
+          "file": "apps/client-e2e/.eslintrc.json",
+          "hash": "14060216369337943343"
+        },
+        {
+          "file": "apps/client-e2e/cypress.config.ts",
+          "hash": "15414076024138857470",
+          "deps": [
+            "npm:cypress",
+            "npm:@nx/cypress"
+          ]
+        },
+        {
+          "file": "apps/client-e2e/project.json",
+          "hash": "7886393947513139550"
+        },
+        {
+          "file": "apps/client-e2e/src/e2e/app.cy.ts",
+          "hash": "6553547454234122476"
+        },
+        {
+          "file": "apps/client-e2e/src/fixtures/example.json",
+          "hash": "11614668686582597233"
+        },
+        {
+          "file": "apps/client-e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "apps/client-e2e/src/support/commands.ts",
+          "hash": "7314691991044890572"
+        },
+        {
+          "file": "apps/client-e2e/src/support/e2e.ts",
+          "hash": "3666078656922506009"
+        },
+        {
+          "file": "apps/client-e2e/tsconfig.json",
+          "hash": "1788248097864730386"
+        }
+      ],
       "dashboard-e2e": [
         {
           "file": "apps/dashboard-e2e/.eslintrc.json",
@@ -555,6 +640,95 @@
         {
           "file": "apps/dashboard-e2e/tsconfig.json",
           "hash": "1788248097864730386"
+        }
+      ],
+      "types": [
+        {
+          "file": "libs/types/.eslintrc.json",
+          "hash": "16896711999632553762"
+        },
+        {
+          "file": "libs/types/README.md",
+          "hash": "11044687697001944704"
+        },
+        {
+          "file": "libs/types/jest.config.ts",
+          "hash": "11027931067439257413"
+        },
+        {
+          "file": "libs/types/package.json",
+          "hash": "5149821672334068857",
+          "deps": [
+            "npm:tslib"
+          ]
+        },
+        {
+          "file": "libs/types/project.json",
+          "hash": "2159633584289235756"
+        },
+        {
+          "file": "libs/types/src/index.ts",
+          "hash": "17141155142401380252"
+        },
+        {
+          "file": "libs/types/src/lib/blueprint.ts",
+          "hash": "7162209508534272761",
+          "deps": [
+            "npm:mongodb"
+          ]
+        },
+        {
+          "file": "libs/types/src/lib/blueprint.zod.ts",
+          "hash": "4411302308473730973",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "libs/types/src/lib/bob.ts",
+          "hash": "6352501865786368484",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/types/src/lib/common.ts",
+          "hash": "14556614839112709209"
+        },
+        {
+          "file": "libs/types/src/lib/content.ts",
+          "hash": "4540608619386116183"
+        },
+        {
+          "file": "libs/types/src/lib/dataField.ts",
+          "hash": "4869278711896524527"
+        },
+        {
+          "file": "libs/types/src/lib/dataField.zod.ts",
+          "hash": "2321507981159337843",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "libs/types/src/lib/helpers.ts",
+          "hash": "9589941715318080435"
+        },
+        {
+          "file": "libs/types/src/lib/postMessage.ts",
+          "hash": "14413480871217359582"
+        },
+        {
+          "file": "libs/types/tsconfig.json",
+          "hash": "8073770438808017707"
+        },
+        {
+          "file": "libs/types/tsconfig.lib.json",
+          "hash": "3632393694954060084"
+        },
+        {
+          "file": "libs/types/tsconfig.spec.json",
+          "hash": "11550347367511341917"
         }
       ],
       "express": [
@@ -614,7 +788,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "2726543466622220745",
+          "hash": "485236719899151157",
           "deps": [
             "npm:express",
             "types",
@@ -701,208 +875,6 @@
         {
           "file": "apps/express-e2e/tsconfig.spec.json",
           "hash": "14954872453723519891"
-        }
-      ],
-      "client": [
-        {
-          "file": "apps/client/.eslintrc.json",
-          "hash": "14185834360901503744"
-        },
-        {
-          "file": "apps/client/app/api/hello/route.ts",
-          "hash": "495073956729887886"
-        },
-        {
-          "file": "apps/client/app/global.css",
-          "hash": "15329929398110739341"
-        },
-        {
-          "file": "apps/client/app/layout.tsx",
-          "hash": "6114435952607751008",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/client/app/page.module.css",
-          "hash": "4786619528779355986"
-        },
-        {
-          "file": "apps/client/app/page.tsx",
-          "hash": "8381071794999535225",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/client/bob/BobSection.client.tsx",
-          "hash": "5541256588036750945",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/client/bob/BobSection.tsx",
-          "hash": "16880439445955069014",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/client/bob/bobInstance.ts",
-          "hash": "9015246845352230399",
-          "deps": [
-            "npm:react",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/client/bob/context/sectionData.context.tsx",
-          "hash": "8238628240222513033",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/client/bob/context/sectionData.reducer.ts",
-          "hash": "12141375221788745128"
-        },
-        {
-          "file": "apps/client/bob/context/sectionData.types.ts",
-          "hash": "1770157273253020838",
-          "deps": [
-            "npm:react",
-            "types"
-          ]
-        },
-        {
-          "file": "apps/client/bob/postMessage/componentRectData.ts",
-          "hash": "5850625799513319911"
-        },
-        {
-          "file": "apps/client/bob/postMessage/receiveDashboardData.ts",
-          "hash": "8999347653271671887",
-          "deps": [
-            "types",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/client/bob/postMessage/registerComponents.ts",
-          "hash": "2414359785841360471",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "apps/client/bob/postMessage/sectionRectData.ts",
-          "hash": "15943605802555594247",
-          "deps": [
-            "types"
-          ]
-        },
-        {
-          "file": "apps/client/components/ProductTile/ProductTile.tsx",
-          "hash": "16394318518978057001",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/client/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/client/jest.config.ts",
-          "hash": "17885712224817232223"
-        },
-        {
-          "file": "apps/client/next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "apps/client/next.config.js",
-          "hash": "17252635002163063865",
-          "deps": [
-            "npm:@nx/next"
-          ]
-        },
-        {
-          "file": "apps/client/postcss.config.js",
-          "hash": "2759402739052110475",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/client/project.json",
-          "hash": "930586879822884804"
-        },
-        {
-          "file": "apps/client/public/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/client/public/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/client/tailwind.config.js",
-          "hash": "13090734457927965885",
-          "deps": [
-            "npm:@nx/react",
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/client/tsconfig.json",
-          "hash": "5486866165998025722"
-        },
-        {
-          "file": "apps/client/tsconfig.spec.json",
-          "hash": "6922413205408300107"
-        }
-      ],
-      "client-e2e": [
-        {
-          "file": "apps/client-e2e/.eslintrc.json",
-          "hash": "14060216369337943343"
-        },
-        {
-          "file": "apps/client-e2e/cypress.config.ts",
-          "hash": "15414076024138857470",
-          "deps": [
-            "npm:cypress",
-            "npm:@nx/cypress"
-          ]
-        },
-        {
-          "file": "apps/client-e2e/project.json",
-          "hash": "7886393947513139550"
-        },
-        {
-          "file": "apps/client-e2e/src/e2e/app.cy.ts",
-          "hash": "6553547454234122476"
-        },
-        {
-          "file": "apps/client-e2e/src/fixtures/example.json",
-          "hash": "11614668686582597233"
-        },
-        {
-          "file": "apps/client-e2e/src/support/app.po.ts",
-          "hash": "11157016311132186162"
-        },
-        {
-          "file": "apps/client-e2e/src/support/commands.ts",
-          "hash": "7314691991044890572"
-        },
-        {
-          "file": "apps/client-e2e/src/support/e2e.ts",
-          "hash": "3666078656922506009"
-        },
-        {
-          "file": "apps/client-e2e/tsconfig.json",
-          "hash": "1788248097864730386"
         }
       ]
     }

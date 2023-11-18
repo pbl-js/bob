@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ComponentSchemaResponse } from '../../../../libs/types/src';
+import { ComponentSchemaResponse } from '@types';
 import clsx from 'clsx';
 import { addComponentToPageContent } from '../../utils/api/mutations';
 
@@ -19,7 +19,7 @@ export function RegisteredComponentItem({ component, pageContentId }: Props) {
           pageContentId,
           componentData: {
             parentId: 'root',
-            name: 'test',
+            name: component.name,
           },
         })
       }

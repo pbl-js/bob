@@ -7,7 +7,7 @@ export const receiveMessage = async (
 ) => {
   if (event.data.messageType === PostMessageType_ToDashboard.SECTION_RECT_DATA) {
     const sectionRectData = event.data.messageData;
-
+    console.log('Run add-section-data', sectionRectData);
     dispatch({ type: 'add-section-data', payload: sectionRectData });
   }
 };

@@ -11,7 +11,7 @@ export function Content() {
   useIframeCommunicator();
 
   const sectionRectData = state.sectionsRectData[0];
-
+  console.log('sectionRectData', state);
   if (!sectionRectData) return null;
 
   const { top, bottom, left, right, height, width } = sectionRectData.rectData;
@@ -21,7 +21,7 @@ export function Content() {
     <div
       className={clsx(
         'flex items-center justify-center w-full',
-        'absolute top-0 left-0 bottom-0 right-0'
+        'absolute top-0 left-0 bottom-0 right-0 overflow-hidden'
       )}
     >
       <div className="absolute border border-red-500" style={style}></div>
