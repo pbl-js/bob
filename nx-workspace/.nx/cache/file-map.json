@@ -160,9 +160,10 @@
         },
         {
           "file": "apps/client/bob/BobSection.client.tsx",
-          "hash": "14583321791078028000",
+          "hash": "4182179476679562924",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "types"
           ]
         },
         {
@@ -174,7 +175,7 @@
         },
         {
           "file": "apps/client/bob/SectionContentRenderer.tsx",
-          "hash": "2792279539686616879",
+          "hash": "15446234663640790321",
           "deps": [
             "npm:react",
             "types"
@@ -698,9 +699,10 @@
         },
         {
           "file": "libs/types/src/lib/bob.ts",
-          "hash": "6352501865786368484",
+          "hash": "14231566955637359910",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "npm:next"
           ]
         },
         {

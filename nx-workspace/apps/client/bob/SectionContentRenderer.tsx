@@ -17,11 +17,14 @@ function SectionComponent({
   const Component = registeredComponent.component;
 
   React.useEffect(() => {
+    // const postMessageWithClosure = () =>
+    //   setTimeout(
+    //     () => postMessage_componentRectData({ componentId: componentData._id, sectionId, ref }),
+    //     1500
+    //   );
+
     const postMessageWithClosure = () =>
-      setTimeout(
-        () => postMessage_componentRectData({ componentId: componentData._id, sectionId, ref }),
-        1500
-      );
+      postMessage_componentRectData({ componentId: componentData._id, sectionId, ref });
 
     postMessageWithClosure();
     window.addEventListener('scroll', postMessageWithClosure);
@@ -37,6 +40,7 @@ function SectionComponent({
   return (
     <div ref={ref}>
       <Component />
+      {/* <div style={{ width: '100px', height: '100px' }}>dsd</div> */}
     </div>
   );
 }

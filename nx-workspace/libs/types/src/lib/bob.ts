@@ -1,6 +1,7 @@
 import { ComponentType } from 'react';
 import { DataFieldSchema } from './dataField';
 import { Omit2 } from './helpers';
+import { LoadableComponent } from 'next/dynamic';
 
 export type ComponentSchema = {
   name: string;
@@ -20,7 +21,7 @@ export type ComponentData = {
 };
 
 export type RegisteredComponent = {
-  component: ComponentType;
+  component: LoadableComponent;
 } & ComponentSchema;
 
 export type PageContentAddComponent_Request = {

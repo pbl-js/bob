@@ -2532,3 +2532,445 @@
 [NX Daemon Server] - 2023-11-19T15:21:51.793Z - [REQUEST]: 
 [NX Daemon Server] - 2023-11-19T15:21:51.832Z - Time taken for 'hash changed files from watcher' 0.7987499237060547ms
 [NX Daemon Server] - 2023-11-19T15:21:54.268Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:32:01.856Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:25.120Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:25.123Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:34:25.243Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:25.345Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:27.974Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:29.024Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:31.540Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:34:31.540Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T15:34:31.540Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:34:31.572Z - Time taken for 'hash changed files from watcher' 0.41437482833862305ms
+[NX Daemon Server] - 2023-11-19T15:34:40.587Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:34:40.587Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:40.647Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:40.748Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:46.999Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:34:46.999Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T15:34:46.999Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:34:47.022Z - Time taken for 'hash changed files from watcher' 0.3447084426879883ms
+[NX Daemon Server] - 2023-11-19T15:34:50.864Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:50.865Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:34:50.931Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:51.027Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:52.009Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:52.060Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:34:57.288Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:34:57.289Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:34:57.289Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:34:57.327Z - Time taken for 'hash changed files from watcher' 0.7445840835571289ms
+[NX Daemon Server] - 2023-11-19T15:35:17.249Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:17.250Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:17.355Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:17.430Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:17.703Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:19.818Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:19.818Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:19.871Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:23.670Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:35:23.670Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:35:23.670Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:35:23.702Z - Time taken for 'hash changed files from watcher' 0.6402921676635742ms
+[NX Daemon Server] - 2023-11-19T15:35:40.903Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:40.903Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:40.993Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:41.098Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:41.310Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:42.345Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:47.317Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:35:47.317Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:35:47.317Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:35:47.342Z - Time taken for 'hash changed files from watcher' 0.26154232025146484ms
+[NX Daemon Server] - 2023-11-19T15:35:49.403Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:49.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:49.457Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:49.509Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:50.781Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:50.781Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:50.854Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:51.003Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:51.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:51.055Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:55.812Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:35:55.812Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:35:55.812Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:35:55.835Z - Time taken for 'hash changed files from watcher' 0.18945837020874023ms
+[NX Daemon Server] - 2023-11-19T15:35:56.784Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:35:56.784Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:56.866Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:56.960Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:57.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:35:57.988Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:00.766Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:00.766Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:00.820Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:03.204Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:36:03.204Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T15:36:03.204Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:36:03.231Z - Time taken for 'hash changed files from watcher' 0.3804163932800293ms
+[NX Daemon Server] - 2023-11-19T15:36:10.040Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:10.040Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.107Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.161Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.432Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:10.432Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.484Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.540Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.831Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:10.831Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:10.890Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:11.068Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:11.068Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:11.119Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:11.254Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:11.254Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:11.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:12.353Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:16.460Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:36:16.461Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T15:36:16.461Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:36:16.485Z - Time taken for 'hash changed files from watcher' 0.6399998664855957ms
+[NX Daemon Server] - 2023-11-19T15:36:16.583Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:16.583Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:16.704Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:16.760Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:19.755Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:19.755Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:19.815Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:19.911Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:20.969Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:22.993Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:36:22.993Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:36:22.993Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:36:23.015Z - Time taken for 'hash changed files from watcher' 0.28100013732910156ms
+[NX Daemon Server] - 2023-11-19T15:36:28.431Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:28.431Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:28.511Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:28.605Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:29.575Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:34.849Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:36:34.849Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:36:34.849Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:36:34.884Z - Time taken for 'hash changed files from watcher' 0.6542086601257324ms
+[NX Daemon Server] - 2023-11-19T15:36:41.670Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:41.670Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:41.737Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:41.837Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:42.896Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:48.089Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:36:48.089Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T15:36:48.089Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:36:48.119Z - Time taken for 'hash changed files from watcher' 0.5945405960083008ms
+[NX Daemon Server] - 2023-11-19T15:36:54.260Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:54.261Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:36:54.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:54.384Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:58.519Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:36:58.589Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:37:00.681Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:37:00.681Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T15:37:00.681Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:37:00.718Z - Time taken for 'hash changed files from watcher' 0.47516679763793945ms
+[NX Daemon Server] - 2023-11-19T15:37:58.591Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:37:58.652Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:39:37.511Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:39:37.514Z - [WATCHER]: apps/dashboard/components/RectLayer/RectLayer.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:39:37.688Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:39:37.864Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:39:38.727Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:39:43.938Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:39:43.938Z - [REQUEST]: apps/dashboard/components/RectLayer/RectLayer.tsx
+[NX Daemon Server] - 2023-11-19T15:39:43.938Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:39:43.965Z - Time taken for 'hash changed files from watcher' 1.0299172401428223ms
+[NX Daemon Server] - 2023-11-19T15:40:31.096Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T15:40:31.096Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:40:31.146Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:40:31.203Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:40:37.525Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T15:40:37.525Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T15:40:37.525Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T15:40:37.561Z - Time taken for 'hash changed files from watcher' 0.8002495765686035ms
+[NX Daemon Server] - 2023-11-19T15:40:37.926Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:41:31.212Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:41:50.564Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T15:42:50.697Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T18:42:28.130Z - There are 2 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2023-11-19T19:23:56.114Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:23:56.116Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:23:56.219Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:23:56.312Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:24:02.529Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:24:02.529Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:24:02.529Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:24:02.555Z - Time taken for 'hash changed files from watcher' 0.27141714096069336ms
+[NX Daemon Server] - 2023-11-19T19:24:56.285Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:24:56.367Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:24:56.426Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:37:18.773Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:37:18.775Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:37:18.922Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:37:19.017Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:37:25.200Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:37:25.200Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:37:25.200Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:37:25.236Z - Time taken for 'hash changed files from watcher' 0.6714162826538086ms
+[NX Daemon Server] - 2023-11-19T19:38:19.009Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:38:19.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:42:16.819Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:42:16.820Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:42:16.904Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:42:17.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:42:23.241Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:42:23.241Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:42:23.241Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:42:23.272Z - Time taken for 'hash changed files from watcher' 0.6882081031799316ms
+[NX Daemon Server] - 2023-11-19T19:43:17.023Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:43:52.016Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:43:52.017Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:43:52.086Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:43:52.193Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:43:58.438Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:43:58.438Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:43:58.438Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:43:58.469Z - Time taken for 'hash changed files from watcher' 0.45937490463256836ms
+[NX Daemon Server] - 2023-11-19T19:44:00.500Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:44:00.500Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:00.578Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:00.670Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:01.726Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:06.918Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:44:06.918Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:44:06.918Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:44:06.948Z - Time taken for 'hash changed files from watcher' 0.721250057220459ms
+[NX Daemon Server] - 2023-11-19T19:44:47.229Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:47.231Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:44:47.313Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:47.396Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:47.442Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:44:47.510Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:44:53.651Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:44:53.651Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:44:53.651Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:44:53.683Z - Time taken for 'hash changed files from watcher' 0.6817922592163086ms
+[NX Daemon Server] - 2023-11-19T19:45:19.387Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:19.388Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:45:19.478Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:19.574Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:20.562Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:25.807Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:45:25.807Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:45:25.807Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:45:25.839Z - Time taken for 'hash changed files from watcher' 0.5349159240722656ms
+[NX Daemon Server] - 2023-11-19T19:45:53.288Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:53.290Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:45:53.352Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:53.428Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:45:59.701Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:45:59.701Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:45:59.701Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:45:59.725Z - Time taken for 'hash changed files from watcher' 0.2683749198913574ms
+[NX Daemon Server] - 2023-11-19T19:46:07.985Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:07.988Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:08.065Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:08.161Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:08.350Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:08.350Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:08.429Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:09.122Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:09.122Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:09.187Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:09.569Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:09.570Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:09.629Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:10.404Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:10.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:10.467Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:10.770Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:10.770Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:10.823Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.092Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:11.092Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.148Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.443Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:11.443Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.561Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.803Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:46:11.803Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:11.862Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:12.933Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:46:14.403Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:46:14.403Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:46:14.403Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:46:14.433Z - Time taken for 'hash changed files from watcher' 0.39608287811279297ms
+[NX Daemon Server] - 2023-11-19T19:47:09.554Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:47:09.555Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:47:09.627Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:47:09.724Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:47:09.819Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:47:09.819Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:47:09.877Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:47:15.964Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:47:15.964Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:47:15.964Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:47:15.985Z - Time taken for 'hash changed files from watcher' 0.19250011444091797ms
+[NX Daemon Server] - 2023-11-19T19:48:09.968Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:48:20.221Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:48:20.300Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:49:20.250Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:49:20.309Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:17.992Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:53:17.993Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:18.113Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:18.231Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:22.259Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:53:22.259Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:22.319Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:22.388Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:23.444Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:24.424Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:53:24.424Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:53:24.424Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:53:24.454Z - Time taken for 'hash changed files from watcher' 1.1908750534057617ms
+[NX Daemon Server] - 2023-11-19T19:53:25.876Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:45.193Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:53:45.193Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:45.267Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:45.331Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:46.335Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:53:51.617Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:53:51.617Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:53:51.617Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:53:51.648Z - Time taken for 'hash changed files from watcher' 0.8346662521362305ms
+[NX Daemon Server] - 2023-11-19T19:54:07.484Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T19:54:07.484Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:54:07.541Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:54:07.633Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:54:08.688Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:54:13.910Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T19:54:13.910Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T19:54:13.910Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T19:54:13.945Z - Time taken for 'hash changed files from watcher' 0.7341251373291016ms
+[NX Daemon Server] - 2023-11-19T19:54:17.783Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:55:17.829Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T19:55:17.889Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:06:57.217Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:06:57.219Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:06:57.360Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:06:57.502Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:07:02.160Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:07:03.263Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:07:03.634Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:07:03.634Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T20:07:03.634Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:07:03.662Z - Time taken for 'hash changed files from watcher' 0.3561248779296875ms
+[NX Daemon Server] - 2023-11-19T20:08:02.225Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:10:57.747Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:10:57.749Z - [WATCHER]: apps/client/bob/BobSection.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:10:57.920Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:10:57.995Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:11:02.611Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:11:04.181Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:11:04.181Z - [REQUEST]: apps/client/bob/BobSection.tsx
+[NX Daemon Server] - 2023-11-19T20:11:04.181Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:11:04.219Z - Time taken for 'hash changed files from watcher' 2.555500030517578ms
+[NX Daemon Server] - 2023-11-19T20:11:32.478Z - [WATCHER]: apps/client/bob/BobSection.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:11:32.487Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:11:32.562Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:11:33.667Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:11:38.902Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:11:38.902Z - [REQUEST]: apps/client/bob/BobSection.tsx
+[NX Daemon Server] - 2023-11-19T20:11:38.902Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:11:38.930Z - Time taken for 'hash changed files from watcher' 0.6087079048156738ms
+[NX Daemon Server] - 2023-11-19T20:11:39.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:11:39.692Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:12:39.702Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:12:39.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:12:58.891Z - [WATCHER]: apps/client/bob/BobSection.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:12:58.891Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:12:59.052Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:12:59.123Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:13:05.313Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:13:05.313Z - [REQUEST]: apps/client/bob/BobSection.tsx
+[NX Daemon Server] - 2023-11-19T20:13:05.313Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:13:05.343Z - Time taken for 'hash changed files from watcher' 0.8069591522216797ms
+[NX Daemon Server] - 2023-11-19T20:13:59.163Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:13:59.214Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:36.238Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:36.240Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:14:36.350Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:36.458Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:36.802Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:14:36.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:36.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:36.909Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:40.439Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:14:42.669Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:14:42.669Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T20:14:42.669Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:14:42.701Z - Time taken for 'hash changed files from watcher' 0.8780002593994141ms
+[NX Daemon Server] - 2023-11-19T20:15:40.486Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:15:51.097Z - [WATCHER]: apps/client/bob/BobSection.client.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:15:51.098Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:15:51.190Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:15:51.285Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:15:57.519Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:15:57.519Z - [REQUEST]: apps/client/bob/BobSection.client.tsx
+[NX Daemon Server] - 2023-11-19T20:15:57.519Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:15:57.548Z - Time taken for 'hash changed files from watcher' 0.8674583435058594ms
+[NX Daemon Server] - 2023-11-19T20:16:48.649Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:48.653Z - [WATCHER]: libs/types/src/lib/bob.ts was modified
+[NX Daemon Server] - 2023-11-19T20:16:48.900Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:49.108Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:49.292Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:49.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:49.997Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:50.153Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:50.247Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:16:55.077Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:16:55.077Z - [REQUEST]: libs/types/src/lib/bob.ts
+[NX Daemon Server] - 2023-11-19T20:16:55.077Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:16:55.106Z - Time taken for 'hash changed files from watcher' 1.0219168663024902ms
+[NX Daemon Server] - 2023-11-19T20:17:49.275Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:17:53.901Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:17:53.901Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:17:54.070Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:17:54.199Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:18:00.323Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:18:00.323Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T20:18:00.323Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:18:00.353Z - Time taken for 'hash changed files from watcher' 1.0407919883728027ms
+[NX Daemon Server] - 2023-11-19T20:18:05.804Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:18:05.804Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:18:05.874Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:18:05.927Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:18:12.223Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:18:12.224Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T20:18:12.224Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:18:12.256Z - Time taken for 'hash changed files from watcher' 0.5116252899169922ms
+[NX Daemon Server] - 2023-11-19T20:19:05.953Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:19:55.641Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:19:55.645Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T20:19:55.763Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:19:55.816Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:20:02.065Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T20:20:02.065Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T20:20:02.065Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T20:20:02.090Z - Time taken for 'hash changed files from watcher' 1.0032906532287598ms
+[NX Daemon Server] - 2023-11-19T20:20:55.818Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:20:55.878Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:22:20.018Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:22:20.073Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:22:22.910Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:23:20.095Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T20:23:23.014Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T21:44:13.708Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T21:44:13.711Z - [WATCHER]: apps/client/bob/SectionContentRenderer.tsx was modified
+[NX Daemon Server] - 2023-11-19T21:44:13.819Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T21:44:13.877Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T21:44:20.133Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T21:44:20.133Z - [REQUEST]: apps/client/bob/SectionContentRenderer.tsx
+[NX Daemon Server] - 2023-11-19T21:44:20.133Z - [REQUEST]: 
+[NX Daemon Server] - 2023-11-19T21:44:20.162Z - Time taken for 'hash changed files from watcher' 0.6420831680297852ms

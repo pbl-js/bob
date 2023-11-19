@@ -12391,6 +12391,11 @@
         "source": "types",
         "target": "npm:react",
         "type": "static"
+      },
+      {
+        "source": "types",
+        "target": "npm:next",
+        "type": "static"
       }
     ],
     "npm:@ampproject/remapping": [
