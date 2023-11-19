@@ -24,7 +24,13 @@ export function Content() {
         'absolute top-0 left-0 bottom-0 right-0 overflow-hidden'
       )}
     >
-      <div className="absolute border border-red-500" style={style}></div>
+      <div className="absolute border border-red-500" style={style}>
+        {state.componentsRectData.map((componentRectData) => {
+          const { top, bottom, left, right, height, width } = componentRectData.rectData;
+          const style = { top, bottom, left, right, height, width };
+          return <div className="border border-blue-400" style={style}></div>;
+        })}
+      </div>
     </div>
   );
 }

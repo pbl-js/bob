@@ -44,7 +44,7 @@ export const Content = ({ name }: BobSectionClientProps) => {
 
   return (
     <div ref={ref}>
-      <SectionContentRenderer components={state.draft.components} />
+      <SectionContentRenderer sectionData={state.draft} />
     </div>
   );
 };

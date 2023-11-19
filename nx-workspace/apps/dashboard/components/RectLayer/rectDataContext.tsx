@@ -18,6 +18,7 @@ const RectDataContext = createContext<
 
 function rectDataReducer(state: RectDataState, action: RectDataAction): RectDataState {
   switch (action.type) {
+    // Delete existed component with same id and add new from action payload
     case 'add-component-data': {
       const existedComponents = state.componentsRectData.filter(
         ({ componentId }) => componentId !== action.payload.componentId

@@ -160,7 +160,7 @@
         },
         {
           "file": "apps/client/bob/BobSection.client.tsx",
-          "hash": "18445792247612839709",
+          "hash": "6193568326678917566",
           "deps": [
             "npm:react"
           ]
@@ -174,7 +174,7 @@
         },
         {
           "file": "apps/client/bob/SectionContentRenderer.tsx",
-          "hash": "11063803095790710581",
+          "hash": "2792279539686616879",
           "deps": [
             "npm:react",
             "types"
@@ -209,7 +209,10 @@
         },
         {
           "file": "apps/client/bob/postMessage/componentRectData.ts",
-          "hash": "5850625799513319911"
+          "hash": "8752859682535723894",
+          "deps": [
+            "types"
+          ]
         },
         {
           "file": "apps/client/bob/postMessage/receiveDashboardData.ts",
@@ -324,7 +327,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/page.tsx",
-          "hash": "4580440531443522449",
+          "hash": "10515814793318299229",
           "deps": [
             "npm:next"
           ]
@@ -387,7 +390,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectLayer.tsx",
-          "hash": "16703279901880958445",
+          "hash": "12593674253800395621",
           "deps": [
             "npm:react",
             "npm:clsx"
@@ -395,14 +398,14 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/receivePostMessage.ts",
-          "hash": "16646284353311285133",
+          "hash": "16985137644307710643",
           "deps": [
             "types"
           ]
         },
         {
           "file": "apps/dashboard/components/RectLayer/rectDataContext.tsx",
-          "hash": "15237793259070597483",
+          "hash": "5923660946075296457",
           "deps": [
             "types",
             "npm:react"
@@ -716,7 +719,7 @@
         },
         {
           "file": "libs/types/src/lib/postMessage.ts",
-          "hash": "14413480871217359582"
+          "hash": "10476474233622395530"
         },
         {
           "file": "libs/types/tsconfig.json",
@@ -788,7 +791,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "485236719899151157",
+          "hash": "15402542949501156028",
           "deps": [
             "npm:express",
             "types",

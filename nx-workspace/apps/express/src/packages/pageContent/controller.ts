@@ -176,10 +176,11 @@ export async function pageContentController(app: Express) {
       // Add component
 
       const componentToInsert: ComponentContent = {
-        _id: new Object().toString(),
+        _id: new ObjectId().toString(),
         name: body.componentData.name,
         parentId: body.componentData.parentId,
       };
+
       const result = await pageContentCollection.updateOne(
         { _id: new ObjectId(body.pageContentId) },
         { $push: { components: componentToInsert } }

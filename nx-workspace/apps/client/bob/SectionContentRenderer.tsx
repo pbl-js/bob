@@ -1,20 +1,64 @@
 import React from 'react';
-import { ComponentContent } from '@types';
+import { ComponentContent, PageContentModel, RegisteredComponent } from '@types';
 import { BOB } from './bobInstance';
+import { postMessage_componentRectData } from './postMessage/componentRectData';
+import { useSectionData } from './context/sectionData.context';
 
-export function SectionContentRenderer({ components }: { components: ComponentContent[] }) {
+function SectionComponent({
+  componentData,
+  registeredComponent,
+  sectionId,
+}: {
+  componentData: ComponentContent;
+  registeredComponent: RegisteredComponent;
+  sectionId: string;
+}) {
+  const ref = React.useRef<null | HTMLDivElement>(null);
+  const Component = registeredComponent.component;
+
+  React.useEffect(() => {
+    const postMessageWithClosure = () =>
+      setTimeout(
+        () => postMessage_componentRectData({ componentId: componentData._id, sectionId, ref }),
+        1500
+      );
+
+    postMessageWithClosure();
+    window.addEventListener('scroll', postMessageWithClosure);
+    window.addEventListener('resize', postMessageWithClosure);
+
+    return () => {
+      window.removeEventListener('resize', postMessageWithClosure);
+      window.removeEventListener('scroll', postMessageWithClosure);
+    };
+  }, [componentData]);
+
+  // TODO: Zrób tak żeby ten Component miał otypowane propsy
+  return (
+    <div ref={ref}>
+      <Component />
+    </div>
+  );
+}
+
+export function SectionContentRenderer({ sectionData }: { sectionData: PageContentModel }) {
+  const components = sectionData.components;
   const bobComponents = BOB._customComponents;
 
   return components.map((component) => {
     const matchBobComponent = bobComponents.find(
       (bobComponent) => bobComponent.name === component.name
     );
-    console.log('bobComponents', bobComponents);
+
     if (!matchBobComponent) return null;
 
-    const Component = matchBobComponent.component;
-
-    // TODO: Zrób tak żeby ten Component miał otypowane propsy
-    return <Component key={component._id} />;
+    return (
+      <SectionComponent
+        key={component._id}
+        sectionId={sectionData._id}
+        componentData={component}
+        registeredComponent={matchBobComponent}
+      />
+    );
   });
 }

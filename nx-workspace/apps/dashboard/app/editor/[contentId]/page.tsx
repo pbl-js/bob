@@ -13,6 +13,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
   if (!contentId) redirect(CONTENT_PAGE);
 
   const details = await getPageContentDetails(contentId);
+  console.log('DETAILS: ', details);
 
   if (!details) return null;
 

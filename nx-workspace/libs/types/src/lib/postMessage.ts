@@ -7,6 +7,7 @@ export enum PostMessageType_ToDashboard {
   REGISTER_COMPONENTS = 'register-components',
   SEND_COMPONENT_DOM_DATA = 'send-component-dom-data',
   SECTION_RECT_DATA = 'section-rect-data',
+  COMPONENT_RECT_DATA = 'component-rect-data',
 }
 
 export type PostMessage_ToDashboard_RegisterComponents = {
@@ -24,9 +25,19 @@ export type PostMessage_ToDashboard_SectionRectData = {
   };
 };
 
+export type PostMessage_ToDashboard_ComponentRectData = {
+  messageType: PostMessageType_ToDashboard.COMPONENT_RECT_DATA;
+  messageData: {
+    sectionId: string;
+    componentId: string;
+    rectData: BobRect;
+  };
+};
+
 export type PostMessage_ToDashboard =
   | PostMessage_ToDashboard_RegisterComponents
-  | PostMessage_ToDashboard_SectionRectData;
+  | PostMessage_ToDashboard_SectionRectData
+  | PostMessage_ToDashboard_ComponentRectData;
 
 // FROM DASHBOARD
 export enum PostMessageType_FromDashboard {

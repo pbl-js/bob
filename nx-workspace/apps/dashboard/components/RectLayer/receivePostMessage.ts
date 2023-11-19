@@ -7,7 +7,13 @@ export const receiveMessage = async (
 ) => {
   if (event.data.messageType === PostMessageType_ToDashboard.SECTION_RECT_DATA) {
     const sectionRectData = event.data.messageData;
-    console.log('Run add-section-data', sectionRectData);
+    console.log('DASHBOARD: Receive section-rect-data', sectionRectData);
     dispatch({ type: 'add-section-data', payload: sectionRectData });
+  }
+
+  if (event.data.messageType === PostMessageType_ToDashboard.COMPONENT_RECT_DATA) {
+    const componentRectData = event.data.messageData;
+    console.log('DASHBOARD: Receive component-rect-data', componentRectData);
+    dispatch({ type: 'add-component-data', payload: componentRectData });
   }
 };

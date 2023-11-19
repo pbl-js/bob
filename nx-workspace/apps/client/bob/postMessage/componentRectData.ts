@@ -1,36 +1,35 @@
-// import {
-//   IDraftComponentData,
-//   PostMessageType_ToDashboard,
-//   PostMessage_ToDashboard_SendComponentDomData,
-// } from '@bob-types';
-// import { useEffect } from 'react';
-// import useMeasure, { UseMeasureRef } from 'react-use/lib/useMeasure';
-// import { useBuilderSectionData } from '../context/builderSectionData.context';
+import { PostMessageType_ToDashboard, PostMessage_ToDashboard_ComponentRectData } from '@types';
 
-// export const useSendComponentDataToDashboard = (
-//   componentData: IDraftComponentData
-// ): UseMeasureRef<HTMLDivElement> => {
-//   const [ref, refData] = useMeasure<HTMLDivElement>();
-//   const {
-//     state: { isComunicationOpen },
-//   } = useBuilderSectionData();
+export const postMessage_componentRectData = ({
+  ref,
+  sectionId,
+  componentId,
+}: {
+  ref: React.MutableRefObject<HTMLDivElement | null>;
+  sectionId: string;
+  componentId: string;
+}) => {
+  const domData = ref.current?.getBoundingClientRect();
 
-//   useEffect(() => {
-//     if (refData && isComunicationOpen) {
-//       const { top, bottom, left, right, x, y, width, height } = refData;
-//       const domData = { top, bottom, left, right, x, y, width, height };
+  if (!domData) return;
 
-//       const newPostMessage: PostMessage_ToDashboard_SendComponentDomData = {
-//         messageType: PostMessageType_ToDashboard.SEND_COMPONENT_DOM_DATA,
-//         messageData: {
-//           componentId: componentData.id,
-//           domData: domData,
-//         },
-//       };
+  const newPostMessage: PostMessage_ToDashboard_ComponentRectData = {
+    messageType: PostMessageType_ToDashboard.COMPONENT_RECT_DATA,
+    messageData: {
+      sectionId,
+      componentId,
+      rectData: {
+        bottom: domData.bottom,
+        top: domData.top,
+        left: domData.left,
+        right: domData.right,
+        height: domData.height,
+        width: domData.width,
+        x: domData.x,
+        y: domData.y,
+      },
+    },
+  };
 
-//       window.parent.postMessage(newPostMessage, '*');
-//     }
-//   }, [refData, componentData.id, isComunicationOpen]);
-
-//   return ref;
-// };
+  return window.parent.postMessage(newPostMessage, '*');
+};
