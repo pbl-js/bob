@@ -160,7 +160,7 @@
         },
         {
           "file": "apps/client/bob/BobSection.client.tsx",
-          "hash": "6193568326678917566",
+          "hash": "14583321791078028000",
           "deps": [
             "npm:react"
           ]
@@ -296,6 +296,13 @@
         {
           "file": "apps/client/tsconfig.spec.json",
           "hash": "6922413205408300107"
+        },
+        {
+          "file": "apps/client/bob/postMessage/iframeReady.ts",
+          "hash": "12595529578396181640",
+          "deps": [
+            "types"
+          ]
         }
       ],
       "dashboard": [
@@ -327,7 +334,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/page.tsx",
-          "hash": "10515814793318299229",
+          "hash": "10434611518271530451",
           "deps": [
             "npm:next"
           ]
@@ -390,22 +397,23 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectLayer.tsx",
-          "hash": "12593674253800395621",
+          "hash": "11331849063733847745",
           "deps": [
             "npm:react",
-            "npm:clsx"
+            "npm:clsx",
+            "types"
           ]
         },
         {
           "file": "apps/dashboard/components/RectLayer/receivePostMessage.ts",
-          "hash": "16985137644307710643",
+          "hash": "4142573855660544880",
           "deps": [
             "types"
           ]
         },
         {
           "file": "apps/dashboard/components/RectLayer/rectDataContext.tsx",
-          "hash": "5923660946075296457",
+          "hash": "4179128386599019561",
           "deps": [
             "types",
             "npm:react"
@@ -413,9 +421,10 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/useIframeComunicator.ts",
-          "hash": "18388938692121012606",
+          "hash": "9507229379776053505",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "types"
           ]
         },
         {
@@ -445,7 +454,7 @@
         },
         {
           "file": "apps/dashboard/components/iframeCommunicator/IframeCommunicator.client.tsx",
-          "hash": "7973291817056926620",
+          "hash": "7174209616486963555",
           "deps": [
             "types",
             "npm:react"
@@ -460,14 +469,14 @@
         },
         {
           "file": "apps/dashboard/components/iframeCommunicator/postMessage/pageContentData.ts",
-          "hash": "13004894225362990451",
+          "hash": "13133688527547104008",
           "deps": [
             "types"
           ]
         },
         {
           "file": "apps/dashboard/components/iframeCommunicator/receivePostMessage.ts",
-          "hash": "15172786063737659306",
+          "hash": "7669708004651923857",
           "deps": [
             "types"
           ]
@@ -719,7 +728,7 @@
         },
         {
           "file": "libs/types/src/lib/postMessage.ts",
-          "hash": "10476474233622395530"
+          "hash": "1901919687992359927"
         },
         {
           "file": "libs/types/tsconfig.json",

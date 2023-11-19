@@ -2,6 +2,7 @@ import { ComponentRectData, SectionRectData } from '@types';
 import { createContext, useContext, useReducer } from 'react';
 
 type RectDataAction =
+  | { type: 'set-is-iframe-ready'; payload: { isReady: boolean } }
   | { type: 'add-section-data'; payload: SectionRectData }
   | { type: 'add-component-data'; payload: ComponentRectData }
   | { type: 'remove-data'; payload: ComponentRectData };
@@ -9,6 +10,7 @@ export type RectDataDispatch = (action: RectDataAction) => void;
 export type RectDataState = {
   componentsRectData: ComponentRectData[];
   sectionsRectData: SectionRectData[];
+  isIframeReady: boolean;
 };
 type RectDataProviderProps = { children: React.ReactNode };
 
@@ -18,6 +20,12 @@ const RectDataContext = createContext<
 
 function rectDataReducer(state: RectDataState, action: RectDataAction): RectDataState {
   switch (action.type) {
+    case 'set-is-iframe-ready': {
+      return {
+        ...state,
+        isIframeReady: true,
+      };
+    }
     // Delete existed component with same id and add new from action payload
     case 'add-component-data': {
       const existedComponents = state.componentsRectData.filter(
@@ -50,6 +58,7 @@ export const RectDataProvider = ({ children }: RectDataProviderProps) => {
   const [state, dispatch] = useReducer(rectDataReducer, {
     componentsRectData: [],
     sectionsRectData: [],
+    isIframeReady: false,
   });
   const value = { state, dispatch };
 

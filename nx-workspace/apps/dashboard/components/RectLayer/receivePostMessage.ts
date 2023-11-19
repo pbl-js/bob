@@ -16,4 +16,9 @@ export const receiveMessage = async (
     console.log('DASHBOARD: Receive component-rect-data', componentRectData);
     dispatch({ type: 'add-component-data', payload: componentRectData });
   }
+
+  if (event.data.messageType === PostMessageType_ToDashboard.IFRAME_READY) {
+    console.log('DASHBOARD: Receive iframe-ready', event.data.messageData);
+    dispatch({ type: 'set-is-iframe-ready', payload: { isReady: true } });
+  }
 };

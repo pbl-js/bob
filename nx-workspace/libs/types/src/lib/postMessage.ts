@@ -5,7 +5,7 @@ import { PageContentDetails_Response } from './content';
 // TO DASHBOARD
 export enum PostMessageType_ToDashboard {
   REGISTER_COMPONENTS = 'register-components',
-  SEND_COMPONENT_DOM_DATA = 'send-component-dom-data',
+  IFRAME_READY = 'iframe-ready',
   SECTION_RECT_DATA = 'section-rect-data',
   COMPONENT_RECT_DATA = 'component-rect-data',
 }
@@ -14,6 +14,13 @@ export type PostMessage_ToDashboard_RegisterComponents = {
   messageType: PostMessageType_ToDashboard.REGISTER_COMPONENTS;
   messageData: {
     registeredComponents: ComponentSchema[];
+  };
+};
+
+export type PostMessage_ToDashboard_IframeReady = {
+  messageType: PostMessageType_ToDashboard.IFRAME_READY;
+  messageData: {
+    isReady: true;
   };
 };
 
@@ -36,6 +43,7 @@ export type PostMessage_ToDashboard_ComponentRectData = {
 
 export type PostMessage_ToDashboard =
   | PostMessage_ToDashboard_RegisterComponents
+  | PostMessage_ToDashboard_IframeReady
   | PostMessage_ToDashboard_SectionRectData
   | PostMessage_ToDashboard_ComponentRectData;
 

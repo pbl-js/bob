@@ -21,9 +21,5 @@ export const IframeComunicator_Client = ({
     };
   }, [registeredComponents]);
 
-  React.useEffect(() => {
-    postMessage_pageContentData(pageContent);
-  }, [pageContent]);
-
   return null;
 };

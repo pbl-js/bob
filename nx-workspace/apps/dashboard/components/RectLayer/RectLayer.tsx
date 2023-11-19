@@ -4,11 +4,12 @@ import React from 'react';
 import { RectDataProvider, useRectData } from './rectDataContext';
 import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';
+import { PageContentModel } from '@types';
 
-export function Content() {
+export function Content({ pageContent }: { pageContent: PageContentModel }) {
   const { state } = useRectData();
 
-  useIframeCommunicator();
+  useIframeCommunicator(pageContent);
 
   const sectionRectData = state.sectionsRectData[0];
   console.log('sectionRectData', state);
@@ -35,10 +36,10 @@ export function Content() {
   );
 }
 
-export function RectLayer() {
+export function RectLayer({ pageContent }: { pageContent: PageContentModel }) {
   return (
     <RectDataProvider>
-      <Content />
+      <Content pageContent={pageContent} />
     </RectDataProvider>
   );
 }

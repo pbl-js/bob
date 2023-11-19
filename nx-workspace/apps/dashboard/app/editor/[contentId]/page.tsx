@@ -35,7 +35,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             <p>Name: {details?.name}</p>
             <p>
               {details.components.map((component) => (
-                <span key={component.id}>Component name</span>
+                <span key={component._id}>Component name</span>
               ))}
             </p>
           </div>
@@ -48,7 +48,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
               {'<'}
             </Link>
             <div className="flex relative h-full">
-              <RectLayer />
+              <RectLayer pageContent={details} />
               <iframe
                 className="block w-full border-none"
                 src="http://localhost:4444"

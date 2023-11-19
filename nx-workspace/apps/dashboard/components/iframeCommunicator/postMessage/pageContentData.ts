@@ -16,7 +16,5 @@ export const postMessage_pageContentData = (pageContent: PageContentDetails_Resp
 
   // TODO: handle isIframeRendered
   // TODO: Add framePostMassageclient smthng like that
-  setTimeout(() => {
-    window.frames[0]?.postMessage(newPostMessage, '*');
-  }, 500);
+  window.frames[0]?.postMessage(newPostMessage, '*');
 };

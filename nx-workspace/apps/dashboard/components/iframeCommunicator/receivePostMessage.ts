@@ -1,17 +1,11 @@
-import {
-  ComponentSchema,
-  PostMessage_ToDashboard,
-  PostMessageType_ToDashboard,
-} from '@types';
+import { ComponentSchema, PostMessage_ToDashboard, PostMessageType_ToDashboard } from '@types';
 import { postRegisteredComponents } from '../../utils/api/mutations';
 
 export const receiveMessage = async (
   event: MessageEvent<PostMessage_ToDashboard>,
   existedComponents: ComponentSchema[] | undefined
 ) => {
-  if (
-    event.data.messageType === PostMessageType_ToDashboard.REGISTER_COMPONENTS
-  ) {
+  if (event.data.messageType === PostMessageType_ToDashboard.REGISTER_COMPONENTS) {
     if (!existedComponents) return;
 
     const incomingComponents = event.data.messageData.registeredComponents;

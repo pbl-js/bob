@@ -7,6 +7,7 @@ import { postMessage_sectionRectData } from './postMessage/sectionRectData';
 import { SectionDataContextProvider, useSectionData } from './context/sectionData.context';
 import { useReceiveDashboardData } from './postMessage/receiveDashboardData';
 import { SectionContentRenderer } from './SectionContentRenderer';
+import { postMessage_iframeReady } from './postMessage/iframeReady';
 
 type BobSectionClientProps = {
   name: string;
@@ -20,6 +21,7 @@ export const Content = ({ name }: BobSectionClientProps) => {
 
   React.useEffect(() => {
     postMessage_registerComponents();
+    postMessage_iframeReady();
   }, []);
 
   React.useEffect(() => {
