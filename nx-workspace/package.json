@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@nx/next": "16.9.1",
+    "@react-hookz/web": "^23.1.0",
     "axios": "^1.0.0",
     "body-parser": "^1.20.2",
     "clsx": "^2.0.0",

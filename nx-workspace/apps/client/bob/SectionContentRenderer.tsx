@@ -17,20 +17,20 @@ function SectionComponent({
   const Component = registeredComponent.component;
 
   React.useEffect(() => {
-    // const postMessageWithClosure = () =>
-    //   setTimeout(
-    //     () => postMessage_componentRectData({ componentId: componentData._id, sectionId, ref }),
-    //     1500
-    //   );
-
     const postMessageWithClosure = () =>
       postMessage_componentRectData({ componentId: componentData._id, sectionId, ref });
 
+    const observer = new ResizeObserver(() => {
+      postMessageWithClosure();
+    });
+
     postMessageWithClosure();
+    ref.current && observer.observe(ref.current);
     window.addEventListener('scroll', postMessageWithClosure);
     window.addEventListener('resize', postMessageWithClosure);
 
     return () => {
+      ref.current && observer.unobserve(ref.current);
       window.removeEventListener('resize', postMessageWithClosure);
       window.removeEventListener('scroll', postMessageWithClosure);
     };

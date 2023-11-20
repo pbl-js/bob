@@ -19,18 +19,20 @@ function InnerContent({ draft }: { draft: PageContentModel }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
-    console.log('run useeffect bob-section', draft);
     const sectionId = draft._id;
 
-    // TODO: add some kind of rendering status to avoid this
-    // setTimeout(() => postMessage_sectionRectData(ref, sectionId), 1000);
     postMessage_sectionRectData(ref, sectionId);
 
-    window.addEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
+    const observer = new ResizeObserver(() => {
+      postMessage_sectionRectData(ref, sectionId);
+    });
 
+    ref.current && observer.observe(ref.current);
+    window.addEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     window.addEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
 
     return () => {
+      ref.current && observer.unobserve(ref.current);
       window.removeEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
       window.removeEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     };
@@ -45,7 +47,6 @@ function InnerContent({ draft }: { draft: PageContentModel }) {
 
 const Content = ({ name }: BobSectionClientProps) => {
   const { state } = useSectionData();
-  const bobComponents = BOB._customComponents;
 
   useReceiveDashboardData();
 
