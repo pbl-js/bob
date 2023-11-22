@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation';
 import { CONTENT_PAGE } from '../../../utils/routes';
 import { Logger } from '../../../components/Logger/Logger';
 import { RectLayer } from '../../../components/RectLayer/RectLayer';
+import { EditorContextProvider } from './editorContext';
 
 export default async function Home({ params: { contentId } }: PageProps<{ contentId?: string }>) {
   if (!contentId) redirect(CONTENT_PAGE);
@@ -18,7 +19,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
   if (!details) return null;
 
   return (
-    <>
+    <EditorContextProvider>
       <IframeComunicator contentId={contentId} />
       <main className="flex min-h-screen w-full bg-slate-800">
         <div className="grid p-3 pb-0 gap-3 grid-cols-editor w-full min-h-screen text-sm font-medium">
@@ -61,6 +62,6 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
           <div className="bg-blue">ds</div>
         </div>
       </main>
-    </>
+    </EditorContextProvider>
   );
 }

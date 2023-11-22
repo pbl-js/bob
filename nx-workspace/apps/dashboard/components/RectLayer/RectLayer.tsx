@@ -5,9 +5,11 @@ import { RectDataProvider, useRectData } from './rectDataContext';
 import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';
 import { PageContentModel } from '@types';
+import { useEditorContext } from '../../app/editor/[contentId]/editorContext';
 
 export function Content({ pageContent }: { pageContent: PageContentModel }) {
   const { state } = useRectData();
+  const { state: editorState, dispatch: editorDispatch } = useEditorContext();
 
   useIframeCommunicator(pageContent);
 
@@ -27,9 +29,24 @@ export function Content({ pageContent }: { pageContent: PageContentModel }) {
     >
       <div className="absolute border border-red-500" style={style}>
         {state.componentsRectData.map((componentRectData) => {
+          const isComponentSelected = editorState.selectedBobComponentId === componentRectData.componentId;
           const { top, bottom, left, right, height, width } = componentRectData.rectData;
           const style = { top, bottom, left, right, height, width };
-          return <div className="border border-blue-400" style={style}></div>;
+          return (
+            <div
+              onClick={() =>
+                editorDispatch({
+                  type: 'set-selected-bob-component-id',
+                  payload: { selectedBobComponentId: componentRectData.componentId },
+                })
+              }
+              key={componentRectData.componentId}
+              className={clsx('hover:border border-blue-400', {
+                'border border-blue-400': isComponentSelected,
+              })}
+              style={style}
+            ></div>
+          );
         })}
       </div>
     </div>

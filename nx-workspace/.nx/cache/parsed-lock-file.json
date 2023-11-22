@@ -2790,6 +2790,24 @@
         "hash": "sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA=="
       }
     },
+    "npm:@react-hookz/deep-equal": {
+      "type": "npm",
+      "name": "npm:@react-hookz/deep-equal",
+      "data": {
+        "version": "1.0.4",
+        "packageName": "@react-hookz/deep-equal",
+        "hash": "sha512-N56fTrAPUDz/R423pag+n6TXWbvlBZDtTehaGFjK0InmN+V2OFWLE/WmORhmn6Ce7dlwH5+tQN1LJFw3ngTJVg=="
+      }
+    },
+    "npm:@react-hookz/web": {
+      "type": "npm",
+      "name": "npm:@react-hookz/web",
+      "data": {
+        "version": "23.1.0",
+        "packageName": "@react-hookz/web",
+        "hash": "sha512-fvbURdsa1ukttbLR1ASE/XmqXP09vZ1PiCYppYeR1sNMzCrdkG0iBnjxniFSVjJ8gIw2fRs6nqMTbeBz2uAkuA=="
+      }
+    },
     "npm:@rushstack/eslint-patch": {
       "type": "npm",
       "name": "npm:@rushstack/eslint-patch",
@@ -16407,6 +16425,21 @@
     {
       "source": "npm:@phenomnomnominal/tsquery",
       "target": "npm:esquery",
+      "type": "static"
+    },
+    {
+      "source": "npm:@react-hookz/web",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@react-hookz/web",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@react-hookz/web",
+      "target": "npm:@react-hookz/deep-equal",
       "type": "static"
     },
     {
