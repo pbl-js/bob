@@ -9,6 +9,7 @@ import { CONTENT_PAGE } from '../../../utils/routes';
 import { Logger } from '../../../components/Logger/Logger';
 import { RectLayer } from '../../../components/RectLayer/RectLayer';
 import { EditorContextProvider } from './editorContext';
+import { RightPanel } from './components/RightPanel/RightPanel';
 
 export default async function Home({ params: { contentId } }: PageProps<{ contentId?: string }>) {
   if (!contentId) redirect(CONTENT_PAGE);
@@ -59,7 +60,9 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             </div>
           </div>
 
-          <div className="bg-blue">ds</div>
+          <div className="bg-blue">
+            <RightPanel components={details.components} />
+          </div>
         </div>
       </main>
     </EditorContextProvider>
