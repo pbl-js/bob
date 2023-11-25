@@ -3,7 +3,7 @@ import { RegisteredComponentListing } from '../../../components/RegisteredCompon
 import { IframeComunicator } from '../../../components/iframeCommunicator/IframeCommunicator';
 import { PAGE_CONTENT } from '../../../utils/api/tags';
 import { PageProps } from '../../../utils/types/types';
-import { getPageContentDetails } from '../../../utils/api/fetchers';
+import { getPageContentDetails, getRegisteredComponents } from '../../../utils/api/fetchers';
 import { redirect } from 'next/navigation';
 import { CONTENT_PAGE } from '../../../utils/routes';
 import { Logger } from '../../../components/Logger/Logger';
@@ -15,9 +15,11 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
   if (!contentId) redirect(CONTENT_PAGE);
 
   const details = await getPageContentDetails(contentId);
+  const registeredComponents = await getRegisteredComponents();
   console.log('DETAILS: ', details);
 
   if (!details) return null;
+  if (!registeredComponents) return null;
 
   return (
     <EditorContextProvider>
@@ -61,7 +63,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
           </div>
 
           <div className="bg-blue">
-            <RightPanel components={details.components} />
+            <RightPanel components={details.components} componentsSchema={registeredComponents} />
           </div>
         </div>
       </main>

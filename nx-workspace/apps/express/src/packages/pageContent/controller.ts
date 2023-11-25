@@ -3,17 +3,16 @@ import { client } from '../db/mongo';
 import {
   ComponentContent,
   ComponentSchema,
+  ComponentSchemaResponse,
   PageBlueprint,
+  PageBlueprint_MongoModel,
   dataFieldSchemaArraySchema,
   pageBlueprintSchema,
 } from '@types';
 import { z } from 'zod';
-import {
-  COMPONENT_BLUEPRINT_COLLECTION,
-  PAGE_BLUEPRINT_COLLECTION,
-  PAGE_CONTENT_COLLECTION,
-} from '../db/collections';
+import { COMPONENT_BLUEPRINT_COLLECTION, PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT_COLLECTION } from '../db/collections';
 import { ObjectId } from 'mongodb';
+import { genDefaultProps } from '../../utils/genDefaultProps';
 
 export async function pageContentController(app: Express) {
   app.get('/api/page-content', async (req, res) => {
@@ -116,9 +115,7 @@ export async function pageContentController(app: Express) {
         _id: new ObjectId(blueprintFromClient['@blueprintId']),
       };
       const matchPageBlueprint =
-        ((await pageBlueprintCollection.findOne(
-          matchPageBlueprintQuery
-        )) as unknown as PageBlueprint) || null;
+        ((await pageBlueprintCollection.findOne(matchPageBlueprintQuery)) as unknown as PageBlueprint) || null;
 
       if (!matchPageBlueprint) {
         res.status(400).send('There is no page content with provided blueprintId');
@@ -166,19 +163,27 @@ export async function pageContentController(app: Express) {
       const matchContent = await pageContentCollection.findOne({
         _id: new ObjectId(body.pageContentId),
       });
+      const matchBlueprint = await componentBlueprintCollection.findOne<ComponentSchemaResponse>({
+        _id: new ObjectId(body.componentBlueprintId),
+      });
 
       if (!matchContent) return res.status(400).send('no content with provided ID');
+      if (!matchBlueprint) return res.status(400).send('no blueprint with provided ID');
       // Check if componentBlueprint exists
 
       // If parentID === root, check if there is
       // Check if parent component exists
 
       // Add component
+      const componentDefaultProps = genDefaultProps(matchBlueprint.propsSchema);
+      console.log('componentDefaultProps', componentDefaultProps);
 
       const componentToInsert: ComponentContent = {
         _id: new ObjectId().toString(),
+        componentBlueprintId: new ObjectId(body.componentBlueprintId).toString(),
         name: body.componentData.name,
         parentId: body.componentData.parentId,
+        props: componentDefaultProps,
       };
 
       const result = await pageContentCollection.updateOne(

@@ -1,5 +1,9 @@
+import { DataFieldContentArray } from './dataField';
+
 export type ComponentContent = {
   _id: string;
+  componentBlueprintId: string;
+  props: DataFieldContentArray;
   parentId: string;
   name: string;
 };

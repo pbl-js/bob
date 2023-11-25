@@ -1,18 +1,48 @@
 'use client';
 import React from 'react';
 import { useEditorContext } from '../../editorContext';
-import { ComponentContent } from '@types';
+import { ComponentContent, ComponentSchemaResponse } from '@types';
 
 type Props = {
   components: ComponentContent[];
+  componentsSchema: ComponentSchemaResponse[];
 };
 
-export function RightPanel({ components }: Props) {
+export function RightPanel({ components, componentsSchema }: Props) {
   const { state } = useEditorContext();
 
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
-  console.log('matchComponent', matchComponent);
-  if (!matchComponent) return <div>No match component</div>;
+  const matchComponentSchema = componentsSchema.find(({ _id }) => matchComponent?.componentBlueprintId === _id);
 
-  return <div>{matchComponent.name}</div>;
+  if (!matchComponent || !matchComponentSchema) return <div>Something went wrong</div>;
+
+  return (
+    <div>
+      {matchComponent.name}
+      <div>
+        {matchComponentSchema.propsSchema.map((propSchema) => {
+          const matchComponentMatchProp = matchComponent.props.find(
+            (matchComponentProp) => matchComponentProp.name === propSchema.name
+          );
+          if (!matchComponentMatchProp) return null;
+
+          if (propSchema.type === 'string' && matchComponentMatchProp.type === 'string')
+            return (
+              <div>
+                <div>{matchComponentMatchProp.name}</div>
+                <div>Value: {matchComponentMatchProp.value}</div>
+              </div>
+            );
+
+          if (propSchema.type === 'number' && matchComponentMatchProp.type === 'number')
+            return (
+              <div>
+                <div>{matchComponentMatchProp.name}</div>
+                <div>Value: {matchComponentMatchProp.value}</div>
+              </div>
+            );
+        })}
+      </div>
+    </div>
+  );
 }
