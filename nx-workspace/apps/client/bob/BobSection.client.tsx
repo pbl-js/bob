@@ -20,6 +20,7 @@ function InnerContent({ draft }: { draft: PageContentModel }) {
 
   React.useEffect(() => {
     const sectionId = draft._id;
+    const elementRef = ref.current;
 
     postMessage_sectionRectData(ref, sectionId);
 
@@ -27,12 +28,12 @@ function InnerContent({ draft }: { draft: PageContentModel }) {
       postMessage_sectionRectData(ref, sectionId);
     });
 
-    ref.current && observer.observe(ref.current);
+    elementRef && observer.observe(elementRef);
     window.addEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     window.addEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
 
     return () => {
-      ref.current && observer.unobserve(ref.current);
+      elementRef && observer.unobserve(elementRef);
       window.removeEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
       window.removeEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     };

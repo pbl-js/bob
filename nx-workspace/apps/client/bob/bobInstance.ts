@@ -20,7 +20,8 @@ export class BOB {
 
   static registerComponent(
     name: RegisteredComponent['name'],
-    component: ComponentType,
+    // TODO: Maybe its possible to replace this any with generic propsSchema
+    component: ComponentType<any>,
     propsSchema: RegisteredComponent['propsSchema']
   ): void {
     const isComponentExisted = this._customComponents.some(

@@ -3,6 +3,7 @@ import { ComponentContent, PageContentModel, RegisteredComponent } from '@types'
 import { BOB } from './bobInstance';
 import { postMessage_componentRectData } from './postMessage/componentRectData';
 import { useSectionData } from './context/sectionData.context';
+import { genPropsFromContent } from './genPropsFromContent';
 
 function SectionComponent({
   componentData,
@@ -15,8 +16,10 @@ function SectionComponent({
 }) {
   const ref = React.useRef<null | HTMLDivElement>(null);
   const Component = registeredComponent.component;
+  const props = genPropsFromContent(componentData.props);
 
   React.useEffect(() => {
+    const elementRef = ref.current;
     const postMessageWithClosure = () =>
       postMessage_componentRectData({ componentId: componentData._id, sectionId, ref });
 
@@ -30,16 +33,16 @@ function SectionComponent({
     window.addEventListener('resize', postMessageWithClosure);
 
     return () => {
-      ref.current && observer.unobserve(ref.current);
+      elementRef && observer.unobserve(elementRef);
       window.removeEventListener('resize', postMessageWithClosure);
       window.removeEventListener('scroll', postMessageWithClosure);
     };
-  }, [componentData]);
+  }, [componentData, sectionId]);
 
   // TODO: Zrób tak żeby ten Component miał otypowane propsy
   return (
     <div ref={ref}>
-      <Component />
+      <Component {...props} />
       {/* <div style={{ width: '100px', height: '100px' }}>dsd</div> */}
     </div>
   );
@@ -50,9 +53,7 @@ export function SectionContentRenderer({ sectionData }: { sectionData: PageConte
   const bobComponents = BOB._customComponents;
 
   return components.map((component) => {
-    const matchBobComponent = bobComponents.find(
-      (bobComponent) => bobComponent.name === component.name
-    );
+    const matchBobComponent = bobComponents.find((bobComponent) => bobComponent.name === component.name);
 
     if (!matchBobComponent) return null;
 
