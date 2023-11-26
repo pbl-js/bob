@@ -2,6 +2,7 @@
 import React from 'react';
 import { useEditorContext } from '../../editorContext';
 import { ComponentContent, ComponentSchemaResponse } from '@types';
+import clsx from 'clsx';
 
 type Props = {
   components: ComponentContent[];
@@ -18,8 +19,7 @@ export function RightPanel({ components, componentsSchema }: Props) {
 
   return (
     <div>
-      {matchComponent.name}
-      <div>
+      <div className="flex flex-col gap-4">
         {matchComponentSchema.propsSchema.map((propSchema) => {
           const matchComponentMatchProp = matchComponent.props.find(
             (matchComponentProp) => matchComponentProp.name === propSchema.name
@@ -28,17 +28,25 @@ export function RightPanel({ components, componentsSchema }: Props) {
 
           if (propSchema.type === 'string' && matchComponentMatchProp.type === 'string')
             return (
-              <div>
-                <div>{matchComponentMatchProp.name}</div>
-                <div>Value: {matchComponentMatchProp.value}</div>
+              <div className="flex flex-col gap-1">
+                <label>{matchComponentMatchProp.name}</label>
+                <input
+                  className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
+                  type="text"
+                  value={matchComponentMatchProp.value}
+                />
               </div>
             );
 
           if (propSchema.type === 'number' && matchComponentMatchProp.type === 'number')
             return (
-              <div>
-                <div>{matchComponentMatchProp.name}</div>
-                <div>Value: {matchComponentMatchProp.value}</div>
+              <div className="flex flex-col gap-1">
+                <label>{matchComponentMatchProp.name}</label>
+                <input
+                  className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
+                  type="text"
+                  value={matchComponentMatchProp.value}
+                />
               </div>
             );
         })}

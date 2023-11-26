@@ -670,10 +670,12 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "3688410227032588756",
+          "hash": "6181578786587183271",
           "deps": [
             "npm:react",
-            "types"
+            "types",
+            "npm:next",
+            "npm:clsx"
           ]
         },
         {
@@ -686,7 +688,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/page.tsx",
-          "hash": "9587817782858667683",
+          "hash": "1223313940395002556",
           "deps": [
             "npm:next"
           ]

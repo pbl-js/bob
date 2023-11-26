@@ -63,6 +63,12 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
           </div>
 
           <div className="bg-blue">
+            <Link
+              href={PAGE_CONTENT}
+              className="flex items-center justify-center w-10 h-10 bg-slate-700 rounded-md mb-3 text-slate-400"
+            >
+              {'<'}
+            </Link>
             <RightPanel components={details.components} componentsSchema={registeredComponents} />
           </div>
         </div>
