@@ -1,16 +1,39 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useEditorContext } from '../../editorContext';
-import { ComponentContent, ComponentSchemaResponse } from '@types';
+import { ComponentContent, ComponentSchemaResponse, DataFieldContent, PageContentModel } from '@types';
 import clsx from 'clsx';
+import { postMessage_pageContentData } from '../../../../../components/iframeCommunicator/postMessage/pageContentData';
 
 type Props = {
-  components: ComponentContent[];
+  details: PageContentModel;
   componentsSchema: ComponentSchemaResponse[];
 };
 
-export function RightPanel({ components, componentsSchema }: Props) {
+export function RightPanel({ details, componentsSchema }: Props) {
   const { state } = useEditorContext();
+  const [detailsState, setDetailsState] = useState(details);
+  const components = detailsState.components;
+
+  React.useEffect(() => {
+    postMessage_pageContentData(detailsState);
+  }, [detailsState]);
+
+  const onChange = ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) =>
+    setDetailsState((prev) => {
+      const restComponents = prev.components.filter((item) => item._id !== componentId);
+      const matchComponent = prev.components.find((item) => item._id === componentId);
+
+      if (!matchComponent) return prev;
+
+      // TODO: This prop replacement is based on propName, there should be propID property
+      const restProps = matchComponent.props.filter((item) => item.name !== newProp.name);
+
+      return {
+        ...prev,
+        components: [...restComponents, { ...matchComponent, props: [...restProps, newProp] }],
+      };
+    });
 
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
   const matchComponentSchema = componentsSchema.find(({ _id }) => matchComponent?.componentBlueprintId === _id);
@@ -34,6 +57,16 @@ export function RightPanel({ components, componentsSchema }: Props) {
                   className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
                   type="text"
                   value={matchComponentMatchProp.value}
+                  onChange={(e) =>
+                    onChange({
+                      componentId: matchComponent._id,
+                      newProp: {
+                        type: 'string',
+                        name: matchComponentMatchProp.name,
+                        value: e.target.value,
+                      },
+                    })
+                  }
                 />
               </div>
             );
