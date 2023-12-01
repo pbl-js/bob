@@ -1,12 +1,18 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useEditorContext } from '../../editorContext';
-import { ComponentContent, ComponentSchemaResponse, DataFieldContent, PageContentModel } from '@types';
+import {
+  ComponentContent,
+  ComponentSchemaResponse,
+  DataFieldContent,
+  PageContentModel,
+  PageContentRequest,
+} from '@types';
 import clsx from 'clsx';
 import { postMessage_pageContentData } from '../../../../../components/iframeCommunicator/postMessage/pageContentData';
 
 type Props = {
-  details: PageContentModel;
+  details: PageContentRequest;
   componentsSchema: ComponentSchemaResponse[];
 };
 

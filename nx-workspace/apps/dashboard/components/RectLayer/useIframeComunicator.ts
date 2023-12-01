@@ -2,9 +2,9 @@ import React from 'react';
 import { receiveMessage } from './receivePostMessage';
 import { useRectData } from './rectDataContext';
 import { postMessage_pageContentData } from '../iframeCommunicator/postMessage/pageContentData';
-import { PageContentModel } from '@types';
+import { PageContentModel, PageContentRequest } from '@types';
 
-export const useIframeCommunicator = (pageContent: PageContentModel) => {
+export const useIframeCommunicator = (pageContent: PageContentRequest) => {
   const { dispatch, state } = useRectData();
   const isReady = state.isIframeReady;
 

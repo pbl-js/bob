@@ -1,12 +1,10 @@
 'use server';
 
-import { ComponentSchema, PageContentAddComponent_Request } from '@types';
+import { ComponentSchema, PageContentAddComponent_Request, PageContentDeleteComponent_request } from '@types';
 import { revalidateTag } from 'next/cache';
 import { PAGE_CONTENT, PAGE_CONTENT_DETAILS, REGISTERED_COMPONENTS } from './tags';
 
-export async function postRegisteredComponents(
-  components: ComponentSchema[]
-): Promise<ComponentSchema[] | undefined> {
+export async function postRegisteredComponents(components: ComponentSchema[]): Promise<ComponentSchema[] | undefined> {
   const res = await fetch('http://localhost:8000/api/register-component', {
     method: 'POST',
     body: JSON.stringify(components),
@@ -60,6 +58,28 @@ export async function addComponentToPageContent({
       componentBlueprintId,
       pageContentId,
       componentData,
+    }),
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
+  return res.json();
+}
+
+export async function deleteComponentFromPageContent({
+  componentId,
+  pageContentId,
+}: PageContentDeleteComponent_request) {
+  console.log('addComponentToPageContent runs');
+
+  const res = await fetch('http://localhost:8000/api/page-content/delete-component', {
+    method: 'POST',
+    body: JSON.stringify({
+      pageContentId,
+      componentId,
     }),
     cache: 'no-cache',
     headers: {

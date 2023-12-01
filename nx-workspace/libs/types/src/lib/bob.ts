@@ -29,3 +29,8 @@ export type PageContentAddComponent_Request = {
   pageContentId: string;
   componentData: Omit2<ComponentData, '_id'>;
 };
+
+export type PageContentDeleteComponent_request = {
+  pageContentId: string;
+  componentId: string;
+};

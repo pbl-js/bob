@@ -4,10 +4,10 @@ import React from 'react';
 import { RectDataProvider, useRectData } from './rectDataContext';
 import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';
-import { PageContentModel } from '@types';
+import { PageContentModel, PageContentRequest } from '@types';
 import { useEditorContext } from '../../app/editor/[contentId]/editorContext';
 
-export function Content({ pageContent }: { pageContent: PageContentModel }) {
+export function Content({ pageContent }: { pageContent: PageContentRequest }) {
   const { state } = useRectData();
   const { state: editorState, dispatch: editorDispatch } = useEditorContext();
 
@@ -53,7 +53,7 @@ export function Content({ pageContent }: { pageContent: PageContentModel }) {
   );
 }
 
-export function RectLayer({ pageContent }: { pageContent: PageContentModel }) {
+export function RectLayer({ pageContent }: { pageContent: PageContentRequest }) {
   return (
     <RectDataProvider>
       <Content pageContent={pageContent} />

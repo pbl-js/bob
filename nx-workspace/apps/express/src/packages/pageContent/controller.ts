@@ -2,10 +2,13 @@ import { Express } from 'express';
 import { client } from '../db/mongo';
 import {
   ComponentContent,
+  ComponentContentModel,
   ComponentSchema,
   ComponentSchemaResponse,
   PageBlueprint,
   PageBlueprint_MongoModel,
+  PageContent,
+  PageContentModel,
   dataFieldSchemaArraySchema,
   pageBlueprintSchema,
 } from '@types';
@@ -143,7 +146,7 @@ export async function pageContentController(app: Express) {
   app.post('/api/page-content/add-component', async (req, res) => {
     try {
       console.log('POST Endpoint: /api/page-content/add-component');
-      console.log(`request data: ${JSON.stringify(req.body)}`);
+
       // Validate body
       const reqBodySchema = z.object({
         componentBlueprintId: z.string().min(1),
@@ -160,7 +163,7 @@ export async function pageContentController(app: Express) {
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
       const componentBlueprintCollection = myDB.collection(COMPONENT_BLUEPRINT_COLLECTION);
       // Check if pageContent exists
-      const matchContent = await pageContentCollection.findOne({
+      const matchContent = await pageContentCollection.findOne<PageContentModel>({
         _id: new ObjectId(body.pageContentId),
       });
       const matchBlueprint = await componentBlueprintCollection.findOne<ComponentSchemaResponse>({
@@ -176,13 +179,13 @@ export async function pageContentController(app: Express) {
 
       // Add component
       const componentDefaultProps = genDefaultProps(matchBlueprint.propsSchema);
-      console.log('componentDefaultProps', componentDefaultProps);
 
-      const componentToInsert: ComponentContent = {
-        _id: new ObjectId().toString(),
+      const componentToInsert: ComponentContentModel = {
+        _id: new ObjectId(),
         componentBlueprintId: new ObjectId(body.componentBlueprintId).toString(),
         name: body.componentData.name,
         parentId: body.componentData.parentId,
+        order: matchContent.components.length + 1,
         props: componentDefaultProps,
       };
 
@@ -194,6 +197,44 @@ export async function pageContentController(app: Express) {
       await res.json(result);
     } catch (err) {
       console.log('POST Endpoint: /api/page-content/add-component ERROR: ', err);
+      res.status(400).json(err);
+    }
+  });
+
+  app.post('/api/page-content/delete-component', async (req, res) => {
+    try {
+      console.log('POST Endpoint: /api/page-content/delete-component');
+      // Validate body
+      const reqBodySchema = z.object({
+        pageContentId: z.string().min(1),
+        componentId: z.string().min(1),
+      });
+
+      const body = reqBodySchema.parse(req.body);
+
+      const myDB = client.db('mongotron');
+      const pageContentCollection = myDB.collection<PageContentModel>(PAGE_CONTENT_COLLECTION);
+
+      // Check if pageContent and component exist
+      const matchContent = await pageContentCollection.findOne({
+        _id: new ObjectId(body.pageContentId),
+      });
+
+      if (!matchContent) return res.status(400).send('no content with provided ID');
+      const matchComponent = matchContent?.components.find((item) => item._id.toString() === body.componentId);
+
+      if (!matchComponent) return res.status(400).send('no component with provided ID');
+
+      // Delete component
+      const result = await pageContentCollection.updateOne(
+        { _id: new ObjectId(body.pageContentId) },
+        { $pull: { components: { _id: new ObjectId(body.componentId) } } }
+      );
+
+      console.log('POST Endpoint: /api/page-content/delete-component returned data: ', result);
+      await res.json(result);
+    } catch (err) {
+      console.log('POST Endpoint: /api/page-content/delete-component ERROR: ', err);
       res.status(400).json(err);
     }
   });

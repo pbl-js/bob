@@ -210,7 +210,7 @@
         },
         {
           "file": "libs/types/src/lib/bob.ts",
-          "hash": "14231566955637359910",
+          "hash": "10472202335054723719",
           "deps": [
             "npm:react",
             "npm:next"
@@ -222,7 +222,10 @@
         },
         {
           "file": "libs/types/src/lib/content.ts",
-          "hash": "4991289507550800469"
+          "hash": "1641742982988082244",
+          "deps": [
+            "npm:mongodb"
+          ]
         },
         {
           "file": "libs/types/src/lib/dataField.ts",
@@ -327,7 +330,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "2809713290093497645",
+          "hash": "1197940092558006207",
           "deps": [
             "npm:react",
             "types",
@@ -344,7 +347,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/page.tsx",
-          "hash": "5845349009186049228",
+          "hash": "1395523425922167974",
           "deps": [
             "npm:next"
           ]
@@ -407,7 +410,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectLayer.tsx",
-          "hash": "4218565068850342992",
+          "hash": "16695383131685804665",
           "deps": [
             "npm:react",
             "npm:clsx",
@@ -431,7 +434,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/useIframeComunicator.ts",
-          "hash": "9507229379776053505",
+          "hash": "17172550835808243765",
           "deps": [
             "npm:react",
             "types"
@@ -561,7 +564,7 @@
         },
         {
           "file": "apps/dashboard/utils/api/mutations.ts",
-          "hash": "13985216177689847278",
+          "hash": "13473645121295411938",
           "deps": [
             "types",
             "npm:next"
@@ -578,6 +581,10 @@
         {
           "file": "apps/dashboard/utils/types/types.ts",
           "hash": "9530378971587411068"
+        },
+        {
+          "file": "apps/dashboard/app/editor/[contentId]/components/DeleteLayerButton/DeleteLayerButton.tsx",
+          "hash": "15478732699823059066"
         }
       ],
       "express-e2e": [
@@ -867,7 +874,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "17425008608102244414",
+          "hash": "14868221877402511907",
           "deps": [
             "npm:express",
             "types",

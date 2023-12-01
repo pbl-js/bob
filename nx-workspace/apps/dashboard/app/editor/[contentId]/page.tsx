@@ -10,6 +10,7 @@ import { Logger } from '../../../components/Logger/Logger';
 import { RectLayer } from '../../../components/RectLayer/RectLayer';
 import { EditorContextProvider } from './editorContext';
 import { RightPanel } from './components/RightPanel/RightPanel';
+import { DeleteLayerButton } from './components/DeleteLayerButton/DeleteLayerButton';
 
 export default async function Home({ params: { contentId } }: PageProps<{ contentId?: string }>) {
   if (!contentId) redirect(CONTENT_PAGE);
@@ -36,12 +37,16 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             <h3 className="mb-3 text-slate-200">Registered components</h3>
             <RegisteredComponentListing pageContentId={contentId} />
             <h3 className="mb-3 text-slate-200">page content details</h3>
-            <p>Name: {details?.name}</p>
-            <p>
+            <p className="mt-6">Name: {details?.name}</p>
+
+            <div className="mt-2 flex flex-col gap-1">
               {details.components.map((component) => (
-                <span key={component._id}>Component name</span>
+                <div className="p-2 bg-slate-700 rounded-md flex justify-between" key={component._id}>
+                  {component.name}
+                  <DeleteLayerButton componentId={component._id} pageContentId={details._id} />
+                </div>
               ))}
-            </p>
+            </div>
           </div>
 
           <div className="flex flex-col gap-3">

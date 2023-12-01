@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import { DataFieldContentArray } from './dataField';
 
 export type ComponentContent = {
@@ -5,6 +6,16 @@ export type ComponentContent = {
   componentBlueprintId: string;
   props: DataFieldContentArray;
   parentId: string;
+  order: number;
+  name: string;
+};
+
+export type ComponentContentModel = {
+  _id: ObjectId;
+  componentBlueprintId: string;
+  props: DataFieldContentArray;
+  parentId: string;
+  order: number;
   name: string;
 };
 
@@ -14,14 +25,21 @@ export type PageContent = {
   components: ComponentContent[];
 };
 
-export type PageContentModel = PageContent & {
+export type PageContentModel = {
+  _id: ObjectId;
+  name: string;
+  fields: any[];
+  components: ComponentContentModel[];
+};
+
+export type PageContentRequest = PageContent & {
   _id: string;
 };
 
 // TODO: Omit components
 export type PageContent_GetResponse = PageContentModel[];
 
-export type PageContentDetails_Response = PageContentModel;
+export type PageContentDetails_Response = PageContentRequest;
 
 export type SectionContent = {
   name: string;
