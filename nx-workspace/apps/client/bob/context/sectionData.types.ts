@@ -1,8 +1,8 @@
 import React from 'react';
-import { PageContent, PageContentModel } from '@types';
+import { PageContent, PageContentRequest } from '@types';
 
 export interface SectionDataState {
-  draft: PageContentModel | undefined;
+  draft: PageContentRequest | undefined;
   isComunicationOpen: boolean;
   // registeredComponents: ICustomComponent[];
 }
@@ -47,9 +47,7 @@ export interface BuilderSectionDataAction_SetPageContent {
 //   payload: UpdateComponentPayload;
 // }
 
-export type SectionDataAction =
-  | BuilderSectionDataAction_SetPageContent
-  | BuilderSectionDataAction_OpenComunication;
+export type SectionDataAction = BuilderSectionDataAction_SetPageContent | BuilderSectionDataAction_OpenComunication;
 // | BuilderSectionDataAction_AddComponent
 // | BuilderSectionDataAction_DeleteComponent
 // | BuilderSectionDataAction_UpdateComponent;

@@ -1,8 +1,7 @@
 import React from 'react';
-import { ComponentContent, PageContentModel, RegisteredComponent } from '@types';
+import { ComponentContent, PageContentRequest, RegisteredComponent } from '@types';
 import { BOB } from './bobInstance';
 import { postMessage_componentRectData } from './postMessage/componentRectData';
-import { useSectionData } from './context/sectionData.context';
 import { genPropsFromContent } from './genPropsFromContent';
 
 function SectionComponent({
@@ -49,11 +48,15 @@ function SectionComponent({
   );
 }
 
-export function SectionContentRenderer({ sectionData }: { sectionData: PageContentModel }) {
-  const components = sectionData.components;
+export function SectionContentRenderer({ sectionData }: { sectionData: PageContentRequest }) {
+  const sortedComponents = [...sectionData.components].sort((a, b) => {
+    if (a.order < b.order) return -1;
+    if (a.order > b.order) return 1;
+    return 0;
+  });
   const bobComponents = BOB._customComponents;
 
-  return components.map((component) => {
+  return sortedComponents.map((component) => {
     const matchBobComponent = bobComponents.find((bobComponent) => bobComponent.name === component.name);
 
     if (!matchBobComponent) return null;

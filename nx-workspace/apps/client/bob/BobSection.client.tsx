@@ -8,14 +8,13 @@ import { SectionDataContextProvider, useSectionData } from './context/sectionDat
 import { useReceiveDashboardData } from './postMessage/receiveDashboardData';
 import { SectionContentRenderer } from './SectionContentRenderer';
 import { postMessage_iframeReady } from './postMessage/iframeReady';
-import { PageContentModel } from '@types';
-import { BOB } from './bobInstance';
+import { PageContentRequest } from '@types';
 
 type BobSectionClientProps = {
   name: string;
 } & BobSectionProps;
 
-function InnerContent({ draft }: { draft: PageContentModel }) {
+function InnerContent({ draft }: { draft: PageContentRequest }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
