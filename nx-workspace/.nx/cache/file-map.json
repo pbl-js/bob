@@ -584,7 +584,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/DeleteLayerButton/DeleteLayerButton.tsx",
-          "hash": "15478732699823059066"
+          "hash": "9392516832992617424"
         }
       ],
       "express-e2e": [
@@ -874,7 +874,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "14868221877402511907",
+          "hash": "13359069234377778291",
           "deps": [
             "npm:express",
             "types",

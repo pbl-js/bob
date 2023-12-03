@@ -238,4 +238,65 @@ export async function pageContentController(app: Express) {
       res.status(400).json(err);
     }
   });
+
+  app.post('/api/page-content/update-components', async (req, res) => {
+    try {
+      console.log('POST Endpoint: /api/page-content/update-components');
+      // Validate body
+      const reqBodySchema = z.object({
+        pageContentId: z.string().min(1),
+        components: z
+          .array(
+            z.object({
+              _id: z.string().min(1),
+              parentId: z.string().min(1),
+              name: z.string().min(1),
+            })
+          )
+          .min(1),
+      });
+
+      const body = reqBodySchema.parse(req.body);
+
+      const myDB = client.db('mongotron');
+      const pageContentCollection = myDB.collection<PageContentModel>(PAGE_CONTENT_COLLECTION);
+
+      // Check if pageContent and component exist
+      const matchContent = await pageContentCollection.findOne({
+        _id: new ObjectId(body.pageContentId),
+      });
+
+      if (!matchContent) return res.status(400).send('no content with provided ID');
+      // const matchComponents = matchContent?.components.filter((item) => item._id.toString() === body.components.);
+      const matchComponents = matchContent.components.filter((item) =>
+        body.components.some((i) => i._id === item._id.toString())
+      );
+
+      const databaseContainsRequestedComponents = matchComponents.length === body.components.length;
+      if (!databaseContainsRequestedComponents)
+        return res.status(400).send('Database doesnt contain requested components');
+
+      // Delete component
+      // const result = await pageContentCollection.updateOne(
+      //   { _id: new ObjectId(body.pageContentId) },
+      //   {
+      //     $set: {
+      //       'variants.$[].items.$[xxx].quantity': 999,
+      //     },
+      //   }
+      // );
+
+      const result = await pageContentCollection.updateOne(
+        { _id: new ObjectId(body.pageContentId) },
+        { $set: { 'components.$[t].parentId': 'dupaComponent' } },
+        { arrayFilters: [{ 't._id': new ObjectId(body.components?.[0]?._id) }] }
+      );
+
+      console.log('POST Endpoint: /api/page-content/update-component returned data: ', result);
+      await res.json(result);
+    } catch (err) {
+      console.log('POST Endpoint: /api/page-content/delete-component ERROR: ', err);
+      res.status(400).json(err);
+    }
+  });
 }

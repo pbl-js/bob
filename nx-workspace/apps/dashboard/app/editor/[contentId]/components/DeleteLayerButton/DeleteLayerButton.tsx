@@ -9,11 +9,14 @@ type DeleteLayerButtonProps = {
 
 export function DeleteLayerButton({ componentId, pageContentId }: DeleteLayerButtonProps) {
   return (
-    <button
+    <div
+      draggable
+      onDragStart={(e) => console.log('first')}
+      onDragOver={(e) => e.preventDefault()}
       onClick={() => deleteComponentFromPageContent({ componentId, pageContentId })}
       className="flex hover:bg-slate-600 px-2 h-full rounded-md"
     >
       X
-    </button>
+    </div>
   );
 }
