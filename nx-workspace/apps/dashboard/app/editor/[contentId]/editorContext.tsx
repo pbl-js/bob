@@ -11,14 +11,11 @@ export type EditorContextState = {
 };
 type EditorContextProviderProps = { children: React.ReactNode };
 
-const EditorContextContext = createContext<
-  { state: EditorContextState; dispatch: EditorContextDispatch } | undefined
->(undefined);
+const EditorContextContext = createContext<{ state: EditorContextState; dispatch: EditorContextDispatch } | undefined>(
+  undefined
+);
 
-function editorContextReducer(
-  state: EditorContextState,
-  action: EditorContextAction
-): EditorContextState {
+function editorContextReducer(state: EditorContextState, action: EditorContextAction): EditorContextState {
   switch (action.type) {
     case 'set-selected-bob-component-id': {
       return {
@@ -35,7 +32,7 @@ function editorContextReducer(
 export const EditorContextProvider = ({ children }: EditorContextProviderProps) => {
   const [state, dispatch] = useReducer(editorContextReducer, { selectedBobComponentId: null });
   const value = { state, dispatch };
-
+  console.log('Editor context state: ', state);
   return <EditorContextContext.Provider value={value}>{children}</EditorContextContext.Provider>;
 };
 

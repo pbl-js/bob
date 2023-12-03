@@ -21,6 +21,11 @@ export function RightPanel({ details, componentsSchema }: Props) {
   const [detailsState, setDetailsState] = useState(details);
   const components = detailsState.components;
 
+  // TODO: Bad practice. State synchronization
+  React.useEffect(() => {
+    setDetailsState(details);
+  }, [details]);
+
   React.useEffect(() => {
     postMessage_pageContentData(detailsState);
   }, [detailsState]);
@@ -43,6 +48,9 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
   const matchComponentSchema = componentsSchema.find(({ _id }) => matchComponent?.componentBlueprintId === _id);
+  console.log('Components: ', components);
+  console.log('Match component: ', matchComponent);
+  console.log('Match component schema: ', matchComponentSchema);
 
   if (!matchComponent || !matchComponentSchema) return <div>Something went wrong</div>;
 

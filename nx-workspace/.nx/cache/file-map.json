@@ -330,7 +330,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "1197940092558006207",
+          "hash": "8764717672923217153",
           "deps": [
             "npm:react",
             "types",
@@ -339,7 +339,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/editorContext.tsx",
-          "hash": "1481974221885691393",
+          "hash": "14974884185016011040",
           "deps": [
             "types",
             "npm:react"
@@ -410,7 +410,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectLayer.tsx",
-          "hash": "16695383131685804665",
+          "hash": "16027417003927431553",
           "deps": [
             "npm:react",
             "npm:clsx",
@@ -679,7 +679,7 @@
         },
         {
           "file": "apps/client/bob/SectionContentRenderer.tsx",
-          "hash": "15912263305152288836",
+          "hash": "10484198087393642924",
           "deps": [
             "npm:react",
             "types"

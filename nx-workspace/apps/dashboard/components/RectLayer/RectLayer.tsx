@@ -14,8 +14,15 @@ export function Content({ pageContent }: { pageContent: PageContentRequest }) {
   useIframeCommunicator(pageContent);
 
   const sectionRectData = state.sectionsRectData[0];
-  console.log('sectionRectData', state);
+
   if (!sectionRectData) return null;
+
+  // Why this is necessary?
+  // Because of: when component is deleted we still have its information inside componentsRectData.
+  // We can handle it by filtering fith details data, or add postMessage action for deleting components
+  const matchedComponentsRectData = state.componentsRectData.filter((componentRectData) =>
+    pageContent.components.some((pageContentComponent) => componentRectData.componentId === pageContentComponent._id)
+  );
 
   const { top, bottom, left, right, height, width } = sectionRectData.rectData;
   const style = { top, bottom, left, right, height, width };
@@ -28,7 +35,7 @@ export function Content({ pageContent }: { pageContent: PageContentRequest }) {
       )}
     >
       <div className="absolute border border-red-500" style={style}>
-        {state.componentsRectData.map((componentRectData) => {
+        {matchedComponentsRectData.map((componentRectData) => {
           const isComponentSelected = editorState.selectedBobComponentId === componentRectData.componentId;
           const { top, bottom, left, right, height, width } = componentRectData.rectData;
           const style = { top, bottom, left, right, height, width };

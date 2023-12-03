@@ -33,6 +33,7 @@ function SectionComponent({
     window.addEventListener('resize', postMessageWithClosure);
 
     return () => {
+      console.log('REEEEEEEEEEEEERENDER');
       elementRef && observer.unobserve(elementRef);
       window.removeEventListener('resize', postMessageWithClosure);
       window.removeEventListener('scroll', postMessageWithClosure);
