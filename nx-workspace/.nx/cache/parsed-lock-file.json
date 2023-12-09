@@ -1413,6 +1413,33 @@
         "hash": "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ=="
       }
     },
+    "npm:@dnd-kit/accessibility": {
+      "type": "npm",
+      "name": "npm:@dnd-kit/accessibility",
+      "data": {
+        "version": "3.1.0",
+        "packageName": "@dnd-kit/accessibility",
+        "hash": "sha512-ea7IkhKvlJUv9iSHJOnxinBcoOI3ppGnnL+VDJ75O45Nss6HtZd8IdN8touXPDtASfeI2T2LImb8VOZcL47wjQ=="
+      }
+    },
+    "npm:@dnd-kit/core": {
+      "type": "npm",
+      "name": "npm:@dnd-kit/core",
+      "data": {
+        "version": "6.1.0",
+        "packageName": "@dnd-kit/core",
+        "hash": "sha512-J3cQBClB4TVxwGo3KEjssGEXNJqGVWx17aRTZ1ob0FliR5IjYgTxl5YJbKTzA6IzrtelotH19v6y7uoIRUZPSg=="
+      }
+    },
+    "npm:@dnd-kit/utilities": {
+      "type": "npm",
+      "name": "npm:@dnd-kit/utilities",
+      "data": {
+        "version": "3.2.2",
+        "packageName": "@dnd-kit/utilities",
+        "hash": "sha512-+MKAJEOfaBe5SmV6t34p80MMKhjvUz0vRrvVJbPT0WElzaOJ/1xs+D+KDv+tD/NE5ujfrChEcshd4fLn0wpiqg=="
+      }
+    },
     "npm:@eslint-community/eslint-utils": {
       "type": "npm",
       "name": "npm:@eslint-community/eslint-utils",
@@ -14065,6 +14092,51 @@
     {
       "source": "npm:debug@3.2.7",
       "target": "npm:ms",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/accessibility",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/accessibility",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/core",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/core",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/core",
+      "target": "npm:@dnd-kit/accessibility",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/core",
+      "target": "npm:@dnd-kit/utilities",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/core",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/utilities",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@dnd-kit/utilities",
+      "target": "npm:tslib",
       "type": "static"
     },
     {

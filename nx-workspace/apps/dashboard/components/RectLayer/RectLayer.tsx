@@ -6,10 +6,10 @@ import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';
 import { PageContentModel, PageContentRequest } from '@types';
 import { useEditorContext } from '../../app/editor/[contentId]/editorContext';
+import { RectComponent } from './RectComponent';
 
 export function Content({ pageContent }: { pageContent: PageContentRequest }) {
   const { state } = useRectData();
-  const { state: editorState, dispatch: editorDispatch } = useEditorContext();
 
   useIframeCommunicator(pageContent);
 
@@ -35,26 +35,9 @@ export function Content({ pageContent }: { pageContent: PageContentRequest }) {
       )}
     >
       <div className="absolute border border-red-500" style={style}>
-        {matchedComponentsRectData.map((componentRectData) => {
-          const isComponentSelected = editorState.selectedBobComponentId === componentRectData.componentId;
-          const { top, bottom, left, right, height, width } = componentRectData.rectData;
-          const style = { top, bottom, left, right, height, width };
-          return (
-            <div
-              onClick={() =>
-                editorDispatch({
-                  type: 'set-selected-bob-component-id',
-                  payload: { selectedBobComponentId: componentRectData.componentId },
-                })
-              }
-              key={componentRectData.componentId}
-              className={clsx('hover:border border-blue-400', {
-                'border border-blue-400': isComponentSelected,
-              })}
-              style={style}
-            ></div>
-          );
-        })}
+        {matchedComponentsRectData.map((componentRectData) => (
+          <RectComponent key={componentRectData.componentId} componentRectData={componentRectData} />
+        ))}
       </div>
     </div>
   );
