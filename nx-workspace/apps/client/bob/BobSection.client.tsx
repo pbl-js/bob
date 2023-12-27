@@ -16,6 +16,7 @@ type BobSectionClientProps = {
 
 function InnerContent({ draft }: { draft: PageContentRequest }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
+  const isComponentsArrayEmpty = draft.components.length === 0;
 
   React.useEffect(() => {
     const sectionId = draft._id;
@@ -39,7 +40,7 @@ function InnerContent({ draft }: { draft: PageContentRequest }) {
   }, [draft]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} style={isComponentsArrayEmpty ? { minWidth: '300px', height: '100px', display: 'flex' } : {}}>
       <SectionContentRenderer sectionData={draft} />
     </div>
   );

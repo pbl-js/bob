@@ -4,11 +4,18 @@ import React from 'react';
 import { RectDataProvider, useRectData } from './rectDataContext';
 import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';
-import { PageContentModel, PageContentRequest } from '@types';
-import { useEditorContext } from '../../app/editor/[contentId]/editorContext';
+import { ComponentSchemaResponse, PageContentRequest } from '@types';
 import { RectComponent } from './RectComponent';
+import { notEmpty } from '../../utils/notEmpty';
+import { DroppableSection } from './DroppableSection';
 
-export function Content({ pageContent }: { pageContent: PageContentRequest }) {
+export function Content({
+  pageContent,
+  registeredComponents,
+}: {
+  pageContent: PageContentRequest;
+  registeredComponents: ComponentSchemaResponse[];
+}) {
   const { state } = useRectData();
 
   useIframeCommunicator(pageContent);
@@ -24,9 +31,29 @@ export function Content({ pageContent }: { pageContent: PageContentRequest }) {
     pageContent.components.some((pageContentComponent) => componentRectData.componentId === pageContentComponent._id)
   );
 
+  const matchedComponentsRectDataWithOrder = matchedComponentsRectData
+    .map((i) => {
+      const pageContentMatchComponent = pageContent.components.find((component) => component._id === i.componentId);
+      if (!pageContentMatchComponent) return null;
+
+      return {
+        ...i,
+        order: pageContentMatchComponent.order,
+      };
+    })
+    .filter(notEmpty);
+
+  const matchedComponentsRectDataSorted = [...matchedComponentsRectDataWithOrder].sort((a, b) => {
+    if (a.order < b.order) return -1;
+    if (a.order > b.order) return 1;
+    return 0;
+  });
+
   const { top, bottom, left, right, height, width } = sectionRectData.rectData;
   const style = { top, bottom, left, right, height, width };
 
+  const emptyComponentsArray = matchedComponentsRectDataSorted.length === 0;
+  console.log('matchedComponentsRectDataSorted: ', matchedComponentsRectDataSorted);
   return (
     <div
       className={clsx(
@@ -34,19 +61,47 @@ export function Content({ pageContent }: { pageContent: PageContentRequest }) {
         'absolute top-0 left-0 bottom-0 right-0 overflow-hidden'
       )}
     >
-      <div className="absolute border border-red-500" style={style}>
-        {matchedComponentsRectData.map((componentRectData) => (
-          <RectComponent key={componentRectData.componentId} componentRectData={componentRectData} />
-        ))}
-      </div>
+      {emptyComponentsArray ? (
+        <DroppableSection rectData={sectionRectData.rectData} pageContent={pageContent} />
+      ) : (
+        <div className={clsx('absolute')} style={style}>
+          {matchedComponentsRectDataSorted.map((componentRectData) => {
+            const matchComponent = pageContent.components.find((item) => item._id === componentRectData.componentId);
+
+            if (!matchComponent) return null;
+
+            const registeredComponent = registeredComponents.find(
+              (item) => item._id === matchComponent.componentBlueprintId
+            );
+
+            if (!registeredComponent) return null;
+
+            return (
+              <RectComponent
+                key={componentRectData.componentId}
+                pageContentId={pageContent._id}
+                pageContent={pageContent}
+                registeredComponent={registeredComponent}
+                componentRectData={componentRectData}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
 
-export function RectLayer({ pageContent }: { pageContent: PageContentRequest }) {
+export function RectLayer({
+  pageContent,
+  registeredComponents,
+}: {
+  pageContent: PageContentRequest;
+  registeredComponents: ComponentSchemaResponse[];
+}) {
   return (
     <RectDataProvider>
-      <Content pageContent={pageContent} />
+      <Content pageContent={pageContent} registeredComponents={registeredComponents} />
     </RectDataProvider>
   );
 }

@@ -62,7 +62,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
                 {'<'}
               </Link>
               <div className="flex relative h-full">
-                <RectLayer pageContent={details} />
+                <RectLayer pageContent={details} registeredComponents={registeredComponents} />
                 <iframe
                   className="block w-full border-none"
                   src="http://localhost:4444"

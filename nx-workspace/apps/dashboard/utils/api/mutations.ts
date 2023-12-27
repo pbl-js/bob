@@ -1,6 +1,11 @@
 'use server';
 
-import { ComponentSchema, PageContentAddComponent_Request, PageContentDeleteComponent_request } from '@types';
+import {
+  ComponentSchema,
+  PageContentAddComponent_Request,
+  PageContentDeleteComponent_request,
+  PageContentUpdateComponents_Request,
+} from '@types';
 import { revalidateTag } from 'next/cache';
 import { PAGE_CONTENT, PAGE_CONTENT_DETAILS, REGISTERED_COMPONENTS } from './tags';
 
@@ -80,6 +85,29 @@ export async function deleteComponentFromPageContent({
     body: JSON.stringify({
       pageContentId,
       componentId,
+    }),
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
+  return res.json();
+}
+
+//
+export async function updateComponentsFromPageContent({
+  pageContentId,
+  components,
+}: PageContentUpdateComponents_Request) {
+  console.log('updateComponentsFromPageContent');
+
+  const res = await fetch('http://localhost:8000/api/page-content/update-components', {
+    method: 'POST',
+    body: JSON.stringify({
+      pageContentId,
+      components,
     }),
     cache: 'no-cache',
     headers: {

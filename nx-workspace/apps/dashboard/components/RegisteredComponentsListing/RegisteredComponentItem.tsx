@@ -5,7 +5,7 @@ import { ComponentSchemaResponse } from '@types';
 import clsx from 'clsx';
 import { addComponentToPageContent } from '../../utils/api/mutations';
 import { useDraggable } from '@dnd-kit/core';
-import { IS_REGISTERED_COMPONENT_BUTTON } from '../DraggingOverlay/consts';
+import { ActiveDragData } from '../../utils/dragLib/types';
 
 type Props = {
   component: ComponentSchemaResponse;
@@ -13,12 +13,14 @@ type Props = {
 };
 
 export function RegisteredComponentItem({ component, pageContentId }: Props) {
+  const draggebleComponentData: ActiveDragData = {
+    type: 'registered-component',
+    component,
+  };
+
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: `draggable-${component._id}`,
-    data: {
-      [IS_REGISTERED_COMPONENT_BUTTON]: true,
-      component,
-    },
+    data: draggebleComponentData,
   });
 
   return (
