@@ -102,19 +102,23 @@ export async function updateComponentsFromPageContent({
   components,
 }: PageContentUpdateComponents_Request) {
   console.log('updateComponentsFromPageContent');
+  try {
+    const res = await fetch('http://localhost:8000/api/page-content/update-components', {
+      method: 'POST',
+      body: JSON.stringify({
+        pageContentId,
+        components,
+      }),
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  const res = await fetch('http://localhost:8000/api/page-content/update-components', {
-    method: 'POST',
-    body: JSON.stringify({
-      pageContentId,
-      components,
-    }),
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+    revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
 
-  revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
-  return res.json();
+    return { status: 'Success' };
+  } catch (error) {
+    return { status: 'Error', message: error };
+  }
 }

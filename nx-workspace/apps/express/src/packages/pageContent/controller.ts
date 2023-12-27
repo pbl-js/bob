@@ -254,6 +254,7 @@ export async function pageContentController(app: Express) {
               _id: z.string().min(1),
               parentId: z.string().min(1),
               name: z.string().min(1),
+              props: z.any(), // TODO: Add validation for props object
             })
           )
           .min(1),
@@ -295,7 +296,10 @@ export async function pageContentController(app: Express) {
       await session.withTransaction(async () => {
         for (let i = 0; i < body.components.length; i++) {
           const component = body.components[i];
+
           if (!component) return;
+          console.log('genereteSetObject: ', genereteSetObject(component));
+
           await pageContentCollection.updateOne(
             { _id: new ObjectId(body.pageContentId) },
             { $set: genereteSetObject(component) },

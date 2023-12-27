@@ -208,7 +208,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "8764717672923217153",
+          "hash": "12224940035650457596",
           "deps": [
             "npm:react",
             "types",
@@ -472,7 +472,7 @@
         },
         {
           "file": "apps/dashboard/utils/api/mutations.ts",
-          "hash": "15196805923973061564",
+          "hash": "6961428462534997015",
           "deps": [
             "types",
             "npm:next"
@@ -603,7 +603,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "14969209242603659470",
+          "hash": "3953777869116188586",
           "deps": [
             "npm:express",
             "types",

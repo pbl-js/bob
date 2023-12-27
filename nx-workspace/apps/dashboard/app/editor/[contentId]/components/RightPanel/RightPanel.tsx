@@ -10,6 +10,7 @@ import {
 } from '@types';
 import clsx from 'clsx';
 import { postMessage_pageContentData } from '../../../../../components/iframeCommunicator/postMessage/pageContentData';
+import { updateComponentsFromPageContent } from '../../../../../utils/api/mutations';
 
 type Props = {
   details: PageContentRequest;
@@ -46,6 +47,15 @@ export function RightPanel({ details, componentsSchema }: Props) {
       };
     });
 
+  const onBlur = async () => {
+    const { status, message } = await updateComponentsFromPageContent({
+      pageContentId: details._id,
+      components: detailsState.components,
+    });
+    console.log('Status: ', status);
+    console.log('Message: ', message);
+  };
+
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
   const matchComponentSchema = componentsSchema.find(({ _id }) => matchComponent?.componentBlueprintId === _id);
   console.log('Components: ', components);
@@ -71,6 +81,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
                   className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
                   type="text"
                   value={matchComponentMatchProp.value}
+                  onBlur={onBlur}
                   onChange={(e) =>
                     onChange({
                       componentId: matchComponent._id,
