@@ -55,7 +55,6 @@ export function SectionContentRenderer({ sectionData }: { sectionData: PageConte
     return 0;
   });
   const bobComponents = BOB._customComponents;
-
   return sortedComponents.map((component) => {
     const matchBobComponent = bobComponents.find((bobComponent) => bobComponent.name === component.name);
 

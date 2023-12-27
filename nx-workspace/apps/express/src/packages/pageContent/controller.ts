@@ -16,6 +16,7 @@ import { z } from 'zod';
 import { COMPONENT_BLUEPRINT_COLLECTION, PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT_COLLECTION } from '../db/collections';
 import { ObjectId } from 'mongodb';
 import { genDefaultProps } from '../../utils/genDefaultProps';
+import { ArrayElement } from '../../utils/arrayElement';
 
 export async function pageContentController(app: Express) {
   app.get('/api/page-content', async (req, res) => {
@@ -240,6 +241,8 @@ export async function pageContentController(app: Express) {
   });
 
   app.post('/api/page-content/update-components', async (req, res) => {
+    const session = client.startSession();
+
     try {
       console.log('POST Endpoint: /api/page-content/update-components');
       // Validate body
@@ -276,27 +279,38 @@ export async function pageContentController(app: Express) {
       if (!databaseContainsRequestedComponents)
         return res.status(400).send('Database doesnt contain requested components');
 
-      // Delete component
-      // const result = await pageContentCollection.updateOne(
-      //   { _id: new ObjectId(body.pageContentId) },
-      //   {
-      //     $set: {
-      //       'variants.$[].items.$[xxx].quantity': 999,
-      //     },
-      //   }
-      // );
+      // Logic
 
-      const result = await pageContentCollection.updateOne(
-        { _id: new ObjectId(body.pageContentId) },
-        { $set: { 'components.$[t].parentId': 'dupaComponent' } },
-        { arrayFilters: [{ 't._id': new ObjectId(body.components?.[0]?._id) }] }
-      );
+      const genereteSetObject = (data: ArrayElement<typeof body.components>) => {
+        return Object.keys(data).reduce((acc, propKey) => {
+          const key = propKey as keyof typeof data;
 
-      console.log('POST Endpoint: /api/page-content/update-component returned data: ', result);
-      await res.json(result);
+          if (key === '_id') return acc;
+          if (key === 'name') return acc;
+
+          return { ...acc, [`components.$[t].${propKey}`]: data[key] };
+        }, {});
+      };
+
+      await session.withTransaction(async () => {
+        for (let i = 0; i < body.components.length; i++) {
+          const component = body.components[i];
+          if (!component) return;
+          await pageContentCollection.updateOne(
+            { _id: new ObjectId(body.pageContentId) },
+            { $set: genereteSetObject(component) },
+            { arrayFilters: [{ 't._id': new ObjectId(body.components[i]?._id) }], session }
+          );
+        }
+      });
+
+      // console.log('POST Endpoint: /api/page-content/update-component returned data: ', result);
+      await res.send('Update completed');
     } catch (err) {
       console.log('POST Endpoint: /api/page-content/delete-component ERROR: ', err);
       res.status(400).json(err);
+    } finally {
+      await session.endSession();
     }
   });
 }
