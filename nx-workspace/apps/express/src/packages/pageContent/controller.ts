@@ -1,17 +1,6 @@
 import { Express } from 'express';
 import { client } from '../db/mongo';
-import {
-  ComponentContent,
-  ComponentContentModel,
-  ComponentSchema,
-  ComponentSchemaResponse,
-  PageBlueprint,
-  PageBlueprint_MongoModel,
-  PageContent,
-  PageContentModel,
-  dataFieldSchemaArraySchema,
-  pageBlueprintSchema,
-} from '@types';
+import { ComponentContentModel, ComponentSchemaResponse, PageBlueprint, PageContentModel } from '@types';
 import { z } from 'zod';
 import { COMPONENT_BLUEPRINT_COLLECTION, PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT_COLLECTION } from '../db/collections';
 import { ObjectId } from 'mongodb';
@@ -193,7 +182,7 @@ export async function pageContentController(app: Express) {
         props: componentDefaultProps,
       };
 
-      const gencomponentOrder = (component: ComponentContentModel) => {
+      const genComponentOrder = (component: ComponentContentModel) => {
         if (component.order >= body.componentData.order) return component.order + 1;
 
         return component.order;
@@ -203,7 +192,7 @@ export async function pageContentController(app: Express) {
         matchContent.components.forEach(async (component) => {
           await pageContentCollection.updateOne(
             { _id: new ObjectId(body.pageContentId) },
-            { $set: { 'components.$[t].order': gencomponentOrder(component) } },
+            { $set: { 'components.$[t].order': genComponentOrder(component) } },
             { arrayFilters: [{ 't._id': new ObjectId(component._id) }], session }
           );
         });
@@ -224,6 +213,8 @@ export async function pageContentController(app: Express) {
   });
 
   app.post('/api/page-content/delete-component', async (req, res) => {
+    const session = client.startSession();
+
     try {
       console.log('POST Endpoint: /api/page-content/delete-component');
       // Validate body
@@ -247,17 +238,36 @@ export async function pageContentController(app: Express) {
 
       if (!matchComponent) return res.status(400).send('no component with provided ID');
 
-      // Delete component
-      const result = await pageContentCollection.updateOne(
-        { _id: new ObjectId(body.pageContentId) },
-        { $pull: { components: { _id: new ObjectId(body.componentId) } } }
-      );
+      // Database mutations
+      await session.withTransaction(async () => {
+        const componentsWithHigherOrderThanDeletedComponent = matchContent.components.filter(
+          (i) => i.order > matchComponent.order
+        );
 
-      console.log('POST Endpoint: /api/page-content/delete-component returned data: ', result);
-      await res.json(result);
+        // Change order of components with higher order than deleted component
+        componentsWithHigherOrderThanDeletedComponent.forEach(async (component) => {
+          await pageContentCollection.updateOne(
+            { _id: new ObjectId(body.pageContentId) },
+            { $set: { [`components.$[t].order`]: component.order - 1 } },
+            { arrayFilters: [{ 't._id': new ObjectId(component._id) }], session }
+          );
+        });
+
+        // Delete component
+        await pageContentCollection.updateOne(
+          { _id: new ObjectId(body.pageContentId) },
+          { $pull: { components: { _id: new ObjectId(body.componentId) } } },
+          { session }
+        );
+      });
+
+      console.log('POST Endpoint: /api/page-content/delete-component returned data: ');
+      await res.send('Deleting completed');
     } catch (err) {
       console.log('POST Endpoint: /api/page-content/delete-component ERROR: ', err);
       res.status(400).json(err);
+    } finally {
+      session.endSession();
     }
   });
 
@@ -299,11 +309,11 @@ export async function pageContentController(app: Express) {
 
       const databaseContainsRequestedComponents = matchComponents.length === body.components.length;
       if (!databaseContainsRequestedComponents)
-        return res.status(400).send('Database doesnt contain requested components');
+        return res.status(400).send("Database doesn't contain requested components");
 
       // Logic
 
-      const genereteSetObject = (data: ArrayElement<typeof body.components>) => {
+      const generateSetObject = (data: ArrayElement<typeof body.components>) => {
         return Object.keys(data).reduce((acc, propKey) => {
           const key = propKey as keyof typeof data;
 
@@ -319,11 +329,11 @@ export async function pageContentController(app: Express) {
           const component = body.components[i];
 
           if (!component) return;
-          console.log('genereteSetObject: ', genereteSetObject(component));
+          console.log('generateSetObject: ', generateSetObject(component));
 
           await pageContentCollection.updateOne(
             { _id: new ObjectId(body.pageContentId) },
-            { $set: genereteSetObject(component) },
+            { $set: generateSetObject(component) },
             { arrayFilters: [{ 't._id': new ObjectId(body.components[i]?._id) }], session }
           );
         }
@@ -332,7 +342,7 @@ export async function pageContentController(app: Express) {
       // console.log('POST Endpoint: /api/page-content/update-component returned data: ', result);
       await res.send('Update completed');
     } catch (err) {
-      console.log('POST Endpoint: /api/page-content/delete-component ERROR: ', err);
+      console.log('POST Endpoint: /api/page-content/update-component ERROR: ', err);
       res.status(400).json(err);
     } finally {
       await session.endSession();

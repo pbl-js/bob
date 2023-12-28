@@ -86,21 +86,30 @@ export async function deleteComponentFromPageContent({
   pageContentId,
 }: PageContentDeleteComponent_request) {
   console.log('addComponentToPageContent runs');
+  try {
+    await fetch('http://localhost:8000/api/page-content/delete-component', {
+      method: 'POST',
+      body: JSON.stringify({
+        pageContentId,
+        componentId,
+      }),
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  const res = await fetch('http://localhost:8000/api/page-content/delete-component', {
-    method: 'POST',
-    body: JSON.stringify({
-      pageContentId,
-      componentId,
-    }),
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+    revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
 
-  revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
-  return res.json();
+    return {
+      status: 'Success',
+    };
+  } catch (err) {
+    return {
+      status: 'Error',
+      message: err,
+    };
+  }
 }
 
 //
