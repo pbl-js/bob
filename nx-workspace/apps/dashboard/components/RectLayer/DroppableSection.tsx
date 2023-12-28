@@ -35,7 +35,7 @@ export function DroppableSection({ rectData, pageContent }: { rectData: BobRect;
               parentId: 'root',
               name: component.name,
               props: [],
-              order: pageContent.components.length + 1,
+              order: 1,
             },
           });
 

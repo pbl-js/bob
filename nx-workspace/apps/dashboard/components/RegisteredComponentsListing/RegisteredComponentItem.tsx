@@ -3,7 +3,6 @@
 import React from 'react';
 import { ComponentSchemaResponse } from '@types';
 import clsx from 'clsx';
-import { addComponentToPageContent } from '../../utils/api/mutations';
 import { useDraggable } from '@dnd-kit/core';
 import { ActiveDragData } from '../../utils/dragLib/types';
 
@@ -26,16 +25,6 @@ export function RegisteredComponentItem({ component, pageContentId }: Props) {
   return (
     <button
       ref={setNodeRef}
-      // onClick={() =>
-      //   addComponentToPageContent({
-      //     componentBlueprintId: component._id,
-      //     pageContentId,
-      //     componentData: {
-      //       parentId: 'root',
-      //       name: component.name,
-      //     },
-      //   })
-      // }
       className={clsx(
         'bg-slate-700 w-[136px] rounded-md p-2 h-[60px]',
         'text-xs break-words text-slate-300',

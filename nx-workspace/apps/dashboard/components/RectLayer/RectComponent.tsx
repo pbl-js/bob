@@ -44,7 +44,7 @@ export function RectComponent({
   });
   const isTopOver = droppableBottom.over?.id === `rect-component-top-drop-area-${componentRectData.componentId}`;
 
-  const addComponent = () =>
+  const addComponent = (order: number) =>
     addComponentToPageContent({
       componentBlueprintId: registeredComponent._id,
       pageContentId: pageContentId,
@@ -52,20 +52,30 @@ export function RectComponent({
         parentId: 'root',
         name: registeredComponent.name,
         props: [],
-        order: pageContent.components.length + 1,
+        order: order,
       },
     });
 
   useDndMonitor({
     onDragEnd: async (e) => {
       console.log('Drag end: ', componentRectData.componentId, e);
-      if (`rect-component-bottom-drop-area-${componentRectData.componentId}` === e.over?.id) {
-        await addComponent();
+      const matchComponent = pageContent.components.find((i) => i._id === componentRectData.componentId);
+      if (!matchComponent) return;
+
+      if (`rect-component-top-drop-area-${componentRectData.componentId}` === e.over?.id) {
+        await addComponent(matchComponent.order);
         editorDispatch({
           type: 'set-selected-bob-component-id',
           payload: { selectedBobComponentId: componentRectData.componentId },
         });
-        return;
+      }
+
+      if (`rect-component-bottom-drop-area-${componentRectData.componentId}` === e.over?.id) {
+        await addComponent(matchComponent.order + 1);
+        editorDispatch({
+          type: 'set-selected-bob-component-id',
+          payload: { selectedBobComponentId: componentRectData.componentId },
+        });
       }
     },
   });

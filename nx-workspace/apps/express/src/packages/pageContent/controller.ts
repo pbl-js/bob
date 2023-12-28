@@ -145,6 +145,8 @@ export async function pageContentController(app: Express) {
   });
 
   app.post('/api/page-content/add-component', async (req, res) => {
+    const session = client.startSession();
+
     try {
       console.log('POST Endpoint: /api/page-content/add-component');
 
@@ -154,12 +156,13 @@ export async function pageContentController(app: Express) {
         pageContentId: z.string().min(1),
         componentData: z.object({
           parentId: z.string().min(1),
+          order: z.number(),
           name: z.string().min(1),
         }),
       });
 
       const body = reqBodySchema.parse(req.body);
-
+      console.log('body', body);
       const myDB = client.db('mongotron');
       const pageContentCollection = myDB.collection(PAGE_CONTENT_COLLECTION);
       const componentBlueprintCollection = myDB.collection(COMPONENT_BLUEPRINT_COLLECTION);
@@ -186,18 +189,36 @@ export async function pageContentController(app: Express) {
         componentBlueprintId: new ObjectId(body.componentBlueprintId).toString(),
         name: body.componentData.name,
         parentId: body.componentData.parentId,
-        order: matchContent.components.length + 1,
+        order: body.componentData.order,
         props: componentDefaultProps,
       };
 
-      const result = await pageContentCollection.updateOne(
-        { _id: new ObjectId(body.pageContentId) },
-        { $push: { components: componentToInsert } }
-      );
+      const gencomponentOrder = (component: ComponentContentModel) => {
+        if (component.order >= body.componentData.order) return component.order + 1;
 
-      await res.json(result);
+        return component.order;
+      };
+
+      await session.withTransaction(async () => {
+        matchContent.components.forEach(async (component) => {
+          await pageContentCollection.updateOne(
+            { _id: new ObjectId(body.pageContentId) },
+            { $set: { 'components.$[t].order': gencomponentOrder(component) } },
+            { arrayFilters: [{ 't._id': new ObjectId(component._id) }], session }
+          );
+        });
+
+        await pageContentCollection.updateOne(
+          { _id: new ObjectId(body.pageContentId) },
+          { $push: { components: componentToInsert } },
+          { session }
+        );
+      });
+
+      await res.send('Inserting completed');
     } catch (err) {
       console.log('POST Endpoint: /api/page-content/add-component ERROR: ', err);
+      await session.endSession();
       res.status(400).json(err);
     }
   });

@@ -297,7 +297,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/DroppableSection.tsx",
-          "hash": "11890916151474805626",
+          "hash": "8937890477262985434",
           "deps": [
             "npm:clsx",
             "npm:react",
@@ -307,7 +307,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectComponent.tsx",
-          "hash": "17149052303953237185",
+          "hash": "4090651910968371605",
           "deps": [
             "npm:react",
             "types",
@@ -357,7 +357,7 @@
         },
         {
           "file": "apps/dashboard/components/RegisteredComponentsListing/RegisteredComponentItem.tsx",
-          "hash": "12515699652967639009",
+          "hash": "14314968984105209891",
           "deps": [
             "npm:react",
             "types",
@@ -472,7 +472,7 @@
         },
         {
           "file": "apps/dashboard/utils/api/mutations.ts",
-          "hash": "6961428462534997015",
+          "hash": "9593221094774853722",
           "deps": [
             "types",
             "npm:next"
@@ -603,7 +603,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "3953777869116188586",
+          "hash": "4660293940287866779",
           "deps": [
             "npm:express",
             "types",
@@ -630,7 +630,7 @@
         },
         {
           "file": "apps/express/src/utils/genDefaultProps.ts",
-          "hash": "15122475412188446877",
+          "hash": "2904054126392867737",
           "deps": [
             "types"
           ]

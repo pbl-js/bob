@@ -57,21 +57,28 @@ export async function addComponentToPageContent({
 }: PageContentAddComponent_Request) {
   console.log('addComponentToPageContent runs');
 
-  const res = await fetch('http://localhost:8000/api/page-content/add-component', {
-    method: 'POST',
-    body: JSON.stringify({
-      componentBlueprintId,
-      pageContentId,
-      componentData,
-    }),
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  try {
+    await fetch('http://localhost:8000/api/page-content/add-component', {
+      method: 'POST',
+      body: JSON.stringify({
+        componentBlueprintId,
+        pageContentId,
+        componentData,
+      }),
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
-  return res.json();
+    revalidateTag(PAGE_CONTENT_DETAILS(pageContentId));
+
+    return {
+      status: 'Success',
+    };
+  } catch (error) {
+    return { status: 'Error', message: error };
+  }
 }
 
 export async function deleteComponentFromPageContent({

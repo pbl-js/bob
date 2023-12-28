@@ -2,9 +2,9 @@ import { DataFieldContentArray, DataFieldSchemaArray } from '@types';
 import { notEmpty } from './notEmpty';
 
 export function genDefaultProps(propsSchema: DataFieldSchemaArray): DataFieldContentArray {
+  console.log('propsSchema: ', propsSchema);
   return propsSchema
     .map((propSchema) => {
-      console.log('propSchema', propSchema);
       if (propSchema.type === 'string') {
         if (propSchema.defaultValue === undefined) return undefined;
 
