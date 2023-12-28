@@ -58,7 +58,7 @@ export async function addComponentToPageContent({
   console.log('addComponentToPageContent runs');
 
   try {
-    await fetch('http://localhost:8000/api/page-content/add-component', {
+    const res = await fetch('http://localhost:8000/api/page-content/add-component', {
       method: 'POST',
       body: JSON.stringify({
         componentBlueprintId,
@@ -75,6 +75,7 @@ export async function addComponentToPageContent({
 
     return {
       status: 'Success',
+      data: await res.json(),
     };
   } catch (error) {
     return { status: 'Error', message: error };

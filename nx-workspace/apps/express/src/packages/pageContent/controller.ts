@@ -202,13 +202,14 @@ export async function pageContentController(app: Express) {
           { $push: { components: componentToInsert } },
           { session }
         );
-      });
 
-      await res.send('Inserting completed');
+        res.json({ componentId: componentToInsert._id });
+      });
     } catch (err) {
       console.log('POST Endpoint: /api/page-content/add-component ERROR: ', err);
-      await session.endSession();
       res.status(400).json(err);
+    } finally {
+      await session.endSession();
     }
   });
 

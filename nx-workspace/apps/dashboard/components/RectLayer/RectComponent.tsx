@@ -63,18 +63,22 @@ export function RectComponent({
       if (!matchComponent) return;
 
       if (`rect-component-top-drop-area-${componentRectData.componentId}` === e.over?.id) {
-        await addComponent(matchComponent.order);
+        const response = await addComponent(matchComponent.order);
+        console.log('response: ', response);
+
         editorDispatch({
           type: 'set-selected-bob-component-id',
-          payload: { selectedBobComponentId: componentRectData.componentId },
+          payload: { selectedBobComponentId: response.data.componentId },
         });
       }
 
       if (`rect-component-bottom-drop-area-${componentRectData.componentId}` === e.over?.id) {
-        await addComponent(matchComponent.order + 1);
+        const response = await addComponent(matchComponent.order + 1);
+        console.log('response: ', response);
+
         editorDispatch({
           type: 'set-selected-bob-component-id',
-          payload: { selectedBobComponentId: componentRectData.componentId },
+          payload: { selectedBobComponentId: response.data.componentId },
         });
       }
     },
