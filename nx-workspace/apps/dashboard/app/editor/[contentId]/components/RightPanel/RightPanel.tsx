@@ -58,9 +58,6 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
   const matchComponentSchema = componentsSchema.find(({ _id }) => matchComponent?.componentBlueprintId === _id);
-  console.log('Components: ', components);
-  console.log('Match component: ', matchComponent);
-  console.log('Match component schema: ', matchComponentSchema);
 
   if (!matchComponent || !matchComponentSchema) return <div>Something went wrong</div>;
 
@@ -71,23 +68,23 @@ export function RightPanel({ details, componentsSchema }: Props) {
           const matchComponentMatchProp = matchComponent.props.find(
             (matchComponentProp) => matchComponentProp.name === propSchema.name
           );
-          if (!matchComponentMatchProp) return null;
+          console.log('propSchema: ', propSchema);
 
-          if (propSchema.type === 'string' && matchComponentMatchProp.type === 'string')
+          if (propSchema.type === 'string')
             return (
               <div className="flex flex-col gap-1">
-                <label>{matchComponentMatchProp.name}</label>
+                <label>{propSchema.name}</label>
                 <input
                   className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
                   type="text"
-                  value={matchComponentMatchProp.value}
+                  value={matchComponentMatchProp?.type === 'string' ? matchComponentMatchProp.value : ''}
                   onBlur={onBlur}
                   onChange={(e) =>
                     onChange({
                       componentId: matchComponent._id,
                       newProp: {
                         type: 'string',
-                        name: matchComponentMatchProp.name,
+                        name: propSchema.name,
                         value: e.target.value,
                       },
                     })
@@ -96,14 +93,14 @@ export function RightPanel({ details, componentsSchema }: Props) {
               </div>
             );
 
-          if (propSchema.type === 'number' && matchComponentMatchProp.type === 'number')
+          if (propSchema.type === 'number')
             return (
               <div className="flex flex-col gap-1">
-                <label>{matchComponentMatchProp.name}</label>
+                <label>{propSchema.name}</label>
                 <input
                   className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
                   type="text"
-                  value={matchComponentMatchProp.value}
+                  value={matchComponentMatchProp?.type === 'number' ? matchComponentMatchProp.value : 0}
                 />
               </div>
             );

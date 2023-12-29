@@ -572,7 +572,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "12224940035650457596",
+          "hash": "2025726710498839617",
           "deps": [
             "npm:react",
             "types",
@@ -671,7 +671,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectComponent.tsx",
-          "hash": "13801861823912241036",
+          "hash": "7439531966285835397",
           "deps": [
             "npm:react",
             "types",
@@ -923,7 +923,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "12665441615370027138",
+          "hash": "18244700154243152564",
           "deps": [
             "npm:express",
             "types",

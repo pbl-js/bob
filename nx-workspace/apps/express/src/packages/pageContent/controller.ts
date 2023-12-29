@@ -189,22 +189,22 @@ export async function pageContentController(app: Express) {
       };
 
       await session.withTransaction(async () => {
-        matchContent.components.forEach(async (component) => {
+        for await (const component of matchContent.components) {
           await pageContentCollection.updateOne(
             { _id: new ObjectId(body.pageContentId) },
             { $set: { 'components.$[t].order': genComponentOrder(component) } },
             { arrayFilters: [{ 't._id': new ObjectId(component._id) }], session }
           );
-        });
+        }
 
         await pageContentCollection.updateOne(
           { _id: new ObjectId(body.pageContentId) },
           { $push: { components: componentToInsert } },
           { session }
         );
-
-        res.json({ componentId: componentToInsert._id });
       });
+
+      res.json({ componentId: componentToInsert._id });
     } catch (err) {
       console.log('POST Endpoint: /api/page-content/add-component ERROR: ', err);
       res.status(400).json(err);
@@ -246,13 +246,13 @@ export async function pageContentController(app: Express) {
         );
 
         // Change order of components with higher order than deleted component
-        componentsWithHigherOrderThanDeletedComponent.forEach(async (component) => {
+        for await (const component of componentsWithHigherOrderThanDeletedComponent) {
           await pageContentCollection.updateOne(
             { _id: new ObjectId(body.pageContentId) },
             { $set: { [`components.$[t].order`]: component.order - 1 } },
             { arrayFilters: [{ 't._id': new ObjectId(component._id) }], session }
           );
-        });
+        }
 
         // Delete component
         await pageContentCollection.updateOne(
