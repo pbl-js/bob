@@ -671,7 +671,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectComponent.tsx",
-          "hash": "7439531966285835397",
+          "hash": "12959376960507223024",
           "deps": [
             "npm:react",
             "types",

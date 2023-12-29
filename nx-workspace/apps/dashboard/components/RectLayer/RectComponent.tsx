@@ -4,6 +4,7 @@ import { useEditorContext } from '../../app/editor/[contentId]/editorContext';
 import clsx from 'clsx';
 import { useDndMonitor, useDroppable } from '@dnd-kit/core';
 import { addComponentToPageContent } from '../../utils/api/mutations';
+import { ActiveDragData } from '../../utils/dragLib/types';
 
 export function RectComponent({
   componentRectData,
@@ -44,28 +45,30 @@ export function RectComponent({
   });
   const isTopOver = droppableBottom.over?.id === `rect-component-top-drop-area-${componentRectData.componentId}`;
 
-  const addComponent = (order: number) =>
-    addComponentToPageContent({
-      componentBlueprintId: registeredComponent._id,
-      pageContentId: pageContentId,
-      componentData: {
-        parentId: 'root',
-        name: registeredComponent.name,
-        props: [],
-        order: order,
-      },
-    });
-
   useDndMonitor({
     onDragEnd: async (e) => {
-      console.log('Drag end: ', componentRectData.componentId, e);
       const matchComponent = pageContent.components.find((i) => i._id === componentRectData.componentId);
       if (!matchComponent) return;
+
+      const activeDraggableCurrentData = e.active.data.current as ActiveDragData;
+      if (activeDraggableCurrentData.type !== 'registered-component') return;
+      const draggedComponent = activeDraggableCurrentData.component;
+
+      const addComponent = (order: number) =>
+        addComponentToPageContent({
+          componentBlueprintId: draggedComponent._id,
+          pageContentId: pageContentId,
+          componentData: {
+            parentId: 'root',
+            name: draggedComponent.name,
+            props: [],
+            order: order,
+          },
+        });
 
       if (`rect-component-top-drop-area-${componentRectData.componentId}` === e.over?.id) {
         try {
           const response = await addComponent(matchComponent.order);
-          console.log('response', response);
 
           editorDispatch({
             type: 'set-selected-bob-component-id',
@@ -78,8 +81,9 @@ export function RectComponent({
 
       if (`rect-component-bottom-drop-area-${componentRectData.componentId}` === e.over?.id) {
         try {
+          if (activeDraggableCurrentData.type !== 'registered-component') return;
+
           const response = await addComponent(matchComponent.order + 1);
-          console.log('response', response);
 
           editorDispatch({
             type: 'set-selected-bob-component-id',
