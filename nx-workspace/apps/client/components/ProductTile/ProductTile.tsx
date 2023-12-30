@@ -17,11 +17,17 @@ const ProductTile = ({
   priceDetailed: number;
 }) => {
   return (
-    <div style={{ width: '100%', height: '200px', padding: '15px' }}>
-      <div>Product title: {title}</div>
-      <div>Product subtile: {subtitle}</div>
-      <div>priceTotal: {priceTotal}</div>
-      <div>priceTotal: {priceDetailed}</div>
+    <div className="flex flex-col w-[300px] p-4 bg-gray-900 rounded-3xl gap-2">
+      <div className="h-28 w-full bg-slate-800 rounded-xl"></div>
+      <div className="flex flex-col w-full">
+        <div className="text-xl text-gray-100">{title}</div>
+        <div className="text-sm text-gray-400">{subtitle}</div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        <button className="bg-blue-500 p-2 rounded-xl font-medium">Add to cart</button>
+        <button className="bg-green-500 p-2 rounded-xl font-medium">See details</button>
+      </div>
     </div>
   );
 };

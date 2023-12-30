@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 BOB.init('example-of-api-key');
 
 const ProductTile = dynamic(async () => (await import('../components/ProductTile/ProductTile')).default);
+const CallToAction = dynamic(async () => (await import('../components/CallToAction/CallToAction')).default);
 
 BOB.registerComponent('testProductTile', ProductTile, [
   { name: 'title', type: 'string' },
@@ -29,6 +30,19 @@ BOB.registerComponent('testProductTile', ProductTile, [
       },
     ],
   },
+]);
+
+BOB.registerComponent('callToAction', CallToAction, [
+  { name: 'headline', type: 'string', defaultValue: 'Lorem Ipsum' },
+  {
+    name: 'paragraph',
+    type: 'string',
+    defaultValue:
+      'Lorem ipsum dolor sit amet, consectetur adipisci elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore.',
+  },
+  { name: 'buttonText', type: 'string', defaultValue: 'Button' },
+  { name: 'linkText', type: 'string', defaultValue: 'Check lates video' },
+  { name: 'linkHref', type: 'string', defaultValue: '#' },
 ]);
 
 BOB.registerComponent('anotherProductTile', ProductTile, [{ name: 'title', type: 'string' }]);

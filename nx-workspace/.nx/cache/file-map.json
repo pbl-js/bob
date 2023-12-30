@@ -226,7 +226,7 @@
         },
         {
           "file": "apps/client/app/layout.tsx",
-          "hash": "13679950349092635283",
+          "hash": "5605825329546696631",
           "deps": [
             "npm:next"
           ]
@@ -244,7 +244,7 @@
         },
         {
           "file": "apps/client/bob/BobSection.client.tsx",
-          "hash": "4486909945977250205",
+          "hash": "6629145837003380045",
           "deps": [
             "npm:react",
             "types"
@@ -337,7 +337,7 @@
         },
         {
           "file": "apps/client/components/ProductTile/ProductTile.tsx",
-          "hash": "81352443742674009",
+          "hash": "536313449707918419",
           "deps": [
             "npm:react"
           ]
@@ -395,6 +395,14 @@
         {
           "file": "apps/client/tsconfig.spec.json",
           "hash": "6922413205408300107"
+        },
+        {
+          "file": "apps/client/components/CallToAction/CallToAction.tsx",
+          "hash": "16806010513143199871",
+          "deps": [
+            "npm:next",
+            "npm:react"
+          ]
         }
       ],
       "dashboard-e2e": [
@@ -681,7 +689,7 @@
         },
         {
           "file": "apps/dashboard/components/RectLayer/RectLayer.tsx",
-          "hash": "14524918088470324449",
+          "hash": "11303361708930875361",
           "deps": [
             "npm:react",
             "npm:clsx",
@@ -731,7 +739,7 @@
         },
         {
           "file": "apps/dashboard/components/RegisteredComponentsListing/RegisteredComponentListing.tsx",
-          "hash": "1554543317991077120",
+          "hash": "1503007515515210087",
           "deps": [
             "npm:react",
             "npm:clsx"

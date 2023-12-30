@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { RectDataProvider, useRectData } from './rectDataContext';
 import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';
@@ -21,6 +21,19 @@ export function Content({
   useIframeCommunicator(pageContent);
 
   const sectionRectData = state.sectionsRectData[0];
+
+  const wrapperRef = React.useRef<HTMLDivElement | null>(null);
+
+  const handleScroll = (e: Event) => {
+    console.log(e);
+  };
+
+  React.useEffect(() => {
+    console.log('wrapperRef: ', wrapperRef);
+    wrapperRef.current?.addEventListener('scroll', handleScroll);
+
+    return wrapperRef.current?.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (!sectionRectData) return null;
 
@@ -53,9 +66,10 @@ export function Content({
   const style = { top, bottom, left, right, height, width };
 
   const emptyComponentsArray = matchedComponentsRectDataSorted.length === 0;
-  console.log('matchedComponentsRectDataSorted: ', matchedComponentsRectDataSorted);
+
   return (
     <div
+      ref={wrapperRef}
       className={clsx(
         'flex items-center justify-center w-full',
         'absolute top-0 left-0 bottom-0 right-0 overflow-hidden'

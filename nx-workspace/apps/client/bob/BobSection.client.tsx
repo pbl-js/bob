@@ -40,7 +40,14 @@ function InnerContent({ draft }: { draft: PageContentRequest }) {
   }, [draft]);
 
   return (
-    <div ref={ref} style={isComponentsArrayEmpty ? { minWidth: '300px', height: '100px', display: 'flex' } : {}}>
+    <div
+      ref={ref}
+      style={
+        isComponentsArrayEmpty
+          ? { minWidth: '300px', height: '100px', display: 'flex' }
+          : { display: 'flex', flexDirection: 'column', alignItems: 'start' }
+      }
+    >
       <SectionContentRenderer sectionData={draft} />
     </div>
   );
