@@ -18,6 +18,7 @@
     "skipDefaultLibCheck": true,
     "noUncheckedIndexedAccess": true,
     "paths": {
+      "@ui/*": ["libs/ui/src/*"],
       "@types": ["libs/types/src/index.ts"]
     }
   },

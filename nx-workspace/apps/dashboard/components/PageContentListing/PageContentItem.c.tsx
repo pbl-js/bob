@@ -2,13 +2,13 @@
 
 import React, { useTransition } from 'react';
 import { deletePageContent } from '../../utils/api/mutations';
-import { PageContentModel } from '@types';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { EDITOR_PAGE } from '../../utils/routes';
+import { PageContentRequest } from '../../../../libs/types/src';
 
 type Props = {
-  pageContentItem: PageContentModel;
+  pageContentItem: PageContentRequest;
 };
 
 export const PageContentItem = ({ pageContentItem }: Props) => {

@@ -11,6 +11,7 @@ import {
 import clsx from 'clsx';
 import { postMessage_pageContentData } from '../../../../../components/iframeCommunicator/postMessage/pageContentData';
 import { updateComponentsFromPageContent } from '../../../../../utils/api/mutations';
+import { Button } from '@ui/components/ui/button';
 
 type Props = {
   details: PageContentRequest;
