@@ -15,7 +15,7 @@ BOB.registerComponent('testProductTile', ProductTile, [
   { name: 'title', type: 'string' },
   { name: 'subtitle', type: 'string', defaultValue: 'default subtitle' },
   { name: 'priceTotal', type: 'number' },
-  { name: 'priceDetailed', type: 'number', defaultValue: 4.99 },
+  { name: 'withBorder', type: 'boolean', defaultValue: false },
   {
     name: 'productData',
     type: 'object',
@@ -44,8 +44,6 @@ BOB.registerComponent('callToAction', CallToAction, [
   { name: 'linkText', type: 'string', defaultValue: 'Check lates video' },
   { name: 'linkHref', type: 'string', defaultValue: '#' },
 ]);
-
-BOB.registerComponent('anotherProductTile', ProductTile, [{ name: 'title', type: 'string' }]);
 
 const inter = Inter({ subsets: ['latin'] });
 

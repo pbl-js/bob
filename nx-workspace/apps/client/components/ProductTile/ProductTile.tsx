@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 
 // { name: 'title', type: 'string' },
@@ -9,18 +10,25 @@ const ProductTile = ({
   title,
   subtitle,
   priceTotal,
-  priceDetailed,
+  withBorder,
 }: {
   title: string;
   subtitle: string;
   priceTotal: number;
-  priceDetailed: number;
+  withBorder: boolean;
 }) => {
   return (
-    <div className="flex flex-col w-[300px] p-4 bg-gray-900 rounded-3xl gap-2">
+    <div
+      className={clsx('flex flex-col w-[300px] p-4 bg-gray-900 rounded-3xl gap-2', {
+        'border border-gray-400': withBorder,
+      })}
+    >
       <div className="h-28 w-full bg-slate-800 rounded-xl"></div>
       <div className="flex flex-col w-full">
-        <div className="text-xl text-gray-100">{title}</div>
+        <div className="flex items-center">
+          <div className="text-xl text-gray-100">{title}</div>
+          <div className="text-xs ml-auto text-gray-200">{`${priceTotal} PLN`}</div>
+        </div>
         <div className="text-sm text-gray-400">{subtitle}</div>
       </div>
 

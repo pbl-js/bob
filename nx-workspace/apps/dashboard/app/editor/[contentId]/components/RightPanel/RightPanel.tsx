@@ -99,8 +99,39 @@ export function RightPanel({ details, componentsSchema }: Props) {
                 <label>{propSchema.name}</label>
                 <input
                   className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
-                  type="text"
+                  type="number"
                   value={matchComponentMatchProp?.type === 'number' ? matchComponentMatchProp.value : 0}
+                  onChange={(e) =>
+                    onChange({
+                      componentId: matchComponent._id,
+                      newProp: {
+                        type: 'number',
+                        name: propSchema.name,
+                        value: Number(e.target.value),
+                      },
+                    })
+                  }
+                />
+              </div>
+            );
+          if (propSchema.type === 'boolean')
+            return (
+              <div className="flex gap-1">
+                <label>{propSchema.name}</label>
+                <input
+                  className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
+                  type="checkbox"
+                  value={matchComponentMatchProp?.type === 'number' ? matchComponentMatchProp.value : 0}
+                  onChange={(e) =>
+                    onChange({
+                      componentId: matchComponent._id,
+                      newProp: {
+                        type: 'number',
+                        name: propSchema.name,
+                        value: Number(e.target.value),
+                      },
+                    })
+                  }
                 />
               </div>
             );

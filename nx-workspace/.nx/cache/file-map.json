@@ -226,7 +226,7 @@
         },
         {
           "file": "apps/client/app/layout.tsx",
-          "hash": "5605825329546696631",
+          "hash": "13944111996060302673",
           "deps": [
             "npm:next"
           ]
@@ -337,8 +337,9 @@
         },
         {
           "file": "apps/client/components/ProductTile/ProductTile.tsx",
-          "hash": "536313449707918419",
+          "hash": "16291161667574721809",
           "deps": [
+            "npm:clsx",
             "npm:react"
           ]
         },
@@ -580,7 +581,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "2025726710498839617",
+          "hash": "724710488346939930",
           "deps": [
             "npm:react",
             "types",
@@ -597,7 +598,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/page.tsx",
-          "hash": "2977847861556809973",
+          "hash": "16854902935235744683",
           "deps": [
             "npm:next",
             "npm:@dnd-kit/core"

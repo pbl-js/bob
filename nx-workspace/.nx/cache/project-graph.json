@@ -12412,6 +12412,11 @@
       },
       {
         "source": "client",
+        "target": "npm:clsx",
+        "type": "static"
+      },
+      {
+        "source": "client",
         "target": "npm:@nx/next",
         "type": "static"
       },

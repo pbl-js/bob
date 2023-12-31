@@ -80,7 +80,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             >
               {'<'}
             </Link>
-            <RightPanel details={details} componentsSchema={registeredComponents} />D
+            <RightPanel details={details} componentsSchema={registeredComponents} />
           </div>
         </div>
       </main>
