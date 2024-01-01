@@ -14,6 +14,7 @@ import { updateComponentsFromPageContent } from '../../../../../utils/api/mutati
 import { Switch } from '@ui/components/ui/switch';
 import { Label } from '@ui/components/ui/label';
 import { Input } from '@ui/components/ui/input';
+import { updateComponents } from './updateComponents';
 
 type Props = {
   details: PageContentRequest;
@@ -36,27 +37,19 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
   const onChange = ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) =>
     setDetailsState((prev) => {
-      const restComponents = prev.components.filter((item) => item._id !== componentId);
-      const matchComponent = prev.components.find((item) => item._id === componentId);
-
-      if (!matchComponent) return prev;
-
-      // TODO: This prop replacement is based on propName, there should be propID property
-      const restProps = matchComponent.props.filter((item) => item.name !== newProp.name);
+      const updatedComponents = updateComponents({ componentId, newProp, components: prev.components });
 
       return {
         ...prev,
-        components: [...restComponents, { ...matchComponent, props: [...restProps, newProp] }],
+        components: updatedComponents,
       };
     });
 
   const onBlur = async () => {
-    const { status, message } = await updateComponentsFromPageContent({
+    await updateComponentsFromPageContent({
       pageContentId: details._id,
       components: detailsState.components,
     });
-    console.log('Status: ', status);
-    console.log('Message: ', message);
   };
 
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
@@ -126,17 +119,27 @@ export function RightPanel({ details, componentsSchema }: Props) {
                 <Switch
                   checked={matchComponentMatchProp?.type === 'boolean' ? matchComponentMatchProp.value : false}
                   onCheckedChange={async (e) => {
+                    const newProp: DataFieldContent = {
+                      type: 'boolean',
+                      name: propSchema.name,
+                      value: e,
+                    };
+
                     onChange({
                       componentId: matchComponent._id,
-                      newProp: {
-                        type: 'boolean',
-                        name: propSchema.name,
-                        value: e,
-                      },
+                      newProp: newProp,
                     });
-                    updateComponentsFromPageContent({
-                      pageContentId: details._id,
+
+                    const updatedComponents = updateComponents({
+                      componentId: matchComponent._id,
+                      newProp,
                       components: detailsState.components,
+                    });
+
+                    // Note: We can't use detailsState.components because setState is "async"
+                    await updateComponentsFromPageContent({
+                      pageContentId: details._id,
+                      components: updatedComponents,
                     });
                   }}
                 />
