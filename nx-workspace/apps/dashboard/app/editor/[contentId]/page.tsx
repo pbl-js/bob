@@ -28,25 +28,25 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
   return (
     <EditorContextProvider>
       <IframeComunicator contentId={contentId} />
-      <main className="flex min-h-screen w-full bg-slate-800">
+      <main className="flex min-h-screen w-full">
         <div className="grid p-3 pb-0 gap-3 grid-cols-editor w-full min-h-screen text-sm font-medium">
           <DraggableContext>
             <DraggingOverlay />
-            <div className="text-slate-200">
+            <div className="">
               <Link
                 href={PAGE_CONTENT}
-                className="flex items-center justify-center w-10 h-10 bg-slate-700 rounded-md mb-3 text-slate-400"
+                className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"
               >
                 {'<'}
               </Link>
-              <h3 className="mb-3 text-slate-200">Registered components</h3>
+              <h3 className="mb-3">Registered components</h3>
               <RegisteredComponentListing pageContentId={contentId} />
-              <h3 className="mb-3 text-slate-200">page content details</h3>
+              <h3 className="mb-3">page content details</h3>
               <p className="mt-6">Name: {details?.name}</p>
 
               <div className="mt-2 flex flex-col gap-1">
                 {details.components.map((component) => (
-                  <div className="p-2 bg-slate-700 rounded-md flex justify-between" key={component._id}>
+                  <div className="p-2 bg-primary rounded-md flex justify-between" key={component._id}>
                     {component.name}
                     <DeleteLayerButton componentId={component._id} pageContentId={details._id} />
                   </div>
@@ -57,7 +57,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             <div className="flex flex-col gap-3">
               <Link
                 href={PAGE_CONTENT}
-                className="flex items-center justify-center w-10 h-10 bg-slate-700 rounded-md text-slate-400"
+                className="flex items-center justify-center w-10 h-10 bg-primary rounded-md text-primary-foreground"
               >
                 {'<'}
               </Link>
@@ -76,7 +76,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
           <div className="bg-blue">
             <Link
               href={PAGE_CONTENT}
-              className="flex items-center justify-center w-10 h-10 bg-slate-700 rounded-md mb-3 text-slate-400"
+              className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"
             >
               {'<'}
             </Link>

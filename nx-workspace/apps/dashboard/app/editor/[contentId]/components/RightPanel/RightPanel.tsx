@@ -11,7 +11,9 @@ import {
 import clsx from 'clsx';
 import { postMessage_pageContentData } from '../../../../../components/iframeCommunicator/postMessage/pageContentData';
 import { updateComponentsFromPageContent } from '../../../../../utils/api/mutations';
-import { Button } from '@ui/components/ui/button';
+import { Switch } from '@ui/components/ui/switch';
+import { Label } from '@ui/components/ui/label';
+import { Input } from '@ui/components/ui/input';
 
 type Props = {
   details: PageContentRequest;
@@ -73,11 +75,10 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
           if (propSchema.type === 'string')
             return (
-              <div className="flex flex-col gap-1">
-                <label>{propSchema.name}</label>
-                <input
-                  className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
-                  type="text"
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
+                <Input
+                  id={propSchema.name}
                   value={matchComponentMatchProp?.type === 'string' ? matchComponentMatchProp.value : ''}
                   onBlur={onBlur}
                   onChange={(e) =>
@@ -90,18 +91,21 @@ export function RightPanel({ details, componentsSchema }: Props) {
                       },
                     })
                   }
+                  type="text"
+                  placeholder={propSchema.name}
                 />
               </div>
             );
 
           if (propSchema.type === 'number')
             return (
-              <div className="flex flex-col gap-1">
-                <label>{propSchema.name}</label>
-                <input
-                  className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
+                <Input
+                  id={propSchema.name}
                   type="number"
                   value={matchComponentMatchProp?.type === 'number' ? matchComponentMatchProp.value : 0}
+                  onBlur={onBlur}
                   onChange={(e) =>
                     onChange({
                       componentId: matchComponent._id,
@@ -117,22 +121,24 @@ export function RightPanel({ details, componentsSchema }: Props) {
             );
           if (propSchema.type === 'boolean')
             return (
-              <div className="flex gap-1">
-                <label>{propSchema.name}</label>
-                <input
-                  className={clsx('rounded-md bg-slate-700 p-3 border border-slate-600', 'hover:border-slate-500')}
-                  type="checkbox"
-                  value={matchComponentMatchProp?.type === 'number' ? matchComponentMatchProp.value : 0}
-                  onChange={(e) =>
+              <div className="flex items-center space-x-2">
+                <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
+                <Switch
+                  checked={matchComponentMatchProp?.type === 'boolean' ? matchComponentMatchProp.value : false}
+                  onCheckedChange={async (e) => {
                     onChange({
                       componentId: matchComponent._id,
                       newProp: {
-                        type: 'number',
+                        type: 'boolean',
                         name: propSchema.name,
-                        value: Number(e.target.value),
+                        value: e,
                       },
-                    })
-                  }
+                    });
+                    updateComponentsFromPageContent({
+                      pageContentId: details._id,
+                      components: detailsState.components,
+                    });
+                  }}
                 />
               </div>
             );

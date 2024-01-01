@@ -2853,6 +2853,15 @@
         "hash": "sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA=="
       }
     },
+    "npm:@radix-ui/primitive": {
+      "type": "npm",
+      "name": "npm:@radix-ui/primitive",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/primitive",
+        "hash": "sha512-yQ8oGX2GVsEYMWGxcovu1uGWPCxV5BFfeeYxqPmuAzUyLT9qmaMXSAhXpb0WrspIeqYzdJpkh2vHModJPgRIaw=="
+      }
+    },
     "npm:@radix-ui/react-compose-refs": {
       "type": "npm",
       "name": "npm:@radix-ui/react-compose-refs",
@@ -2862,6 +2871,24 @@
         "hash": "sha512-fDSBgd44FKHa1FRMU59qBMPFcl2PZE+2nmqunj+BWFyYYjnhIDWL2ItDs3rrbJDQOtzt5nIebLCQc4QRfz6LJw=="
       }
     },
+    "npm:@radix-ui/react-context": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-context",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-context",
+        "hash": "sha512-ebbrdFoYTcuZ0v4wG5tedGnp9tzcV8awzsxYph7gXUyvnNLuTIcCk1q17JEbnVhXAKG9oX3KtchwiMIAYp9NLg=="
+      }
+    },
+    "npm:@radix-ui/react-primitive": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-primitive",
+      "data": {
+        "version": "1.0.3",
+        "packageName": "@radix-ui/react-primitive",
+        "hash": "sha512-yi58uVyoAcK/Nq1inRY56ZSjKypBNKTa/1mcL8qdl6oJeEaDbOldlzrGn7P6Q3Id5d+SYNGc5AJgc4vGhjs5+g=="
+      }
+    },
     "npm:@radix-ui/react-slot": {
       "type": "npm",
       "name": "npm:@radix-ui/react-slot",
@@ -2869,6 +2896,60 @@
         "version": "1.0.2",
         "packageName": "@radix-ui/react-slot",
         "hash": "sha512-YeTpuq4deV+6DusvVUW4ivBgnkHwECUu0BiN43L5UCDFgdhsRUWAghhTF5MbvNTPzmiFOx90asDSUjWuCNapwg=="
+      }
+    },
+    "npm:@radix-ui/react-switch": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-switch",
+      "data": {
+        "version": "1.0.3",
+        "packageName": "@radix-ui/react-switch",
+        "hash": "sha512-mxm87F88HyHztsI7N+ZUmEoARGkC22YVW5CaC+Byc+HRpuvCrOBPTAnXgf+tZ/7i0Sg/eOePGdMhUKhPaQEqow=="
+      }
+    },
+    "npm:@radix-ui/react-use-callback-ref": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-use-callback-ref",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-use-callback-ref",
+        "hash": "sha512-D94LjX4Sp0xJFVaoQOd3OO9k7tpBYNOXdVhkltUbGv2Qb9OXdrg/CpsjlZv7ia14Sylv398LswWBVVu5nqKzAQ=="
+      }
+    },
+    "npm:@radix-ui/react-use-controllable-state": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-use-controllable-state",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-use-controllable-state",
+        "hash": "sha512-Svl5GY5FQeN758fWKrjM6Qb7asvXeiZltlT4U2gVfl8Gx5UAv2sMR0LWo8yhsIZh2oQ0eFdZ59aoOOMV7b47VA=="
+      }
+    },
+    "npm:@radix-ui/react-use-layout-effect": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-use-layout-effect",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-use-layout-effect",
+        "hash": "sha512-v/5RegiJWYdoCvMnITBkNNx6bCj20fiaJnWtRkU18yITptraXjffz5Qbn05uOiQnOvi+dbkznkoaMltz1GnszQ=="
+      }
+    },
+    "npm:@radix-ui/react-use-previous": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-use-previous",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-use-previous",
+        "hash": "sha512-cV5La9DPwiQ7S0gf/0qiD6YgNqM5Fk97Kdrlc5yBcrF3jyEZQwm7vYFqMo4IfeHgJXsRaMvLABFtd0OVEmZhDw=="
+      }
+    },
+    "npm:@radix-ui/react-use-size": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-use-size",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-use-size",
+        "hash": "sha512-ibay+VqrgcaI6veAojjofPATwledXiSmX+C0KrBk/xgpX9rBzPV3OsfwlhQdUOFbh+LKQorLYT+xTXW9V8yd0g=="
       }
     },
     "npm:@react-hookz/deep-equal": {
@@ -17260,6 +17341,11 @@
       "type": "static"
     },
     {
+      "source": "npm:@radix-ui/primitive",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
       "source": "npm:@radix-ui/react-compose-refs",
       "target": "npm:@types/react",
       "type": "static"
@@ -17272,6 +17358,51 @@
     {
       "source": "npm:@radix-ui/react-compose-refs",
       "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-context",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-context",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-context",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-primitive",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-primitive",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-primitive",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-primitive",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-primitive",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-primitive",
+      "target": "npm:@radix-ui/react-slot",
       "type": "static"
     },
     {
@@ -17292,6 +17423,151 @@
     {
       "source": "npm:@radix-ui/react-slot",
       "target": "npm:@radix-ui/react-compose-refs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/react-compose-refs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/react-context",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/react-primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/react-use-controllable-state",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/react-use-previous",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-switch",
+      "target": "npm:@radix-ui/react-use-size",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-callback-ref",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-callback-ref",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-callback-ref",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-controllable-state",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-controllable-state",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-controllable-state",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-controllable-state",
+      "target": "npm:@radix-ui/react-use-callback-ref",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-layout-effect",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-layout-effect",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-layout-effect",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-previous",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-previous",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-previous",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-size",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-size",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-size",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-use-size",
+      "target": "npm:@radix-ui/react-use-layout-effect",
       "type": "static"
     },
     {

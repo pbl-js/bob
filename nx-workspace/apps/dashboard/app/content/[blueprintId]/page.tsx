@@ -14,7 +14,7 @@ export default async function Home({ params }: HomeProps) {
   if (!matchedPageBlueprint) return <div>Invalid blueprint id</div>;
 
   return (
-    <main className="flex min-h-screen bg-slate-800">
+    <main className="flex min-h-screen">
       <div className="w-full flex flex-col">
         <h3 className="mb-3">Content</h3>
         <PageContentListing blueprintId={matchedPageBlueprint._id} />

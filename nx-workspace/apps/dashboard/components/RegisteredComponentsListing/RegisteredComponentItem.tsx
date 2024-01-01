@@ -26,8 +26,8 @@ export function RegisteredComponentItem({ component, pageContentId }: Props) {
     <button
       ref={setNodeRef}
       className={clsx(
-        'bg-slate-700 w-[136px] rounded-md p-2 h-[60px]',
-        'text-xs break-words text-slate-300',
+        'bg-primary w-[136px] rounded-md p-2 h-[60px]',
+        'text-xs break-words text-primary-foreground',
         'cursor-move',
         {
           'ring-2 ring-slate-200': isDragging,

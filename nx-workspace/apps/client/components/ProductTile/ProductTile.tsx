@@ -20,7 +20,7 @@ const ProductTile = ({
   return (
     <div
       className={clsx('flex flex-col w-[300px] p-4 bg-gray-900 rounded-3xl gap-2', {
-        'border border-gray-400': withBorder,
+        'border-2 border-gray-800': withBorder,
       })}
     >
       <div className="h-28 w-full bg-slate-800 rounded-xl"></div>
