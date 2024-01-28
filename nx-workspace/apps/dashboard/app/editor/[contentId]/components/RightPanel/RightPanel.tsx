@@ -14,7 +14,9 @@ import { updateComponentsFromPageContent } from '../../../../../utils/api/mutati
 import { Switch } from '@ui/components/ui/switch';
 import { Label } from '@ui/components/ui/label';
 import { Input } from '@ui/components/ui/input';
+import { Button } from '@ui/components/ui/button';
 import { updateComponents } from './updateComponents';
+import { ObjectPropSchema } from './ObjectPropSchema';
 
 type Props = {
   details: PageContentRequest;
@@ -114,7 +116,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
             );
           if (propSchema.type === 'boolean')
             return (
-              <div className="flex items-center space-x-2">
+              <div className="flex justify-between space-x-2">
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Switch
                   checked={matchComponentMatchProp?.type === 'boolean' ? matchComponentMatchProp.value : false}
@@ -144,6 +146,16 @@ export function RightPanel({ details, componentsSchema }: Props) {
                   }}
                 />
               </div>
+            );
+
+          if (propSchema.type === 'object')
+            return (
+              <ObjectPropSchema
+                value={matchComponentMatchProp?.type === 'object' ? matchComponentMatchProp.subfields : null}
+                detailsState={detailsState}
+                setDetailsState={setDetailsState}
+                propSchema={propSchema}
+              />
             );
         })}
       </div>
