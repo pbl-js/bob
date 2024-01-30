@@ -1,28 +1,42 @@
-import { DataFieldContentArray } from '../../../libs/types/src';
+import { DataFieldContent, DataFieldContentArray } from '../../../libs/types/src';
+
+function propGenerator(prop: DataFieldContent) {
+  if (prop.type === 'string') {
+    return {
+      [prop.name]: prop.value,
+    };
+  }
+
+  if (prop.type === 'number') {
+    return {
+      [prop.name]: prop.value,
+    };
+  }
+
+  if (prop.type === 'boolean') {
+    return {
+      [prop.name]: prop.value,
+    };
+  }
+
+  // Think about refactoring this function
+  if (prop.type === 'object') {
+    return {
+      [prop.name]: prop.subfields.reduce((acc, val): any => {
+        return {
+          ...acc,
+          ...propGenerator(val),
+        };
+      }, {}),
+    };
+  }
+}
 
 export function genPropsFromContent(propsRaw: DataFieldContentArray) {
   return propsRaw.reduce((acc, val) => {
-    if (val.type === 'string') {
-      return {
-        ...acc,
-        [val.name]: val.value,
-      };
-    }
-
-    if (val.type === 'number') {
-      return {
-        ...acc,
-        [val.name]: val.value,
-      };
-    }
-
-    if (val.type === 'boolean') {
-      return {
-        ...acc,
-        [val.name]: val.value,
-      };
-    }
-
-    return acc;
+    return {
+      ...acc,
+      ...propGenerator(val),
+    };
   }, {});
 }

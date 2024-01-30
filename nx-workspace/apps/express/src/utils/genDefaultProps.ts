@@ -1,47 +1,43 @@
-import { DataFieldContentArray, DataFieldSchemaArray } from '@types';
+import { DataFieldSchema } from '@types';
 import { notEmpty } from './notEmpty';
 
-export function genDefaultProps(propsSchema: DataFieldSchemaArray): DataFieldContentArray {
-  console.log('propsSchema: ', propsSchema);
-  return propsSchema
-    .map((propSchema) => {
-      if (propSchema.type === 'string') {
-        if (propSchema.defaultValue === undefined) return undefined;
+// TODO: Do something with this any
+export function genDefaultProps(prop: DataFieldSchema): any {
+  if (prop.type === 'string') {
+    if (prop.defaultValue === undefined) return undefined;
 
-        return {
-          name: propSchema.name,
-          type: propSchema.type,
-          value: propSchema.defaultValue,
-        };
-      }
+    return {
+      name: prop.name,
+      type: prop.type,
+      value: prop.defaultValue,
+    };
+  }
 
-      if (propSchema.type === 'number') {
-        if (propSchema.defaultValue === undefined) return undefined;
+  if (prop.type === 'number') {
+    if (prop.defaultValue === undefined) return undefined;
 
-        return {
-          name: propSchema.name,
-          type: propSchema.type,
-          value: propSchema.defaultValue,
-        };
-      }
+    return {
+      name: prop.name,
+      type: prop.type,
+      value: prop.defaultValue,
+    };
+  }
 
-      if (propSchema.type === 'boolean') {
-        if (propSchema.defaultValue === undefined) return undefined;
+  if (prop.type === 'boolean') {
+    if (prop.defaultValue === undefined) return undefined;
 
-        return {
-          name: propSchema.name,
-          type: propSchema.type,
-          value: propSchema.defaultValue,
-        };
-      }
+    return {
+      name: prop.name,
+      type: prop.type,
+      value: prop.defaultValue,
+    };
+  }
 
-      if (propSchema.type === 'object') {
-        return {
-          name: propSchema.name,
-          type: propSchema.type,
-          subfields: [],
-        };
-      }
-    })
-    .filter(notEmpty);
+  if (prop.type === 'object') {
+    return {
+      name: prop.name,
+      type: prop.type,
+      subfields: prop.subfields.map((i) => genDefaultProps(i)).filter(notEmpty),
+    };
+  }
 }

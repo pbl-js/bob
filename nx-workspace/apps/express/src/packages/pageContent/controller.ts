@@ -6,6 +6,7 @@ import { COMPONENT_BLUEPRINT_COLLECTION, PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT
 import { ObjectId } from 'mongodb';
 import { genDefaultProps } from '../../utils/genDefaultProps';
 import { ArrayElement } from '../../utils/arrayElement';
+import { notEmpty } from '../../utils/notEmpty';
 
 export async function pageContentController(app: Express) {
   app.get('/api/page-content', async (req, res) => {
@@ -171,7 +172,10 @@ export async function pageContentController(app: Express) {
       // Check if parent component exists
 
       // Add component
-      const componentDefaultProps = genDefaultProps(matchBlueprint.propsSchema);
+      const componentDefaultProps = matchBlueprint.propsSchema
+        .map((propSchema) => genDefaultProps(propSchema))
+        .filter(notEmpty);
+      console.log('Generated new props: ', componentDefaultProps);
 
       const componentToInsert: ComponentContentModel = {
         _id: new ObjectId(),

@@ -535,6 +535,14 @@
         {
           "file": "apps/dashboard/utils/types/types.ts",
           "hash": "9530378971587411068"
+        },
+        {
+          "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/StringPropSchema.tsx",
+          "hash": "13558303371440450561",
+          "deps": [
+            "ui",
+            "npm:react"
+          ]
         }
       ],
       "ui": [
@@ -684,7 +692,7 @@
         },
         {
           "file": "apps/client/app/layout.tsx",
-          "hash": "13944111996060302673",
+          "hash": "3004088849504815040",
           "deps": [
             "npm:next"
           ]
@@ -752,7 +760,7 @@
         },
         {
           "file": "apps/client/bob/genPropsFromContent.ts",
-          "hash": "11912772766837850925",
+          "hash": "9117268625986476484",
           "deps": [
             "types"
           ]
@@ -862,6 +870,14 @@
         {
           "file": "apps/client/tsconfig.spec.json",
           "hash": "6922413205408300107"
+        },
+        {
+          "file": "apps/client/components/RichCallToAction/RichCallToAction.tsx",
+          "hash": "14961569118844874546",
+          "deps": [
+            "npm:next",
+            "npm:react"
+          ]
         }
       ],
       "dashboard-e2e": [
@@ -963,7 +979,7 @@
         },
         {
           "file": "apps/express/src/packages/pageContent/controller.ts",
-          "hash": "18244700154243152564",
+          "hash": "6390837089238210069",
           "deps": [
             "npm:express",
             "types",
@@ -994,7 +1010,7 @@
         },
         {
           "file": "apps/express/src/utils/genDefaultProps.ts",
-          "hash": "2904054126392867737",
+          "hash": "12499035064515860382",
           "deps": [
             "types"
           ]

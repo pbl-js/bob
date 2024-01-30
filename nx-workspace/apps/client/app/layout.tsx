@@ -10,6 +10,7 @@ BOB.init('example-of-api-key');
 
 const ProductTile = dynamic(async () => (await import('../components/ProductTile/ProductTile')).default);
 const CallToAction = dynamic(async () => (await import('../components/CallToAction/CallToAction')).default);
+const RichCallToAction = dynamic(async () => (await import('../components/RichCallToAction/RichCallToAction')).default);
 
 BOB.registerComponent('testProductTile', ProductTile, [
   { name: 'title', type: 'string' },
@@ -39,6 +40,54 @@ BOB.registerComponent('callToAction', CallToAction, [
     type: 'string',
     defaultValue:
       'Lorem ipsum dolor sit amet, consectetur adipisci elit sed diam nonummy nibh euismod tincidunt ut laoreet dolore.',
+  },
+  { name: 'buttonText', type: 'string', defaultValue: 'Button' },
+  { name: 'linkText', type: 'string', defaultValue: 'Check lates video' },
+  { name: 'linkHref', type: 'string', defaultValue: '#' },
+]);
+
+BOB.registerComponent('richCallToAction', RichCallToAction, [
+  {
+    name: 'headline',
+    type: 'object',
+    subfields: [
+      {
+        name: 'content',
+        type: 'string',
+        defaultValue: 'Lorem ipsum',
+      },
+      {
+        name: 'fontSize',
+        type: 'number',
+        defaultValue: 14,
+      },
+      {
+        name: 'color',
+        type: 'string',
+        defaultValue: 'white',
+      },
+    ],
+  },
+  {
+    name: 'paragraph',
+    type: 'object',
+    subfields: [
+      {
+        name: 'content',
+        type: 'string',
+        defaultValue: 'Lorem ipsum',
+      },
+      {
+        name: 'fontSize',
+        type: 'number',
+        defaultValue: 14,
+      },
+      {
+        name: 'color',
+        type: 'string',
+        defaultValue: 'white',
+      },
+    ],
   },
   { name: 'buttonText', type: 'string', defaultValue: 'Button' },
   { name: 'linkText', type: 'string', defaultValue: 'Check lates video' },
