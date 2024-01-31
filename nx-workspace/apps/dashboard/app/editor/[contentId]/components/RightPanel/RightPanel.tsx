@@ -15,7 +15,7 @@ import { Switch } from '@ui/components/ui/switch';
 import { Label } from '@ui/components/ui/label';
 import { Input } from '@ui/components/ui/input';
 import { Button } from '@ui/components/ui/button';
-import { updateComponents } from './updateComponents';
+import { updateComponents } from './utils';
 import { ObjectPropSchema } from './ObjectPropSchema';
 
 type Props = {
@@ -32,12 +32,12 @@ export function RightPanel({ details, componentsSchema }: Props) {
   React.useEffect(() => {
     setDetailsState(details);
   }, [details]);
-
+  console.log('details state: ', detailsState);
   React.useEffect(() => {
     postMessage_pageContentData(detailsState);
   }, [detailsState]);
 
-  const onChange = ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) =>
+  const editProp = ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) =>
     setDetailsState((prev) => {
       const updatedComponents = updateComponents({ componentId, newProp, components: prev.components });
 
@@ -47,7 +47,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
       };
     });
 
-  const onBlur = async () => {
+  const sendComponentsToApi = async () => {
     await updateComponentsFromPageContent({
       pageContentId: details._id,
       components: detailsState.components,
@@ -75,9 +75,9 @@ export function RightPanel({ details, componentsSchema }: Props) {
                 <Input
                   id={propSchema.name}
                   value={matchComponentMatchProp?.type === 'string' ? matchComponentMatchProp.value : ''}
-                  onBlur={onBlur}
+                  onBlur={sendComponentsToApi}
                   onChange={(e) =>
-                    onChange({
+                    editProp({
                       componentId: matchComponent._id,
                       newProp: {
                         type: 'string',
@@ -100,9 +100,9 @@ export function RightPanel({ details, componentsSchema }: Props) {
                   id={propSchema.name}
                   type="number"
                   value={matchComponentMatchProp?.type === 'number' ? matchComponentMatchProp.value : 0}
-                  onBlur={onBlur}
+                  onBlur={sendComponentsToApi}
                   onChange={(e) =>
-                    onChange({
+                    editProp({
                       componentId: matchComponent._id,
                       newProp: {
                         type: 'number',
@@ -127,7 +127,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
                       value: e,
                     };
 
-                    onChange({
+                    editProp({
                       componentId: matchComponent._id,
                       newProp: newProp,
                     });
@@ -151,6 +151,10 @@ export function RightPanel({ details, componentsSchema }: Props) {
           if (propSchema.type === 'object')
             return (
               <ObjectPropSchema
+                details={details}
+                component={matchComponent}
+                editProp={editProp}
+                sendComponentsToApi={sendComponentsToApi}
                 value={matchComponentMatchProp?.type === 'object' ? matchComponentMatchProp.subfields : null}
                 detailsState={detailsState}
                 setDetailsState={setDetailsState}

@@ -6,11 +6,13 @@ export default function RichCallToAction(props: {
     content: string;
     fontSize: number;
     color: string;
+    uppercase: boolean;
   };
   paragraph: {
     content: string;
     fontSize: number;
     color: string;
+    uppercase: boolean;
   };
   buttonText: string;
   linkText: string;
@@ -22,13 +24,21 @@ export default function RichCallToAction(props: {
     <div className="flex flex-col items-center py-3">
       <h2
         className="font-medium text-3xl text-center"
-        style={{ fontSize: `${headline.fontSize}px`, color: headline.color }}
+        style={{
+          fontSize: `${headline.fontSize}px`,
+          color: headline.color,
+          textTransform: headline.uppercase ? 'uppercase' : 'none',
+        }}
       >
         {headline.content}
       </h2>
       <p
         className="text-center mt-2 text-gray-300"
-        style={{ fontSize: `${headline.fontSize}px`, color: headline.color }}
+        style={{
+          fontSize: `${paragraph.fontSize}px`,
+          color: paragraph.color,
+          textTransform: paragraph.uppercase ? 'uppercase' : 'none',
+        }}
       >
         {paragraph.content}
       </p>

@@ -297,17 +297,22 @@ export async function pageContentController(app: Express) {
       });
 
       const body = reqBodySchema.parse(req.body);
-
       const myDB = client.db('mongotron');
       const pageContentCollection = myDB.collection<PageContentModel>(PAGE_CONTENT_COLLECTION);
-
+      console.dir(body, { depth: 10 });
+      console.log('DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD');
       // Check if pageContent and component exist
       const matchContent = await pageContentCollection.findOne({
         _id: new ObjectId(body.pageContentId),
       });
 
-      if (!matchContent) return res.status(400).send('no content with provided ID');
+      if (!matchContent) {
+        res.status(400).send('no content with provided ID');
+        console.log('POST Endpoint: /api/page-content/update-components - STATUS: 400 - no content with provided ID');
+        return;
+      }
       // const matchComponents = matchContent?.components.filter((item) => item._id.toString() === body.components.);
+      console.dir(body, { depth: 10 });
       const matchComponents = matchContent.components.filter((item) =>
         body.components.some((i) => i._id === item._id.toString())
       );

@@ -66,6 +66,11 @@ BOB.registerComponent('richCallToAction', RichCallToAction, [
         type: 'string',
         defaultValue: 'white',
       },
+      {
+        name: 'uppercase',
+        type: 'boolean',
+        defaultValue: false,
+      },
     ],
   },
   {
@@ -86,6 +91,11 @@ BOB.registerComponent('richCallToAction', RichCallToAction, [
         name: 'color',
         type: 'string',
         defaultValue: 'white',
+      },
+      {
+        name: 'uppercase',
+        type: 'boolean',
+        defaultValue: false,
       },
     ],
   },
