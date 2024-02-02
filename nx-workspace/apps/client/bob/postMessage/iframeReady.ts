@@ -1,8 +1,4 @@
-import {
-  PostMessageType_ToDashboard,
-  PostMessage_ToDashboard_ComponentRectData,
-  PostMessage_ToDashboard_IframeReady,
-} from '@types';
+import { PostMessageType_ToDashboard, PostMessage_ToDashboard_IframeReady } from '@types';
 
 export const postMessage_iframeReady = () => {
   const newPostMessage: PostMessage_ToDashboard_IframeReady = {

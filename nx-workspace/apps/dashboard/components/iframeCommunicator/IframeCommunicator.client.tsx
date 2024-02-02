@@ -9,10 +9,7 @@ export type IFrameComunicator_ClientProps = {
   pageContent: PageContentDetails_Response;
 };
 
-export const IframeComunicator_Client = ({
-  registeredComponents,
-  pageContent,
-}: IFrameComunicator_ClientProps) => {
+export const IframeComunicator_Client = ({ registeredComponents, pageContent }: IFrameComunicator_ClientProps) => {
   React.useEffect(() => {
     window.addEventListener('message', (e) => receiveMessage(e, registeredComponents), false);
 

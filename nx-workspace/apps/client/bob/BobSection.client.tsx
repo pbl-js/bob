@@ -9,6 +9,7 @@ import { useReceiveDashboardData } from './postMessage/receiveDashboardData';
 import { SectionContentRenderer } from './SectionContentRenderer';
 import { postMessage_iframeReady } from './postMessage/iframeReady';
 import { PageContentRequest } from '@types';
+import { postMessage_documentHeight } from './postMessage/documentHeight';
 
 type BobSectionClientProps = {
   name: string;
@@ -29,13 +30,11 @@ function InnerContent({ draft }: { draft: PageContentRequest }) {
     });
 
     elementRef && observer.observe(elementRef);
-    window.addEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     window.addEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
 
     return () => {
       elementRef && observer.unobserve(elementRef);
       window.removeEventListener('resize', () => postMessage_sectionRectData(ref, sectionId));
-      window.removeEventListener('scroll', () => postMessage_sectionRectData(ref, sectionId));
     };
   }, [draft]);
 
@@ -55,12 +54,36 @@ function InnerContent({ draft }: { draft: PageContentRequest }) {
 
 const Content = ({ name }: BobSectionClientProps) => {
   const { state } = useSectionData();
-
+  console.log('scroll client position: ', state.scrollPosition);
   useReceiveDashboardData();
+
+  React.useEffect(() => {
+    window.scrollTo(0, state.scrollPosition ? state.scrollPosition : 0);
+  }, [state.scrollPosition]);
 
   React.useEffect(() => {
     postMessage_registerComponents();
     postMessage_iframeReady();
+  }, []);
+
+  React.useEffect(() => {
+    const body = document.body;
+    const html = document.documentElement;
+    const height = Math.max(body.getBoundingClientRect().height, html.getBoundingClientRect().height);
+
+    postMessage_documentHeight(height);
+
+    const observer = new ResizeObserver(() => {
+      const body = document.body;
+      const html = document.documentElement;
+      const height = Math.max(body.getBoundingClientRect().height, html.getBoundingClientRect().height);
+      setTimeout(() => {
+        postMessage_documentHeight(height);
+      }, 2000);
+    });
+    observer.observe(document.documentElement);
+
+    return () => observer.unobserve(document.documentElement);
   }, []);
 
   if (!state.draft) return null;

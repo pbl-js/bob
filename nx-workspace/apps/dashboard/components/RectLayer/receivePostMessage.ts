@@ -1,14 +1,17 @@
 import { PostMessage_ToDashboard, PostMessageType_ToDashboard } from '@types';
 import { RectDataDispatch } from './rectDataContext';
 
-export const receiveMessage = async (
-  event: MessageEvent<PostMessage_ToDashboard>,
-  dispatch: RectDataDispatch
-) => {
+export const receiveMessage = async (event: MessageEvent<PostMessage_ToDashboard>, dispatch: RectDataDispatch) => {
   if (event.data.messageType === PostMessageType_ToDashboard.SECTION_RECT_DATA) {
     const sectionRectData = event.data.messageData;
     console.log('DASHBOARD: Receive section-rect-data', sectionRectData);
     dispatch({ type: 'add-section-data', payload: sectionRectData });
+  }
+
+  if (event.data.messageType === PostMessageType_ToDashboard.DOCUMENT_HEIGHT) {
+    const { documentHeight } = event.data.messageData;
+    console.log('DASHBOARD: Receive document-height', documentHeight);
+    dispatch({ type: 'set-document-height', payload: { documentHeight } });
   }
 
   if (event.data.messageType === PostMessageType_ToDashboard.COMPONENT_RECT_DATA) {
@@ -19,6 +22,9 @@ export const receiveMessage = async (
 
   if (event.data.messageType === PostMessageType_ToDashboard.IFRAME_READY) {
     console.log('DASHBOARD: Receive iframe-ready', event.data.messageData);
-    dispatch({ type: 'set-is-iframe-ready', payload: { isReady: true } });
+    dispatch({
+      type: 'set-is-iframe-ready',
+      payload: { isReady: true },
+    });
   }
 };

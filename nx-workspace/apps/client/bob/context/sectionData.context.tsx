@@ -8,6 +8,7 @@ export const initialState: SectionDataContext = {
   state: {
     draft: undefined,
     isComunicationOpen: false,
+    scrollPosition: null,
     // registeredComponents: BOB._customComponents,
   },
   dispatch: () => null,
@@ -18,11 +19,7 @@ const SectionDataContext = createContext(initialState);
 export const SectionDataContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(builderSectionDataReducer, initialState.state);
 
-  return (
-    <SectionDataContext.Provider value={{ state, dispatch }}>
-      {children}
-    </SectionDataContext.Provider>
-  );
+  return <SectionDataContext.Provider value={{ state, dispatch }}>{children}</SectionDataContext.Provider>;
 };
 
 export const useSectionData = () => {

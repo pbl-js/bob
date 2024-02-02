@@ -35,14 +35,15 @@ import { SectionDataAction, SectionDataActionEnum, SectionDataState } from './se
 //   };
 // };
 
-const builderSectionDataReducer = (
-  state: SectionDataState,
-  action: SectionDataAction
-): SectionDataState => {
+const builderSectionDataReducer = (state: SectionDataState, action: SectionDataAction): SectionDataState => {
   const { type } = action;
 
   if (type === SectionDataActionEnum.OPEN_COMUNICATION) {
     return { ...state, isComunicationOpen: true };
+  }
+
+  if (type === SectionDataActionEnum.SET_SCROLL_POSITION) {
+    return { ...state, scrollPosition: action.payload.scrollPosition };
   }
 
   if (type === SectionDataActionEnum.SET_PAGE_CONTENT) {

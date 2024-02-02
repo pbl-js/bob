@@ -4,6 +4,7 @@ import { PageContent, PageContentRequest } from '@types';
 export interface SectionDataState {
   draft: PageContentRequest | undefined;
   isComunicationOpen: boolean;
+  scrollPosition: number | null;
   // registeredComponents: ICustomComponent[];
 }
 
@@ -16,6 +17,7 @@ export interface SectionDataContext {
 export enum SectionDataActionEnum {
   OPEN_COMUNICATION = 'open-comunication',
   SET_PAGE_CONTENT = 'set-draft-data',
+  SET_SCROLL_POSITION = 'set-scroll-position',
   // UPDATE_COMPONENT = 'update-component',
   // ADD_COMPONENT = 'add-component',
   // DELETE_COMPONENT = 'delete-component',
@@ -29,6 +31,13 @@ export interface BuilderSectionDataAction_SetPageContent {
   type: SectionDataActionEnum.SET_PAGE_CONTENT;
   payload: {
     pageContent: PageContent;
+  };
+}
+
+export interface BuilderSectionDataAction_SetScrollPosition {
+  type: SectionDataActionEnum.SET_SCROLL_POSITION;
+  payload: {
+    scrollPosition: number;
   };
 }
 
@@ -47,7 +56,10 @@ export interface BuilderSectionDataAction_SetPageContent {
 //   payload: UpdateComponentPayload;
 // }
 
-export type SectionDataAction = BuilderSectionDataAction_SetPageContent | BuilderSectionDataAction_OpenComunication;
+export type SectionDataAction =
+  | BuilderSectionDataAction_SetPageContent
+  | BuilderSectionDataAction_OpenComunication
+  | BuilderSectionDataAction_SetScrollPosition;
 // | BuilderSectionDataAction_AddComponent
 // | BuilderSectionDataAction_DeleteComponent
 // | BuilderSectionDataAction_UpdateComponent;

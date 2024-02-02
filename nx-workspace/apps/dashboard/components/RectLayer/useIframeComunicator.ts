@@ -3,8 +3,12 @@ import { receiveMessage } from './receivePostMessage';
 import { useRectData } from './rectDataContext';
 import { postMessage_pageContentData } from '../iframeCommunicator/postMessage/pageContentData';
 import { PageContentModel, PageContentRequest } from '@types';
+import { postMessage_scrollPosition } from '../iframeCommunicator/postMessage/scrollPosition';
 
-export const useIframeCommunicator = (pageContent: PageContentRequest) => {
+export const useIframeCommunicator = (
+  pageContent: PageContentRequest,
+  wrapperRef: React.MutableRefObject<HTMLDivElement | null>
+) => {
   const { dispatch, state } = useRectData();
   const isReady = state.isIframeReady;
 
@@ -13,6 +17,21 @@ export const useIframeCommunicator = (pageContent: PageContentRequest) => {
 
     postMessage_pageContentData(pageContent);
   }, [pageContent, isReady]);
+
+  React.useEffect(() => {
+    const ref = wrapperRef.current;
+    if (ref === null) return;
+
+    const handleWheel = (event: WheelEvent) => {
+      console.log('event: ', event);
+      console.log('i scrolled', ref.scrollTop);
+      postMessage_scrollPosition(ref.scrollTop);
+    };
+    ref.addEventListener('wheel', handleWheel);
+
+    return () => ref.removeEventListener('wheel', handleWheel);
+    // TODO: Add dependency array here and fix problem with ref which doesn't trigger useEffect re-run
+  });
 
   React.useEffect(() => {
     window.addEventListener('message', (e) => receiveMessage(e, dispatch), false);

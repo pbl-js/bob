@@ -8,6 +8,7 @@ export enum PostMessageType_ToDashboard {
   IFRAME_READY = 'iframe-ready',
   SECTION_RECT_DATA = 'section-rect-data',
   COMPONENT_RECT_DATA = 'component-rect-data',
+  DOCUMENT_HEIGHT = 'document-height',
 }
 
 export type PostMessage_ToDashboard_RegisterComponents = {
@@ -21,6 +22,13 @@ export type PostMessage_ToDashboard_IframeReady = {
   messageType: PostMessageType_ToDashboard.IFRAME_READY;
   messageData: {
     isReady: true;
+  };
+};
+
+export type PostMessage_ToDashboard_DocumentHeight = {
+  messageType: PostMessageType_ToDashboard.DOCUMENT_HEIGHT;
+  messageData: {
+    documentHeight: number;
   };
 };
 
@@ -43,6 +51,7 @@ export type PostMessage_ToDashboard_ComponentRectData = {
 
 export type PostMessage_ToDashboard =
   | PostMessage_ToDashboard_RegisterComponents
+  | PostMessage_ToDashboard_DocumentHeight
   | PostMessage_ToDashboard_IframeReady
   | PostMessage_ToDashboard_SectionRectData
   | PostMessage_ToDashboard_ComponentRectData;
@@ -50,6 +59,7 @@ export type PostMessage_ToDashboard =
 // FROM DASHBOARD
 export enum PostMessageType_FromDashboard {
   PAGE_CONTENT = 'page-content',
+  SCROLL_POSITION = 'scroll-position',
   TEST = 'test',
 }
 
@@ -60,13 +70,13 @@ export type PostMessage_FromDashboard_PageContent = {
   };
 };
 
-export type PostMessage_FromDashboard_Test = {
-  messageType: PostMessageType_FromDashboard.TEST;
+export type PostMessage_FromDashboard_ScrollPosition = {
+  messageType: PostMessageType_FromDashboard.SCROLL_POSITION;
   messageData: {
-    test: string;
+    scrollPosition: number;
   };
 };
 
 export type PostMessage_FromDashboard =
   | PostMessage_FromDashboard_PageContent
-  | PostMessage_FromDashboard_Test;
+  | PostMessage_FromDashboard_ScrollPosition;

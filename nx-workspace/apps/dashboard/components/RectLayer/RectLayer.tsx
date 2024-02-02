@@ -18,22 +18,11 @@ export function Content({
 }) {
   const { state } = useRectData();
 
-  useIframeCommunicator(pageContent);
-
   const sectionRectData = state.sectionsRectData[0];
 
   const wrapperRef = React.useRef<HTMLDivElement | null>(null);
 
-  const handleScroll = (e: Event) => {
-    console.log(e);
-  };
-
-  React.useEffect(() => {
-    console.log('wrapperRef: ', wrapperRef);
-    wrapperRef.current?.addEventListener('scroll', handleScroll);
-
-    return wrapperRef.current?.removeEventListener('scroll', handleScroll);
-  }, []);
+  useIframeCommunicator(pageContent, wrapperRef);
 
   if (!sectionRectData) return null;
 
@@ -66,42 +55,44 @@ export function Content({
   const style = { top, bottom, left, right, height, width };
 
   const emptyComponentsArray = matchedComponentsRectDataSorted.length === 0;
-
+  console.log('Height document: ', state.documentHeight);
   return (
     <div
       ref={wrapperRef}
       className={clsx(
         'flex items-center justify-center w-full',
-        'absolute top-0 left-0 bottom-0 right-0 overflow-hidden'
+        'absolute top-0 left-0 bottom-0 right-0 overflow-y-scroll'
       )}
     >
-      {emptyComponentsArray ? (
-        <DroppableSection rectData={sectionRectData.rectData} pageContent={pageContent} />
-      ) : (
-        <div className={clsx('absolute')} style={style}>
-          {matchedComponentsRectDataSorted.map((componentRectData) => {
-            const matchComponent = pageContent.components.find((item) => item._id === componentRectData.componentId);
+      <div className="absolute top-0 left-0 right-0" style={{ height: `${state.documentHeight}px` }}>
+        {emptyComponentsArray ? (
+          <DroppableSection rectData={sectionRectData.rectData} pageContent={pageContent} />
+        ) : (
+          <div className={clsx('absolute')} style={style}>
+            {matchedComponentsRectDataSorted.map((componentRectData) => {
+              const matchComponent = pageContent.components.find((item) => item._id === componentRectData.componentId);
 
-            if (!matchComponent) return null;
+              if (!matchComponent) return null;
 
-            const registeredComponent = registeredComponents.find(
-              (item) => item._id === matchComponent.componentBlueprintId
-            );
+              const registeredComponent = registeredComponents.find(
+                (item) => item._id === matchComponent.componentBlueprintId
+              );
 
-            if (!registeredComponent) return null;
+              if (!registeredComponent) return null;
 
-            return (
-              <RectComponent
-                key={componentRectData.componentId}
-                pageContentId={pageContent._id}
-                pageContent={pageContent}
-                registeredComponent={registeredComponent}
-                componentRectData={componentRectData}
-              />
-            );
-          })}
-        </div>
-      )}
+              return (
+                <RectComponent
+                  key={componentRectData.componentId}
+                  pageContentId={pageContent._id}
+                  pageContent={pageContent}
+                  registeredComponent={registeredComponent}
+                  componentRectData={componentRectData}
+                />
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
