@@ -5,6 +5,7 @@ import './global.css';
 // import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
+import SuperRichCallToAction from '../components/SuperRichCallToAction/SuperRichCallToAction';
 
 BOB.init('example-of-api-key');
 
@@ -102,6 +103,139 @@ BOB.registerComponent('richCallToAction', RichCallToAction, [
   { name: 'buttonText', type: 'string', defaultValue: 'Button' },
   { name: 'linkText', type: 'string', defaultValue: 'Check lates video' },
   { name: 'linkHref', type: 'string', defaultValue: '#' },
+]);
+
+// header: {
+//   headline: {
+//     content: string;
+//     fontSize: number;
+//     color: string;
+//     uppercase: boolean;
+//   };
+//   paragraph: {
+//     content: string;
+//     fontSize: number;
+//     color: string;
+//     uppercase: boolean;
+//   };
+//   buttonText: string;
+//   linkText: string;
+//   linkHref: string;
+// };
+// banner: {
+//   text: string;
+//   styles: {
+//     background: string;
+//     textColor: string;
+//     borderColor: string;
+//     borderSize: number;
+//   };
+// };
+
+BOB.registerComponent('SuperRichCallToAction', SuperRichCallToAction, [
+  {
+    name: 'header',
+    type: 'object',
+    subfields: [
+      {
+        name: 'headline',
+        type: 'object',
+        subfields: [
+          {
+            name: 'content',
+            type: 'string',
+            defaultValue: 'Lorem ipsum',
+          },
+          {
+            name: 'fontSize',
+            type: 'number',
+            defaultValue: 14,
+          },
+          {
+            name: 'color',
+            type: 'string',
+            defaultValue: 'white',
+          },
+          {
+            name: 'uppercase',
+            type: 'boolean',
+            defaultValue: false,
+          },
+        ],
+      },
+      {
+        name: 'paragraph',
+        type: 'object',
+        subfields: [
+          {
+            name: 'content',
+            type: 'string',
+            defaultValue: 'Lorem ipsum',
+          },
+          {
+            name: 'fontSize',
+            type: 'number',
+            defaultValue: 14,
+          },
+          {
+            name: 'color',
+            type: 'string',
+            defaultValue: 'white',
+          },
+          {
+            name: 'uppercase',
+            type: 'boolean',
+            defaultValue: false,
+          },
+        ],
+      },
+      { name: 'buttonText', type: 'string', defaultValue: 'Button' },
+      { name: 'linkText', type: 'string', defaultValue: 'Check lates video' },
+      { name: 'linkHref', type: 'string', defaultValue: '#' },
+    ],
+  },
+  {
+    name: 'banner',
+    type: 'object',
+    subfields: [
+      {
+        name: 'text',
+        type: 'string',
+        defaultValue: 'Lorem ipsum',
+      },
+      {
+        name: 'styles',
+        type: 'object',
+        subfields: [
+          {
+            name: 'background',
+            type: 'string',
+            defaultValue: '#4f4f4f',
+          },
+          {
+            name: 'textColor',
+            type: 'string',
+            defaultValue: 'white',
+          },
+          {
+            name: 'borderColor',
+            type: 'string',
+            defaultValue: 'red',
+          },
+          {
+            name: 'withBorder',
+            type: 'boolean',
+            defaultValue: false,
+          },
+          {
+            name: 'borderSize',
+            type: 'number',
+            defaultValue: 1,
+          },
+        ],
+      },
+    ],
+  },
 ]);
 
 const inter = Inter({ subsets: ['latin'] });

@@ -28,8 +28,8 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
   return (
     <EditorContextProvider>
       <IframeComunicator contentId={contentId} />
-      <main className="flex min-h-screen w-full">
-        <div className="grid p-3 pb-0 gap-3 grid-cols-editor w-full min-h-screen text-sm font-medium">
+      <main className="flex min-h-screen h-screen w-full overflow-hidden">
+        <div className="grid p-3 pb-0 gap-3 grid-cols-editor w-full text-sm font-medium">
           <DraggableContext>
             <DraggingOverlay />
             <div className="">
@@ -61,7 +61,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
               >
                 {'<'}
               </Link>
-              <div className="flex relative h-full">
+              <div className="flex relative h-full overflow-y-auto">
                 <RectLayer pageContent={details} registeredComponents={registeredComponents} />
                 <iframe
                   className="block w-full border-none"
@@ -73,7 +73,7 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
             </div>
           </DraggableContext>
 
-          <div className="bg-blue">
+          <div className="overflow-y-auto">
             <Link
               href={PAGE_CONTENT}
               className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"

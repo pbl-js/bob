@@ -572,7 +572,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchema.tsx",
-          "hash": "750772011650258706",
+          "hash": "9871986723093969780",
           "deps": [
             "types",
             "ui",
@@ -615,7 +615,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/page.tsx",
-          "hash": "16635169916366150167",
+          "hash": "5000612818160607806",
           "deps": [
             "npm:next",
             "npm:@dnd-kit/core"
@@ -892,6 +892,16 @@
           "deps": [
             "types"
           ]
+        },
+        {
+          "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchemaDisplay.tsx",
+          "hash": "5373465075093174784",
+          "deps": [
+            "types",
+            "ui",
+            "npm:clsx",
+            "npm:react"
+          ]
         }
       ],
       "dashboard-e2e": [
@@ -951,7 +961,7 @@
         },
         {
           "file": "apps/client/app/layout.tsx",
-          "hash": "17520856181817531202",
+          "hash": "17036940943781504175",
           "deps": [
             "npm:next"
           ]
@@ -1143,6 +1153,14 @@
           "hash": "11821331413701652045",
           "deps": [
             "types"
+          ]
+        },
+        {
+          "file": "apps/client/components/SuperRichCallToAction/SuperRichCallToAction.tsx",
+          "hash": "8891722740636865224",
+          "deps": [
+            "npm:next",
+            "npm:react"
           ]
         }
       ]
