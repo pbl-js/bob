@@ -11,6 +11,7 @@ import React from 'react';
 import { updateComponents } from './utils';
 import { updateComponentsFromPageContent } from 'apps/dashboard/utils/api/mutations';
 import ObjectPropSchemaDisplay from './ObjectPropSchemaDisplay';
+import ObjectPropSchemaEditor from './ObjectPropSchemaEditor';
 
 export function ObjectPropSchema({
   propSchema,
@@ -59,108 +60,16 @@ export function ObjectPropSchema({
               const content_restSubfields = value.filter((val) => val.name !== schema_subfield.name);
 
               return (
-                <div className="grid w-full max-w-sm items-center gap-1.5" key={schema_subfield.name}>
-                  {(() => {
-                    if (schema_subfield.type === 'string') {
-                      return (
-                        <div className="grid w-full max-w-sm items-center gap-1.5">
-                          <Label htmlFor={schema_subfield.name}>{schema_subfield.name}</Label>
-                          <Input
-                            id={schema_subfield.name}
-                            value={content_matchSubfield?.type === 'string' ? content_matchSubfield.value : ''}
-                            onBlur={sendComponentsToApi}
-                            onChange={(e) =>
-                              editProp({
-                                componentId: component._id,
-                                newProp: {
-                                  type: 'object',
-                                  name: propSchema.name,
-                                  subfields: [
-                                    ...content_restSubfields,
-                                    {
-                                      name: schema_subfield.name,
-                                      type: 'string',
-                                      value: e.target.value,
-                                    },
-                                  ],
-                                },
-                              })
-                            }
-                            type="text"
-                            placeholder={schema_subfield.name}
-                          />
-                        </div>
-                      );
-                    }
-
-                    if (schema_subfield.type === 'number')
-                      return (
-                        <div className="grid w-full max-w-sm items-center gap-1.5">
-                          <Label htmlFor={schema_subfield.name}>{schema_subfield.name}</Label>
-                          <Input
-                            id={schema_subfield.name}
-                            type="text"
-                            value={content_matchSubfield?.type === 'number' ? content_matchSubfield.value : ''}
-                            onBlur={sendComponentsToApi}
-                            onChange={(e) =>
-                              editProp({
-                                componentId: component._id,
-                                newProp: {
-                                  type: 'object',
-                                  name: propSchema.name,
-                                  subfields: [
-                                    ...content_restSubfields,
-                                    {
-                                      name: schema_subfield.name,
-                                      type: 'number',
-                                      value: Number(e.target.value),
-                                    },
-                                  ],
-                                },
-                              })
-                            }
-                          />
-                        </div>
-                      );
-
-                    if (schema_subfield.type === 'boolean')
-                      return (
-                        <div className="flex justify-between w-full max-w-sm gap-1.5">
-                          <Label htmlFor={schema_subfield.name}>{schema_subfield.name}</Label>
-                          <Switch
-                            checked={content_matchSubfield?.type === 'boolean' ? content_matchSubfield.value : false}
-                            onCheckedChange={async (e) => {
-                              const newProp: DataFieldContent = {
-                                type: 'object',
-                                name: propSchema.name,
-                                subfields: [
-                                  ...content_restSubfields,
-                                  { name: schema_subfield.name, type: 'boolean', value: e },
-                                ],
-                              };
-
-                              // editProp({
-                              //   componentId: component._id,
-                              //   newProp: newProp,
-                              // });
-
-                              const updatedComponents = updateComponents({
-                                componentId: component._id,
-                                newProp,
-                                components: detailsState.components,
-                              });
-
-                              // Note: We can't use detailsState.components because setState is "async"
-                              await updateComponentsFromPageContent({
-                                pageContentId: details._id,
-                                components: updatedComponents,
-                              });
-                            }}
-                          />
-                        </div>
-                      );
-                  })()}
-                </div>
+                <ObjectPropSchemaEditor
+                  key={schema_subfield.name}
+                  schema={schema_subfield}
+                  content={value}
+                  parentPropSchema={propSchema}
+                  editProp={editProp}
+                  sendComponentsToApi={sendComponentsToApi}
+                  component={component}
+                  detailsState={detailsState}
+                />
               );
             })}
           </PopoverContent>
