@@ -24059,3 +24059,72 @@ Source project does not exist: npm:@floating-ui/core
 [NX Daemon Server] - 2024-01-31T20:21:29.439Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-01-31T20:21:29.497Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-01-31T20:21:29.550Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:35:22.222Z - Started listening on: /var/folders/0l/7g2vchwx2w5_qh4dxnbzbjth0000gn/T/3f5c8002878bda094f53/d.sock
+[NX Daemon Server] - 2024-06-01T09:35:22.227Z - [WATCHER]: Subscribed to changes within: /Users/pablo/REPOS/go-learning/nx-workspace (native)
+[NX Daemon Server] - 2024-06-01T09:35:22.227Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-01T09:35:22.228Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-06-01T09:35:22.229Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-06-01T09:35:22.282Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-01T09:35:22.282Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-01T09:35:22.282Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-01T09:35:22.401Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-06-01T09:35:22.402Z - Time taken for 'total for creating and serializing project graph' 172.38370898365974ms
+[NX Daemon Server] - 2024-06-01T09:35:22.402Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-01T09:35:22.403Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:35:22.403Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-06-01T09:35:22.404Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 172. Response time: 3.
+[NX Daemon Server] - 2024-06-01T09:35:22.406Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-06-01T09:35:22.406Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-06-01T09:35:22.406Z - Handled REQUEST_FILE_DATA. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-06-01T09:35:22.407Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-01T09:35:22.463Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:36:21.558Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:36:21.612Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:36:33.942Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:36:36.659Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:36:44.239Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:37:23.021Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:37:44.329Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:39:40.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:39:47.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:46:20.254Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T09:46:34.282Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T10:40:50.265Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T10:41:41.102Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T10:41:48.232Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T10:42:34.637Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T10:43:25.521Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T10:45:45.644Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-01T12:46:48.007Z - [WATCHER]: Stopping the watcher for /Users/pablo/REPOS/go-learning/nx-workspace (sources)
+[NX Daemon Server] - 2024-06-01T12:46:48.007Z - [WATCHER]: Stopping the watcher for /Users/pablo/REPOS/go-learning/nx-workspace (outputs)
+[NX Daemon Server] - 2024-06-01T12:46:48.007Z - Server stopped because: "10800000ms of inactivity"
+[NX Daemon Server] - 2024-06-02T12:56:43.460Z - Started listening on: /var/folders/0l/7g2vchwx2w5_qh4dxnbzbjth0000gn/T/3f5c8002878bda094f53/d.sock
+[NX Daemon Server] - 2024-06-02T12:56:43.464Z - [WATCHER]: Subscribed to changes within: /Users/pablo/REPOS/go-learning/nx-workspace (native)
+[NX Daemon Server] - 2024-06-02T12:56:43.464Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-02T12:56:43.465Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-06-02T12:56:43.466Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-06-02T12:56:43.507Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-06-02T12:56:43.507Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-02T12:56:43.507Z - [REQUEST]: 
+[NX Daemon Server] - 2024-06-02T12:56:43.629Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-06-02T12:56:43.631Z - Time taken for 'total for creating and serializing project graph' 163.5314159989357ms
+[NX Daemon Server] - 2024-06-02T12:56:43.631Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-06-02T12:56:43.631Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:56:43.632Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-06-02T12:56:43.632Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 163. Response time: 3.
+[NX Daemon Server] - 2024-06-02T12:56:43.635Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-06-02T12:56:43.635Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-06-02T12:56:43.635Z - Handled REQUEST_FILE_DATA. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-06-02T12:56:43.635Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-06-02T12:56:43.692Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:56:45.409Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:56:51.812Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:56:52.671Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:56:52.758Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:57:05.503Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:57:29.144Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:57:47.243Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:57:52.753Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:57:52.813Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:57:52.938Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-06-02T12:58:10.820Z - [WATCHER]: Processing file changes in outputs

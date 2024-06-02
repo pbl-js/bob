@@ -22,12 +22,12 @@ export const useIframeCommunicator = (
     const ref = wrapperRef.current;
     if (ref === null) return;
 
-    const handleWheel = (event: WheelEvent) => {
+    const handleWheel = (event: Event) => {
       console.log('event: ', event);
       console.log('i scrolled', ref.scrollTop);
       postMessage_scrollPosition(ref.scrollTop);
     };
-    ref.addEventListener('wheel', handleWheel);
+    ref.addEventListener('scroll', handleWheel);
 
     return () => ref.removeEventListener('wheel', handleWheel);
     // TODO: Add dependency array here and fix problem with ref which doesn't trigger useEffect re-run
