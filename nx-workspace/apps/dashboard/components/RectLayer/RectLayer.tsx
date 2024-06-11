@@ -61,7 +61,7 @@ export function Content({
       ref={wrapperRef}
       className={clsx(
         'flex items-center justify-center w-full',
-        'absolute top-0 left-0 bottom-0 right-0 overflow-y-scroll'
+        'absolute top-0 left-0 bottom-0 right-0 overflow-y-scroll no-scrollbar'
       )}
     >
       <div className="absolute top-0 left-0 right-0" style={{ height: `${state.documentHeight}px` }}>

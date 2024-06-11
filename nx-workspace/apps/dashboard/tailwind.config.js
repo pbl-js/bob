@@ -22,6 +22,7 @@ darkMode: ["class"],
         input: "var(--input)",
         ring: "var(--ring)",
         background: "var(--background)",
+        backgroundSecondary: "var(--background-secondary)",
         foreground: "var(--foreground)",
         primary: {
           DEFAULT: "var(--primary)",

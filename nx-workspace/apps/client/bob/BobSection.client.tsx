@@ -64,6 +64,8 @@ const Content = ({ name }: BobSectionClientProps) => {
   React.useEffect(() => {
     postMessage_registerComponents();
     postMessage_iframeReady();
+
+    document.body.style.overflow = 'hidden';
   }, []);
 
   React.useEffect(() => {

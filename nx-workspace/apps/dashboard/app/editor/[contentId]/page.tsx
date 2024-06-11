@@ -29,38 +29,46 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
     <EditorContextProvider>
       <IframeComunicator contentId={contentId} />
       <main className="flex min-h-screen h-screen w-full overflow-hidden">
-        <div className="grid p-3 pb-0 gap-3 grid-cols-editor w-full text-sm font-medium">
+        <div className="grid pb-0 grid-cols-editor w-full text-sm font-medium">
           <DraggableContext>
             <DraggingOverlay />
             <div className="">
-              <Link
-                href={PAGE_CONTENT}
-                className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"
-              >
-                {'<'}
-              </Link>
-              <h3 className="mb-3">Registered components</h3>
-              <RegisteredComponentListing pageContentId={contentId} />
-              <h3 className="mb-3">page content details</h3>
-              <p className="mt-6">Name: {details?.name}</p>
+              <div className="border-b">
+                <Link
+                  href={PAGE_CONTENT}
+                  className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"
+                >
+                  {'<'}
+                </Link>
+              </div>
 
-              <div className="mt-2 flex flex-col gap-1">
-                {details.components.map((component) => (
-                  <div className="p-2 bg-primary rounded-md flex justify-between" key={component._id}>
-                    {component.name}
-                    <DeleteLayerButton componentId={component._id} pageContentId={details._id} />
-                  </div>
-                ))}
+              <div className="border-r h-full p-3">
+                <h3 className="mb-3">Registered components</h3>
+                <RegisteredComponentListing pageContentId={contentId} />
+                <h3 className="mb-3">page content details</h3>
+                <p className="mt-6">Name: {details?.name}</p>
+
+                <div className="mt-2 flex flex-col gap-1">
+                  {details.components.map((component) => (
+                    <div className="p-2 bg-primary rounded-md flex justify-between" key={component._id}>
+                      {component.name}
+                      <DeleteLayerButton componentId={component._id} pageContentId={details._id} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <Link
-                href={PAGE_CONTENT}
-                className="flex items-center justify-center w-10 h-10 bg-primary rounded-md text-primary-foreground"
-              >
-                {'<'}
-              </Link>
+            <div className="flex flex-col">
+              <div className="border-b">
+                <Link
+                  href={PAGE_CONTENT}
+                  className="flex items-center justify-center w-10 h-10 bg-primary rounded-md text-primary-foreground mb-3"
+                >
+                  {'<'}
+                </Link>
+              </div>
+
               <div className="flex relative h-full overflow-y-auto">
                 <RectLayer pageContent={details} registeredComponents={registeredComponents} />
                 <iframe
@@ -74,12 +82,14 @@ export default async function Home({ params: { contentId } }: PageProps<{ conten
           </DraggableContext>
 
           <div className="overflow-y-auto">
-            <Link
-              href={PAGE_CONTENT}
-              className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"
-            >
-              {'<'}
-            </Link>
+            <div className="border-b">
+              <Link
+                href={PAGE_CONTENT}
+                className="flex items-center justify-center w-10 h-10 bg-primary rounded-md mb-3 text-primary-foreground"
+              >
+                {'<'}
+              </Link>
+            </div>
             <RightPanel details={details} componentsSchema={registeredComponents} />
           </div>
         </div>

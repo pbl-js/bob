@@ -26,7 +26,7 @@ export function RegisteredComponentItem({ component, pageContentId }: Props) {
     <button
       ref={setNodeRef}
       className={clsx(
-        'bg-primary w-[136px] rounded-md p-2 h-[60px]',
+        'bg-primary w-[124px] rounded-md p-2 h-[60px]',
         'text-xs break-words text-primary-foreground',
         'cursor-move',
         {

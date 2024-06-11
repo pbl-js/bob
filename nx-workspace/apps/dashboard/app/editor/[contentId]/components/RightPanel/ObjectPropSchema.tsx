@@ -33,8 +33,15 @@ export function ObjectPropSchema({
   details: PageContentRequest;
 }) {
   console.log('value: ', value);
-
-  if (!value || value?.length === 0) return <Button>Add object</Button>;
+  console.log('Prop schema: ', propSchema);
+  // if (!value || value?.length === 0) return <Button>Add object</Button>;
+  if (!value || value?.length === 0)
+    return (
+      <div className="flex flex-col bg-backgroundSecondary border-y p-3 gap-3">
+        <Label className="mx-auto">{propSchema.name}</Label>
+        <Button>Add object</Button>
+      </div>
+    );
 
   return (
     <>

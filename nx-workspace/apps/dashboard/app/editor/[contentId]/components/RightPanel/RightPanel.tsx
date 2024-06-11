@@ -60,8 +60,8 @@ export function RightPanel({ details, componentsSchema }: Props) {
   if (!matchComponent || !matchComponentSchema) return <div>Something went wrong</div>;
 
   return (
-    <div>
-      <div className="flex flex-col gap-4">
+    <div className="border-l h-full">
+      <div className="flex flex-col gap-4 py-3">
         {matchComponentSchema.propsSchema.map((propSchema) => {
           const matchComponentMatchProp = matchComponent.props.find(
             (matchComponentProp) => matchComponentProp.name === propSchema.name
@@ -70,7 +70,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
           if (propSchema.type === 'string')
             return (
-              <div className="grid w-full max-w-sm items-center gap-1.5">
+              <div className="grid w-full max-w-sm items-center gap-1.5 px-3">
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Input
                   id={propSchema.name}
@@ -94,7 +94,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
           if (propSchema.type === 'number')
             return (
-              <div className="grid w-full max-w-sm items-center gap-1.5">
+              <div className="grid w-full max-w-sm items-center gap-1.5 px-3">
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Input
                   id={propSchema.name}
@@ -116,7 +116,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
             );
           if (propSchema.type === 'boolean')
             return (
-              <div className="flex justify-between space-x-2">
+              <div className="flex justify-between space-x-2 px-3">
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Switch
                   checked={matchComponentMatchProp?.type === 'boolean' ? matchComponentMatchProp.value : false}

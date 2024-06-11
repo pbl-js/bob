@@ -6,6 +6,7 @@ import './global.css';
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
 import SuperRichCallToAction from '../components/SuperRichCallToAction/SuperRichCallToAction';
+import clsx from 'clsx';
 
 BOB.init('example-of-api-key');
 
@@ -248,7 +249,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={clsx(inter.className, 'overflow-hidden')}>{children}</body>
     </html>
   );
 }

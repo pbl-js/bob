@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BobSectionClient } from './BobSection.client';
 
 export type BobSectionProps = {
@@ -6,9 +6,5 @@ export type BobSectionProps = {
 };
 
 export const BobSection = ({ name }: BobSectionProps) => {
-  // useEffect(() => {
-  //   console.log('siema');
-  // });
-
   return <BobSectionClient name={name} />;
 };

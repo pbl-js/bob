@@ -2898,6 +2898,15 @@
         "hash": "sha512-yQ8oGX2GVsEYMWGxcovu1uGWPCxV5BFfeeYxqPmuAzUyLT9qmaMXSAhXpb0WrspIeqYzdJpkh2vHModJPgRIaw=="
       }
     },
+    "npm:@radix-ui/react-accordion": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-accordion",
+      "data": {
+        "version": "1.1.2",
+        "packageName": "@radix-ui/react-accordion",
+        "hash": "sha512-fDG7jcoNKVjSK6yfmuAs0EnPDro0WMXIhMtXdTBWqEioVW206ku+4Lw07e+13lUkFkpoEQ2PdeMIAGpdqEAmDg=="
+      }
+    },
     "npm:@radix-ui/react-arrow": {
       "type": "npm",
       "name": "npm:@radix-ui/react-arrow",
@@ -2905,6 +2914,24 @@
         "version": "1.0.3",
         "packageName": "@radix-ui/react-arrow",
         "hash": "sha512-wSP+pHsB/jQRaL6voubsQ/ZlrGBHHrOjmBnr19hxYgtS0WvAFwZhK2WP/YY5yF9uKECCEEDGxuLxq1NBK51wFA=="
+      }
+    },
+    "npm:@radix-ui/react-collapsible": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-collapsible",
+      "data": {
+        "version": "1.0.3",
+        "packageName": "@radix-ui/react-collapsible",
+        "hash": "sha512-UBmVDkmR6IvDsloHVN+3rtx4Mi5TFvylYXpluuv0f37dtaz3H99bp8No0LGXRigVpl3UAT4l9j6bIchh42S/Gg=="
+      }
+    },
+    "npm:@radix-ui/react-collection": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-collection",
+      "data": {
+        "version": "1.0.3",
+        "packageName": "@radix-ui/react-collection",
+        "hash": "sha512-3SzW+0PW7yBBoQlT8wNcGtaxaD0XSu0uLUFgrtHY08Acx05TaHaOmVLR73c0j/cqpDy53KBMO7s0dx2wmOIDIA=="
       }
     },
     "npm:@radix-ui/react-compose-refs": {
@@ -2923,6 +2950,15 @@
         "version": "1.0.1",
         "packageName": "@radix-ui/react-context",
         "hash": "sha512-ebbrdFoYTcuZ0v4wG5tedGnp9tzcV8awzsxYph7gXUyvnNLuTIcCk1q17JEbnVhXAKG9oX3KtchwiMIAYp9NLg=="
+      }
+    },
+    "npm:@radix-ui/react-direction": {
+      "type": "npm",
+      "name": "npm:@radix-ui/react-direction",
+      "data": {
+        "version": "1.0.1",
+        "packageName": "@radix-ui/react-direction",
+        "hash": "sha512-RXcvnXgyvYvBEOhCBuddKecVkoMiI10Jcm5cTI7abJRAHYfFxeu+FBQs/DvdxSYucxR5mna0dNsL6QFlds5TMA=="
       }
     },
     "npm:@radix-ui/react-dismissable-layer": {
@@ -17610,6 +17646,76 @@
       "type": "static"
     },
     {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-collapsible",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-collection",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-compose-refs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-context",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-direction",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-id",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-accordion",
+      "target": "npm:@radix-ui/react-use-controllable-state",
+      "type": "static"
+    },
+    {
       "source": "npm:@radix-ui/react-arrow",
       "target": "npm:@types/react",
       "type": "static"
@@ -17640,6 +17746,116 @@
       "type": "static"
     },
     {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-compose-refs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-context",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-id",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-presence",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-use-controllable-state",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collapsible",
+      "target": "npm:@radix-ui/react-use-layout-effect",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@radix-ui/react-compose-refs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@radix-ui/react-context",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@radix-ui/react-primitive",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-collection",
+      "target": "npm:@radix-ui/react-slot",
+      "type": "static"
+    },
+    {
       "source": "npm:@radix-ui/react-compose-refs",
       "target": "npm:@types/react",
       "type": "static"
@@ -17666,6 +17882,21 @@
     },
     {
       "source": "npm:@radix-ui/react-context",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-direction",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-direction",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@radix-ui/react-direction",
       "target": "npm:@babel/runtime",
       "type": "static"
     },
