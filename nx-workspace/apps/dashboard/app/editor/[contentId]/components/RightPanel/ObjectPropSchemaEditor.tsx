@@ -24,6 +24,7 @@ export default function ObjectPropSchemaEditor({
   sendComponentsToApi: () => void;
   component: ComponentContent;
   detailsState: PageContentRequest;
+  componentIdNestingHistory?: string[];
 }) {
   const content_matchSubfield = content.find((val) => val.name === schema.name);
   const content_restSubfields = content.filter((val) => val.name !== schema.name);
@@ -124,6 +125,33 @@ export default function ObjectPropSchemaEditor({
                   });
                 }}
               />
+            </div>
+          );
+
+        if (schema.type === 'object')
+          return (
+            <div className="flex justify-between w-full max-w-sm gap-1.5">
+              <Label htmlFor={schema.name}>{schema.name}</Label>
+              {/* {propSchema.subfields.map((subfieldSchema) => {
+                const matchContentField = value.find((val) => val.name === subfieldSchema.name);
+
+                return (
+                  <ObjectPropSchemaEditor
+                    key={subfieldSchema.name}
+                    schema={subfieldSchema}
+                    content={value}
+                    parentPropSchema={propSchema}
+                    editProp={editProp}
+                    sendComponentsToApi={sendComponentsToApi}
+                    component={component}
+                    detailsState={detailsState}
+                  />
+                );
+
+                // return (
+                //   <ObjectPropSchemaDisplay key={subfieldSchema.name} schema={subfieldSchema} content={matchContentField} />
+                // );
+              })} */}
             </div>
           );
       })()}

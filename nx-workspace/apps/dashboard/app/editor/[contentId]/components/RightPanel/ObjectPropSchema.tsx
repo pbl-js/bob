@@ -11,7 +11,8 @@ import React from 'react';
 import { updateComponents } from './utils';
 import { updateComponentsFromPageContent } from 'apps/dashboard/utils/api/mutations';
 import ObjectPropSchemaDisplay from './ObjectPropSchemaDisplay';
-import ObjectPropSchemaEditor from './ObjectPropSchemaEditor';
+import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
+import ObjectPropSchemaEditor from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchemaEditor';
 
 export function ObjectPropSchema({
   propSchema,
@@ -34,30 +35,45 @@ export function ObjectPropSchema({
 }) {
   console.log('value: ', value);
   console.log('Prop schema: ', propSchema);
+  const [showForm, setShowForm] = React.useState(false);
+
   // if (!value || value?.length === 0) return <Button>Add object</Button>;
-  if (!value || value?.length === 0)
+  if (!value || (value?.length === 0 && !showForm))
     return (
-      <div className="flex flex-col bg-backgroundSecondary border-y p-3 gap-3">
+      <div className={objectPropSchemaWrapperStyles}>
         <Label className="mx-auto">{propSchema.name}</Label>
-        <Button>Add object</Button>
+        <Button onClick={() => setShowForm(true)}>Add object</Button>
       </div>
     );
 
   return (
     <>
-      <Label>{propSchema.name}</Label>
-      <div className="flex flex-col gap-2 w-full border p-3 rounded-md">
-        {propSchema.subfields.map((subfieldSchema) => {
-          const matchContentField = value.find((val) => val.name === subfieldSchema.name);
+      <div className={objectPropSchemaWrapperStyles}>
+        <Label className="mx-auto">{propSchema.name}</Label>
+        <div className={'flex flex-col gap-2 w-full'}>
+          {propSchema.subfields.map((subfieldSchema) => {
+            const matchContentField = value.find((val) => val.name === subfieldSchema.name);
 
-          return (
-            <ObjectPropSchemaDisplay key={subfieldSchema.name} schema={subfieldSchema} content={matchContentField} />
-          );
-        })}
-        {/* {value.map((val) => (
-          <ObjectPropSchemaDisplay key={val.name} schema={propSchema} content={val} />
-        ))} */}
-        <Popover>
+            return (
+              <ObjectPropSchemaEditor
+                key={subfieldSchema.name}
+                schema={subfieldSchema}
+                content={value}
+                parentPropSchema={propSchema}
+                editProp={editProp}
+                sendComponentsToApi={sendComponentsToApi}
+                component={component}
+                detailsState={detailsState}
+              />
+            );
+
+            // return (
+            //   <ObjectPropSchemaDisplay key={subfieldSchema.name} schema={subfieldSchema} content={matchContentField} />
+            // );
+          })}
+          <Button onClick={() => setShowForm(false)}>Clear object</Button>
+
+          {/* <Popover>
           <PopoverTrigger>
             <Button className="w-full">Edit object</Button>
           </PopoverTrigger>
@@ -80,7 +96,8 @@ export function ObjectPropSchema({
               );
             })}
           </PopoverContent>
-        </Popover>
+        </Popover> */}
+        </div>
       </div>
     </>
   );

@@ -6,6 +6,8 @@ import {
   DataFieldSchema,
 } from '@types';
 import { Button } from '@ui/components/ui/button';
+import { Label } from '@ui/components/ui/label';
+import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -17,31 +19,30 @@ export default function ObjectPropSchemaDisplay({
   content: DataFieldContent | undefined;
 }) {
   return (
-    <div className={clsx('flex', schema.type === 'object' ? 'flex-col gap-2' : 'flex-row justify-between')}>
-      <div>{schema.name}</div>
+    <>
       {(() => {
         if (schema.type === 'string') {
-          const narrowedContent = content as DataFieldContent_String;
+          const narrowedContent = content as DataFieldContent_String | undefined;
 
-          return <div>{narrowedContent.value || '---'}</div>;
+          return <div>{narrowedContent?.value || '---'}</div>;
         }
         if (schema.type === 'number') {
-          const narrowedContent = content as DataFieldContent_Number;
+          const narrowedContent = content as DataFieldContent_Number | undefined;
 
-          return <div className="text-blue-400">{narrowedContent.value || '---'}</div>;
+          return <div className="text-blue-400">{narrowedContent?.value || '---'}</div>;
         }
         if (schema.type === 'boolean') {
-          const narrowedContent = content as DataFieldContent_Boolean;
+          const narrowedContent = content as DataFieldContent_Boolean | undefined;
 
           return (
             <div
               className={clsx({
-                'text-green-400': narrowedContent.value === true,
-                'text-red-400': narrowedContent.value === false,
-                'text-foreground': narrowedContent.value === undefined,
+                'text-green-400': narrowedContent?.value === true,
+                'text-red-400': narrowedContent?.value === false,
+                'text-foreground': narrowedContent?.value === undefined,
               })}
             >
-              {narrowedContent.value === true ? 'true' : 'false'}
+              {narrowedContent?.value === true ? 'true' : 'false'}
             </div>
           );
         }
@@ -57,6 +58,6 @@ export default function ObjectPropSchemaDisplay({
           );
         }
       })()}
-    </div>
+    </>
   );
 }
