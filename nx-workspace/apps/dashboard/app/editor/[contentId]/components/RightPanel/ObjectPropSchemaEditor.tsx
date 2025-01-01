@@ -6,6 +6,9 @@ import React from 'react';
 import { updateComponents } from './utils';
 import { updateComponentsFromPageContent } from 'apps/dashboard/utils/api/mutations';
 import { ComponentContent, PageContentRequest } from '@types';
+import { ObjectPropSchema } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchema';
+import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
+import { cn } from '@ui/utils';
 
 export default function ObjectPropSchemaEditor({
   schema,
@@ -15,6 +18,7 @@ export default function ObjectPropSchemaEditor({
   sendComponentsToApi,
   component,
   detailsState,
+  componentIdNestingHistory,
 }: {
   schema: DataFieldSchema;
   content: DataFieldContent[];
@@ -24,7 +28,7 @@ export default function ObjectPropSchemaEditor({
   sendComponentsToApi: () => void;
   component: ComponentContent;
   detailsState: PageContentRequest;
-  componentIdNestingHistory?: string[];
+  componentIdNestingHistory: string[];
 }) {
   const content_matchSubfield = content.find((val) => val.name === schema.name);
   const content_restSubfields = content.filter((val) => val.name !== schema.name);
@@ -34,7 +38,7 @@ export default function ObjectPropSchemaEditor({
       {(() => {
         if (schema.type === 'string') {
           return (
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="px-3 grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Input
                 id={schema.name}
@@ -66,7 +70,7 @@ export default function ObjectPropSchemaEditor({
 
         if (schema.type === 'number')
           return (
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="px-3 grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Input
                 id={schema.name}
@@ -96,7 +100,7 @@ export default function ObjectPropSchemaEditor({
 
         if (schema.type === 'boolean')
           return (
-            <div className="flex justify-between w-full max-w-sm gap-1.5">
+            <div className="px-3 flex justify-between w-full max-w-sm gap-1.5">
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Switch
                 checked={content_matchSubfield?.type === 'boolean' ? content_matchSubfield.value : false}
@@ -128,30 +132,35 @@ export default function ObjectPropSchemaEditor({
             </div>
           );
 
+        // if (schema.type === 'object')
+        //   return (
+        //     <ObjectPropSchema
+        //       component={component}
+        //       editProp={editProp}
+        //       sendComponentsToApi={sendComponentsToApi}
+        //       value={content}
+        //       detailsState={detailsState}
+        //       propSchema={parentPropSchema}
+        //       componentIdNestingHistory={[component._id]}
+        //     />
+        //   );
         if (schema.type === 'object')
           return (
-            <div className="flex justify-between w-full max-w-sm gap-1.5">
-              <Label htmlFor={schema.name}>{schema.name}</Label>
-              {/* {propSchema.subfields.map((subfieldSchema) => {
-                const matchContentField = value.find((val) => val.name === subfieldSchema.name);
-
-                return (
-                  <ObjectPropSchemaEditor
-                    key={subfieldSchema.name}
-                    schema={subfieldSchema}
-                    content={value}
-                    parentPropSchema={propSchema}
-                    editProp={editProp}
-                    sendComponentsToApi={sendComponentsToApi}
-                    component={component}
-                    detailsState={detailsState}
-                  />
-                );
-
-                // return (
-                //   <ObjectPropSchemaDisplay key={subfieldSchema.name} schema={subfieldSchema} content={matchContentField} />
-                // );
-              })} */}
+            <div className={cn(objectPropSchemaWrapperStyles, 'bg-background')}>
+              <Label className="mx-auto">{schema.name}</Label>
+              {schema.subfields.map((schemaSubfield) => (
+                <ObjectPropSchemaEditor
+                  key={schemaSubfield.name}
+                  schema={schemaSubfield}
+                  content={content}
+                  parentPropSchema={schema}
+                  editProp={editProp}
+                  sendComponentsToApi={sendComponentsToApi}
+                  component={component}
+                  detailsState={detailsState}
+                  componentIdNestingHistory={componentIdNestingHistory}
+                />
+              ))}
             </div>
           );
       })()}

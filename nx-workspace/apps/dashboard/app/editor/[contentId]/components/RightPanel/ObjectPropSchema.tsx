@@ -17,21 +17,21 @@ import ObjectPropSchemaEditor from 'apps/dashboard/app/editor/[contentId]/compon
 export function ObjectPropSchema({
   propSchema,
   detailsState,
-  setDetailsState,
-  details,
   value,
   editProp,
   component,
   sendComponentsToApi,
+  componentIdNestingHistory,
 }: {
   propSchema: DataFieldSchema_Object;
   detailsState: PageContentRequest;
-  setDetailsState: React.Dispatch<React.SetStateAction<PageContentRequest>>;
+  // setDetailsState: React.Dispatch<React.SetStateAction<PageContentRequest>>;
   value: DataFieldContent[] | null;
   editProp: ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) => void;
   sendComponentsToApi: () => void;
   component: ComponentContent;
-  details: PageContentRequest;
+  // details: PageContentRequest;
+  componentIdNestingHistory: string[];
 }) {
   console.log('value: ', value);
   console.log('Prop schema: ', propSchema);
@@ -64,6 +64,7 @@ export function ObjectPropSchema({
                 sendComponentsToApi={sendComponentsToApi}
                 component={component}
                 detailsState={detailsState}
+                componentIdNestingHistory={componentIdNestingHistory}
               />
             );
 

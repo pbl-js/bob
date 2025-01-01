@@ -151,14 +151,14 @@ export function RightPanel({ details, componentsSchema }: Props) {
           if (propSchema.type === 'object')
             return (
               <ObjectPropSchema
-                details={details}
                 component={matchComponent}
                 editProp={editProp}
                 sendComponentsToApi={sendComponentsToApi}
                 value={matchComponentMatchProp?.type === 'object' ? matchComponentMatchProp.subfields : null}
                 detailsState={detailsState}
-                setDetailsState={setDetailsState}
+                // setDetailsState={setDetailsState}
                 propSchema={propSchema}
+                componentIdNestingHistory={[matchComponent._id]}
               />
             );
         })}
