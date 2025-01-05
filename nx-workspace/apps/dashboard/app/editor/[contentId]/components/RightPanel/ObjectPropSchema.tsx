@@ -21,7 +21,6 @@ export function ObjectPropSchema({
   editProp,
   component,
   sendComponentsToApi,
-  componentIdNestingHistory,
 }: {
   propSchema: DataFieldSchema_Object;
   detailsState: PageContentRequest;
@@ -31,10 +30,7 @@ export function ObjectPropSchema({
   sendComponentsToApi: () => void;
   component: ComponentContent;
   // details: PageContentRequest;
-  componentIdNestingHistory: string[];
 }) {
-  console.log('value: ', value);
-  console.log('Prop schema: ', propSchema);
   const [showForm, setShowForm] = React.useState(false);
 
   // if (!value || value?.length === 0) return <Button>Add object</Button>;
@@ -58,13 +54,13 @@ export function ObjectPropSchema({
               <ObjectPropSchemaEditor
                 key={subfieldSchema.name}
                 schema={subfieldSchema}
-                content={value}
+                content={matchContentField?.type === 'object' ? matchContentField.subfields : []}
                 parentPropSchema={propSchema}
                 editProp={editProp}
                 sendComponentsToApi={sendComponentsToApi}
                 component={component}
                 detailsState={detailsState}
-                componentIdNestingHistory={componentIdNestingHistory}
+                componentIdNestingHistory={[propSchema.name]}
               />
             );
 

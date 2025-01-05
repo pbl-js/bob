@@ -239,6 +239,59 @@ BOB.registerComponent('SuperRichCallToAction', SuperRichCallToAction, [
   },
 ]);
 
+BOB.registerComponent('4levelNesting', ProductTile, [
+  {
+    name: 'products',
+    type: 'object',
+    subfields: [
+      {
+        name: 'products count',
+        type: 'number',
+        defaultValue: 10,
+      },
+      {
+        name: 'product-one',
+        type: 'object',
+        subfields: [
+          {
+            name: 'name',
+            type: 'string',
+            defaultValue: 'Product name',
+          },
+          {
+            name: 'specification-one',
+            type: 'object',
+            subfields: [
+              {
+                name: 'name',
+                type: 'string',
+              },
+              {
+                name: 'extra information',
+                type: 'object',
+                subfields: [
+                  {
+                    name: 'info one',
+                    type: 'string',
+                  },
+                  {
+                    name: 'info two',
+                    type: 'string',
+                  },
+                  {
+                    name: 'info three',
+                    type: 'string',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]);
+
 const inter = Inter({ subsets: ['latin'] });
 
 // export const metadata: Metadata = {
