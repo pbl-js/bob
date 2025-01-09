@@ -48,10 +48,10 @@ export function RightPanel({ details, componentsSchema }: Props) {
     });
   console.log('DETAILS_STATE', detailsState);
   const sendComponentsToApi = async () => {
-    // await updateComponentsFromPageContent({
-    //   pageContentId: details._id,
-    //   components: detailsState.components,
-    // });
+    await updateComponentsFromPageContent({
+      pageContentId: details._id,
+      components: detailsState.components,
+    });
   };
 
   const matchComponent = components.find(({ _id }) => _id === state.selectedBobComponentId);
@@ -162,7 +162,6 @@ export function RightPanel({ details, componentsSchema }: Props) {
                 value={matchComponentMatchProp?.subfields || null}
                 originObjectValue={matchComponentMatchProp}
                 detailsState={detailsState}
-                // setDetailsState={setDetailsState}
                 propSchema={propSchema}
               />
             );

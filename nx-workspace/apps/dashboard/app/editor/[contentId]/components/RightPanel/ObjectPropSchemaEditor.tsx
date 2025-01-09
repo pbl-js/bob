@@ -8,10 +8,7 @@ import {
   DataFieldSchema_Object,
 } from 'libs/types/src/lib/dataField';
 import React from 'react';
-import { updateComponents } from './utils';
-import { updateComponentsFromPageContent } from 'apps/dashboard/utils/api/mutations';
 import { ComponentContent, PageContentRequest } from '@types';
-import { ObjectPropSchema } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchema';
 import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
 import { cn } from '@ui/utils';
 
@@ -57,28 +54,22 @@ export default function ObjectPropSchemaEditor({
         restProps: DataFieldContent[];
       }[] = [];
 
-      history.forEach((fieldName, index) => {
+      for (let index = 0; index < history.length; index++) {
+        const fieldName = history[index];
+        if (!fieldName) throw new Error('fieldName not found');
         // If its index 0 we set content_matchSubfield as initial content
         if (index === 0) {
-          console.log('DDDDDDD: ', index, fieldName, originObjectValue);
-          // const content_matchSubfield = content.find((val) => val.name === history[0]);
-
-          // if (content_matchSubfield && content_matchSubfield.type !== 'object')
-          //   throw new Error('content_matchSubfield is not an object');
-
-          // const content_restSubfields = content.filter((val) => val.name !== history[0]);
           historyAndProp.push({
             historyName: fieldName,
             matchProp: originObjectValue,
             restProps: [],
           });
-
-          return;
+          continue;
         }
 
         // If previous iteration has no content we just add blank object to historyAndProp
         const previousContent = historyAndProp[index - 1];
-        console.log('GMGMGMGMG: history and props', historyAndProp);
+
         if (!previousContent) throw new Error('previousContent not found');
 
         const previousContentMatchProp = previousContent.matchProp;
@@ -89,11 +80,8 @@ export default function ObjectPropSchemaEditor({
             restProps: [],
           });
 
-          return;
+          continue;
         }
-
-        // const content_matchSubfield = historyAndProp[index - 1]?.matchProp
-        // const content_matchSubfield = previousContentMatchProp.subfields.find((val) => val.name === fieldName);
 
         const currentContent_matchSubfield = previousContentMatchProp.subfields.find((val) => val.name === fieldName);
         const currentContent_restSubfields = previousContentMatchProp.subfields.filter((val) => val.name !== fieldName);
@@ -109,7 +97,7 @@ export default function ObjectPropSchemaEditor({
             restProps: [],
           });
 
-          return;
+          continue;
         }
 
         // If there is content we add matchSubfield and restSubfield to historyAndProp
@@ -118,15 +106,16 @@ export default function ObjectPropSchemaEditor({
           matchProp: currentContent_matchSubfield,
           restProps: currentContent_restSubfields,
         });
-      });
+      }
 
       const lastHistoryAndProp = historyAndProp.at(-1);
       if (!lastHistoryAndProp) throw new Error('historyAndProp is empty');
 
+      const restFields = lastHistoryAndProp.matchProp?.subfields.filter((val) => val.name !== newSubfield.name) || [];
       const initialUpdatedProp: DataFieldContent = {
         name: lastHistoryAndProp.historyName,
         type: 'object',
-        subfields: [...lastHistoryAndProp.restProps, newSubfield],
+        subfields: [...restFields, newSubfield],
       };
 
       const updatedProp = historyAndProp.toReversed().reduce<DataFieldContent>((acc, historyAndPropItem, index) => {
@@ -135,7 +124,7 @@ export default function ObjectPropSchemaEditor({
         return {
           name: historyAndPropItem.historyName,
           type: 'object',
-          subfields: [...historyAndPropItem.restProps, acc],
+          subfields: [...(historyAndProp.toReversed()[index - 1]?.restProps || []), acc],
         };
       }, initialUpdatedProp);
 
@@ -143,10 +132,6 @@ export default function ObjectPropSchemaEditor({
         componentId: component._id,
         newProp: updatedProp,
       });
-      console.log('GMGMGMGMG: componentIdNestingHistory', componentIdNestingHistory);
-      console.log('GMGMGMGMG: historyAndProp', historyAndProp);
-      console.log('GMGMGMGMG: updatedProp', updatedProp);
-      console.log('GMGMGMGMG: parentPropSchema.name', parentPropSchema.name);
     }
   };
 
@@ -194,7 +179,6 @@ export default function ObjectPropSchemaEditor({
         }
 
         if (schema.type === 'number') {
-          console.log('OMGOMGOM: ', content);
           if (content && content.type !== 'number') throw new Error('ObjectPropSchemaEditor: subfield is not a number');
           const inputValue = content ? content.value : '';
 
@@ -206,23 +190,13 @@ export default function ObjectPropSchemaEditor({
                 type="text"
                 value={inputValue}
                 onBlur={sendComponentsToApi}
-                // onChange={(e) =>
-                //   editProp({
-                //     componentId: component._id,
-                //     newProp: {
-                //       type: 'object',
-                //       name: parentPropSchema.name,
-                //       subfields: [
-                //         ...content_restSubfields,
-                //         {
-                //           name: schema.name,
-                //           type: 'number',
-                //           value: Number(e.target.value),
-                //         },
-                //       ],
-                //     },
-                //   })
-                // }
+                onChange={(e) =>
+                  editNestedProp({
+                    name: schema.name,
+                    type: 'number',
+                    value: Number(e.target.value),
+                  })
+                }
               />
             </div>
           );
@@ -292,6 +266,7 @@ export default function ObjectPropSchemaEditor({
                     component={component}
                     detailsState={detailsState}
                     componentIdNestingHistory={[...componentIdNestingHistory, schema.name]}
+                    originObjectValue={originObjectValue}
                   />
                 );
               })}
