@@ -24,11 +24,13 @@ export default function ObjectPropSchemaEditor({
   component,
   detailsState,
   componentIdNestingHistory,
+  originObjectValue,
 }: {
   schema: DataFieldSchema;
-  content: DataFieldContent[];
+  content: DataFieldContent | undefined;
   // TODO: Try to get rid of below props
   // Parent prop schema is wrong name. It should be origin schema or smth like that
+  originObjectValue: DataFieldContent_Object | undefined;
   parentPropSchema: DataFieldSchema_Object;
   editProp: ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) => void;
   sendComponentsToApi: () => void;
@@ -36,11 +38,6 @@ export default function ObjectPropSchemaEditor({
   detailsState: PageContentRequest;
   componentIdNestingHistory: string[];
 }) {
-  const content_matchSubfield = content.find((val) => val.name === schema.name);
-  const content_restSubfields = content.filter((val) => val.name !== schema.name);
-  console.log('TESTTT: schema: ', schema.name);
-  console.log('TESTTT: content', content);
-  console.log('TESTTT: content_matchSubfield', content_matchSubfield);
   const editNestedProp = (newSubfield: DataFieldContent) => {
     const history = componentIdNestingHistory;
 
@@ -54,10 +51,6 @@ export default function ObjectPropSchemaEditor({
       //   },
       // });
     } else {
-      // --------------------------------------------------------------------------------------------------------------------------
-      // CONTENT MATCH SUBFIELD HAS TO BE AN INITIAL CONTNT BECAUSE WE AARE OPERATING ON HISTORY LEVEL
-      // if (!content_matchSubfield) throw new Error('content_matchSubfield not found');
-
       const historyAndProp: {
         historyName: string;
         matchProp?: DataFieldContent_Object;
@@ -67,16 +60,17 @@ export default function ObjectPropSchemaEditor({
       history.forEach((fieldName, index) => {
         // If its index 0 we set content_matchSubfield as initial content
         if (index === 0) {
-          const content_matchSubfield = content.find((val) => val.name === history[0]);
+          console.log('DDDDDDD: ', index, fieldName, originObjectValue);
+          // const content_matchSubfield = content.find((val) => val.name === history[0]);
 
-          if (content_matchSubfield && content_matchSubfield.type !== 'object')
-            throw new Error('content_matchSubfield is not an object');
+          // if (content_matchSubfield && content_matchSubfield.type !== 'object')
+          //   throw new Error('content_matchSubfield is not an object');
 
-          const content_restSubfields = content.filter((val) => val.name !== history[0]);
+          // const content_restSubfields = content.filter((val) => val.name !== history[0]);
           historyAndProp.push({
             historyName: fieldName,
-            matchProp: content_matchSubfield,
-            restProps: content_restSubfields,
+            matchProp: originObjectValue,
+            restProps: [],
           });
 
           return;
@@ -84,6 +78,7 @@ export default function ObjectPropSchemaEditor({
 
         // If previous iteration has no content we just add blank object to historyAndProp
         const previousContent = historyAndProp[index - 1];
+        console.log('GMGMGMGMG: history and props', historyAndProp);
         if (!previousContent) throw new Error('previousContent not found');
 
         const previousContentMatchProp = previousContent.matchProp;
@@ -148,11 +143,10 @@ export default function ObjectPropSchemaEditor({
         componentId: component._id,
         newProp: updatedProp,
       });
-      console.log('componentIdNestingHistory', componentIdNestingHistory);
-      console.log('historyAndProp', historyAndProp);
-      console.log('content_restSubfields', content_restSubfields);
-      console.log('updatedProp', updatedProp);
-      console.log('parentPropSchema.name', parentPropSchema.name);
+      console.log('GMGMGMGMG: componentIdNestingHistory', componentIdNestingHistory);
+      console.log('GMGMGMGMG: historyAndProp', historyAndProp);
+      console.log('GMGMGMGMG: updatedProp', updatedProp);
+      console.log('GMGMGMGMG: parentPropSchema.name', parentPropSchema.name);
     }
   };
 
@@ -160,12 +154,15 @@ export default function ObjectPropSchemaEditor({
     <div className="grid w-full max-w-sm items-center gap-1.5" key={schema.name}>
       {(() => {
         if (schema.type === 'string') {
+          if (content && content.type !== 'string') throw new Error('ObjectPropSchemaEditor: subfield is not a string');
+          const inputValue = content ? content.value : '';
+
           return (
             <div className="px-3 grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Input
                 id={schema.name}
-                value={content_matchSubfield?.type === 'string' ? content_matchSubfield.value : ''}
+                value={inputValue}
                 onBlur={sendComponentsToApi}
                 onChange={(e) =>
                   // editProp({
@@ -196,93 +193,99 @@ export default function ObjectPropSchemaEditor({
           );
         }
 
-        if (schema.type === 'number')
+        if (schema.type === 'number') {
+          console.log('OMGOMGOM: ', content);
+          if (content && content.type !== 'number') throw new Error('ObjectPropSchemaEditor: subfield is not a number');
+          const inputValue = content ? content.value : '';
+
           return (
             <div className="px-3 grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Input
                 id={schema.name}
                 type="text"
-                value={content_matchSubfield?.type === 'number' ? content_matchSubfield.value : ''}
+                value={inputValue}
                 onBlur={sendComponentsToApi}
-                onChange={(e) =>
-                  editProp({
-                    componentId: component._id,
-                    newProp: {
-                      type: 'object',
-                      name: parentPropSchema.name,
-                      subfields: [
-                        ...content_restSubfields,
-                        {
-                          name: schema.name,
-                          type: 'number',
-                          value: Number(e.target.value),
-                        },
-                      ],
-                    },
-                  })
-                }
+                // onChange={(e) =>
+                //   editProp({
+                //     componentId: component._id,
+                //     newProp: {
+                //       type: 'object',
+                //       name: parentPropSchema.name,
+                //       subfields: [
+                //         ...content_restSubfields,
+                //         {
+                //           name: schema.name,
+                //           type: 'number',
+                //           value: Number(e.target.value),
+                //         },
+                //       ],
+                //     },
+                //   })
+                // }
               />
             </div>
           );
+        }
 
-        if (schema.type === 'boolean')
+        if (schema.type === 'boolean') {
+          if (content && content.type !== 'boolean')
+            throw new Error('ObjectPropSchemaEditor: subfield is not a boolean');
+          const value = content ? content.value : false;
+
           return (
             <div className="px-3 flex justify-between w-full max-w-sm gap-1.5">
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Switch
-                checked={content_matchSubfield?.type === 'boolean' ? content_matchSubfield.value : false}
-                onCheckedChange={async (e) => {
-                  const newProp: DataFieldContent = {
-                    type: 'object',
-                    name: parentPropSchema.name,
-                    subfields: [...content_restSubfields, { name: schema.name, type: 'boolean', value: e }],
-                  };
+                checked={value}
+                // onCheckedChange={async (e) => {
+                //   const newProp: DataFieldContent = {
+                //     type: 'object',
+                //     name: parentPropSchema.name,
+                //     subfields: [...content_restSubfields, { name: schema.name, type: 'boolean', value: e }],
+                //   };
 
-                  // editProp({
-                  //   componentId: component._id,
-                  //   newProp: newProp,
-                  // });
+                //   // editProp({
+                //   //   componentId: component._id,
+                //   //   newProp: newProp,
+                //   // });
 
-                  const updatedComponents = updateComponents({
-                    componentId: component._id,
-                    newProp,
-                    components: detailsState.components,
-                  });
+                //   const updatedComponents = updateComponents({
+                //     componentId: component._id,
+                //     newProp,
+                //     components: detailsState.components,
+                //   });
 
-                  // Note: We can't use detailsState.components because setState is "async"
-                  await updateComponentsFromPageContent({
-                    pageContentId: detailsState._id,
-                    components: updatedComponents,
-                  });
-                }}
+                //   // Note: We can't use detailsState.components because setState is "async"
+                //   await updateComponentsFromPageContent({
+                //     pageContentId: detailsState._id,
+                //     components: updatedComponents,
+                //   });
+                // }}
               />
             </div>
           );
+        }
 
-        if (schema.type === 'object')
+        if (schema.type === 'object') {
+          if (content && content.type !== 'object') throw new Error('ObjectPropSchema: subfield is not an object');
+
           return (
             <div
               className={cn(
                 objectPropSchemaWrapperStyles,
                 (componentIdNestingHistory.length + 1) % 2 === 0 ? 'bg-backgroundSecondary' : 'bg-background'
-                // 'bg-background'
               )}
             >
               <Label className="mx-auto">{schema.name}</Label>
               {schema.subfields.map((schemaSubfield) => {
-                const matchSubfield =
-                  content_matchSubfield?.type === 'object'
-                    ? content_matchSubfield?.subfields.find((val) => val.name === schemaSubfield.name)
-                    : undefined;
-
-                const subfieldsContent = matchSubfield?.type === 'object' ? matchSubfield.subfields : [];
+                const content_matchSubfield = content?.subfields.find((val) => val.name === schemaSubfield.name);
 
                 return (
                   <ObjectPropSchemaEditor
                     key={schemaSubfield.name}
                     schema={schemaSubfield}
-                    content={subfieldsContent}
+                    content={content_matchSubfield}
                     parentPropSchema={schema}
                     editProp={editProp}
                     sendComponentsToApi={sendComponentsToApi}
@@ -294,6 +297,7 @@ export default function ObjectPropSchemaEditor({
               })}
             </div>
           );
+        }
       })()}
     </div>
   );

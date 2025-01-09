@@ -70,7 +70,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
           if (propSchema.type === 'string')
             return (
-              <div className="grid w-full max-w-sm items-center gap-1.5 px-3">
+              <div className="grid w-full max-w-sm items-center gap-1.5 px-3" key={propSchema.name}>
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Input
                   id={propSchema.name}
@@ -94,7 +94,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
 
           if (propSchema.type === 'number')
             return (
-              <div className="grid w-full max-w-sm items-center gap-1.5 px-3">
+              <div className="grid w-full max-w-sm items-center gap-1.5 px-3" key={propSchema.name}>
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Input
                   id={propSchema.name}
@@ -116,7 +116,7 @@ export function RightPanel({ details, componentsSchema }: Props) {
             );
           if (propSchema.type === 'boolean')
             return (
-              <div className="flex justify-between space-x-2 px-3">
+              <div className="flex justify-between space-x-2 px-3" key={propSchema.name}>
                 <Label htmlFor={propSchema.name}>{propSchema.name}</Label>
                 <Switch
                   checked={matchComponentMatchProp?.type === 'boolean' ? matchComponentMatchProp.value : false}
@@ -148,18 +148,25 @@ export function RightPanel({ details, componentsSchema }: Props) {
               </div>
             );
 
-          if (propSchema.type === 'object')
+          if (propSchema.type === 'object') {
+            console.log('testowanko: ', matchComponentMatchProp);
+            if (matchComponentMatchProp && matchComponentMatchProp.type !== 'object')
+              throw new Error('ObjectPropSchema: subfield is not an object');
+
             return (
               <ObjectPropSchema
+                key={propSchema.name}
                 component={matchComponent}
                 editProp={editProp}
                 sendComponentsToApi={sendComponentsToApi}
-                value={matchComponentMatchProp?.type === 'object' ? matchComponentMatchProp.subfields : null}
+                value={matchComponentMatchProp?.subfields || null}
+                originObjectValue={matchComponentMatchProp}
                 detailsState={detailsState}
                 // setDetailsState={setDetailsState}
                 propSchema={propSchema}
               />
             );
+          }
         })}
       </div>
     </div>

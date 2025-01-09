@@ -801,7 +801,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchema.tsx",
-          "hash": "15090076816355781091",
+          "hash": "15833526364444285419",
           "deps": [
             "types",
             "ui",
@@ -821,7 +821,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchemaEditor.tsx",
-          "hash": "7536513840023557102",
+          "hash": "13923945097152632940",
           "deps": [
             "ui",
             "types",
@@ -830,7 +830,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/RightPanel.tsx",
-          "hash": "4878196392202723657",
+          "hash": "344018378792385722",
           "deps": [
             "npm:react",
             "types",

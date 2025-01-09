@@ -1,6 +1,12 @@
 'use client';
 
-import { ComponentContent, DataFieldContent, DataFieldSchema_Object, PageContentRequest } from '@types';
+import {
+  ComponentContent,
+  DataFieldContent,
+  DataFieldContent_Object,
+  DataFieldSchema_Object,
+  PageContentRequest,
+} from '@types';
 import { Button } from '@ui/components/ui/button';
 import { Input } from '@ui/components/ui/input';
 import { Label } from '@ui/components/ui/label';
@@ -21,6 +27,7 @@ export function ObjectPropSchema({
   editProp,
   component,
   sendComponentsToApi,
+  originObjectValue,
 }: {
   propSchema: DataFieldSchema_Object;
   detailsState: PageContentRequest;
@@ -29,6 +36,7 @@ export function ObjectPropSchema({
   editProp: ({ componentId, newProp }: { componentId: string; newProp: DataFieldContent }) => void;
   sendComponentsToApi: () => void;
   component: ComponentContent;
+  originObjectValue: DataFieldContent_Object | undefined;
   // details: PageContentRequest;
 }) {
   const [showForm, setShowForm] = React.useState(false);
@@ -49,18 +57,24 @@ export function ObjectPropSchema({
         <div className={'flex flex-col gap-2 w-full'}>
           {propSchema.subfields.map((subfieldSchema) => {
             const matchContentField = value.find((val) => val.name === subfieldSchema.name);
+            // if (matchContentField && matchContentField.type !== 'object')
+            //   throw new Error('ObjectPropSchema: subfield is not an object');
+            console.log('dupa 1 schema: ', subfieldSchema.name);
+            console.log('dupa 1', matchContentField);
 
             return (
               <ObjectPropSchemaEditor
                 key={subfieldSchema.name}
                 schema={subfieldSchema}
-                content={matchContentField?.type === 'object' ? matchContentField.subfields : []}
+                // Tutaj założyłem że matchContentField jest zawsze obiektem, ale to nie jest prawda
+                content={matchContentField}
                 parentPropSchema={propSchema}
                 editProp={editProp}
                 sendComponentsToApi={sendComponentsToApi}
                 component={component}
                 detailsState={detailsState}
                 componentIdNestingHistory={[propSchema.name]}
+                originObjectValue={originObjectValue}
               />
             );
 
