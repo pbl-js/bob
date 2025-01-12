@@ -38,101 +38,90 @@ export default function ObjectPropSchemaEditor({
   const editNestedProp = (newSubfield: DataFieldContent) => {
     const history = componentIdNestingHistory;
 
-    if (history.length === 0) {
-      // editProp({
-      //   componentId: component._id,
-      //   newProp: {
-      //     type: 'object',
-      //     name: parentPropSchema.name,
-      //     subfields: [...content_restSubfields, newSubfield],
-      //   },
-      // });
-    } else {
-      const historyAndProp: {
-        historyName: string;
-        matchProp?: DataFieldContent_Object;
-        restProps: DataFieldContent[];
-      }[] = [];
+    const historyAndProp: {
+      historyName: string;
+      matchProp?: DataFieldContent_Object;
+      restProps: DataFieldContent[];
+    }[] = [];
 
-      for (let index = 0; index < history.length; index++) {
-        const fieldName = history[index];
-        if (!fieldName) throw new Error('fieldName not found');
-        // If its index 0 we set content_matchSubfield as initial content
-        if (index === 0) {
-          historyAndProp.push({
-            historyName: fieldName,
-            matchProp: originObjectValue,
-            restProps: [],
-          });
-          continue;
-        }
-
-        // If previous iteration has no content we just add blank object to historyAndProp
-        const previousContent = historyAndProp[index - 1];
-
-        if (!previousContent) throw new Error('previousContent not found');
-
-        const previousContentMatchProp = previousContent.matchProp;
-        if (!previousContentMatchProp) {
-          historyAndProp.push({
-            historyName: fieldName,
-            matchProp: undefined,
-            restProps: [],
-          });
-
-          continue;
-        }
-
-        const currentContent_matchSubfield = previousContentMatchProp.subfields.find((val) => val.name === fieldName);
-        const currentContent_restSubfields = previousContentMatchProp.subfields.filter((val) => val.name !== fieldName);
-
-        if (currentContent_matchSubfield?.type !== 'object')
-          throw new Error('currentContent_matchSubfield is not an object');
-
-        // If there is no match content, we add blank object to historyAndProp
-        if (!currentContent_matchSubfield) {
-          historyAndProp.push({
-            historyName: fieldName,
-            matchProp: undefined,
-            restProps: [],
-          });
-
-          continue;
-        }
-
-        // If there is content we add matchSubfield and restSubfield to historyAndProp
+    for (let index = 0; index < history.length; index++) {
+      const fieldName = history[index];
+      if (!fieldName) throw new Error('fieldName not found');
+      // If its index 0 we set content_matchSubfield as initial content
+      if (index === 0) {
         historyAndProp.push({
           historyName: fieldName,
-          matchProp: currentContent_matchSubfield,
-          restProps: currentContent_restSubfields,
+          matchProp: originObjectValue,
+          restProps: [],
         });
+        continue;
       }
 
-      const lastHistoryAndProp = historyAndProp.at(-1);
-      if (!lastHistoryAndProp) throw new Error('historyAndProp is empty');
+      // If previous iteration has no content we just add blank object to historyAndProp
+      const previousContent = historyAndProp[index - 1];
 
-      const restFields = lastHistoryAndProp.matchProp?.subfields.filter((val) => val.name !== newSubfield.name) || [];
-      const initialUpdatedProp: DataFieldContent = {
-        name: lastHistoryAndProp.historyName,
-        type: 'object',
-        subfields: [...restFields, newSubfield],
-      };
+      if (!previousContent) throw new Error('previousContent not found');
 
-      const updatedProp = historyAndProp.toReversed().reduce<DataFieldContent>((acc, historyAndPropItem, index) => {
-        // We skip first iteration because we already have initialUpdatedProp
-        if (index === 0) return acc;
-        return {
-          name: historyAndPropItem.historyName,
-          type: 'object',
-          subfields: [...(historyAndProp.toReversed()[index - 1]?.restProps || []), acc],
-        };
-      }, initialUpdatedProp);
+      const previousContentMatchProp = previousContent.matchProp;
+      if (!previousContentMatchProp) {
+        historyAndProp.push({
+          historyName: fieldName,
+          matchProp: undefined,
+          restProps: [],
+        });
 
-      editProp({
-        componentId: component._id,
-        newProp: updatedProp,
+        continue;
+      }
+
+      const currentContent_matchSubfield = previousContentMatchProp.subfields.find((val) => val.name === fieldName);
+      const currentContent_restSubfields = previousContentMatchProp.subfields.filter((val) => val.name !== fieldName);
+
+      if (currentContent_matchSubfield?.type !== 'object')
+        throw new Error('currentContent_matchSubfield is not an object');
+
+      // If there is no match content, we add blank object to historyAndProp
+      if (!currentContent_matchSubfield) {
+        historyAndProp.push({
+          historyName: fieldName,
+          matchProp: undefined,
+          restProps: [],
+        });
+
+        continue;
+      }
+
+      // If there is content we add matchSubfield and restSubfield to historyAndProp
+      historyAndProp.push({
+        historyName: fieldName,
+        matchProp: currentContent_matchSubfield,
+        restProps: currentContent_restSubfields,
       });
     }
+
+    const lastHistoryAndProp = historyAndProp.at(-1);
+    if (!lastHistoryAndProp) throw new Error('historyAndProp is empty');
+
+    const restFields = lastHistoryAndProp.matchProp?.subfields.filter((val) => val.name !== newSubfield.name) || [];
+    const initialUpdatedProp: DataFieldContent = {
+      name: lastHistoryAndProp.historyName,
+      type: 'object',
+      subfields: [...restFields, newSubfield],
+    };
+
+    const updatedProp = historyAndProp.toReversed().reduce<DataFieldContent>((acc, historyAndPropItem, index) => {
+      // We skip first iteration because we already have initialUpdatedProp
+      if (index === 0) return acc;
+      return {
+        name: historyAndPropItem.historyName,
+        type: 'object',
+        subfields: [...(historyAndProp.toReversed()[index - 1]?.restProps || []), acc],
+      };
+    }, initialUpdatedProp);
+
+    editProp({
+      componentId: component._id,
+      newProp: updatedProp,
+    });
   };
 
   return (
