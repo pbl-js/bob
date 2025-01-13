@@ -862,7 +862,7 @@
         },
         {
           "file": "apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchemaEditor.tsx",
-          "hash": "373740468763582812",
+          "hash": "715969614846568996",
           "deps": [
             "ui",
             "types",

@@ -139,21 +139,6 @@ export default function ObjectPropSchemaEditor({
                 value={inputValue}
                 onBlur={sendComponentsToApi}
                 onChange={(e) =>
-                  // editProp({
-                  //   componentId: component._id,
-                  //   newProp: {
-                  //     type: 'object',
-                  //     name: parentPropSchema.name,
-                  //     subfields: [
-                  //       ...content_restSubfields,
-                  //       {
-                  //         name: schema.name,
-                  //         type: 'string',
-                  //         value: e.target.value,
-                  //       },
-                  //     ],
-                  //   },
-                  // })
                   editNestedProp({
                     name: schema.name,
                     type: 'string',
@@ -176,7 +161,7 @@ export default function ObjectPropSchemaEditor({
               <Label htmlFor={schema.name}>{schema.name}</Label>
               <Input
                 id={schema.name}
-                type="text"
+                type="number"
                 value={inputValue}
                 onBlur={sendComponentsToApi}
                 onChange={(e) =>
