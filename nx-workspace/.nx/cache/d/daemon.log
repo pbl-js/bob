@@ -34991,3 +34991,23 @@ Source project does not exist: npm:@radix-ui/react-accordion
 [NX Daemon Server] - 2025-01-13T17:02:45.684Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2025-01-13T17:03:01.766Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2025-01-13T17:03:02.260Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-01-13T17:12:10.940Z - Established a connection. Number of open connections: 13
+[NX Daemon Server] - 2025-01-13T17:12:10.941Z - Established a connection. Number of open connections: 14
+[NX Daemon Server] - 2025-01-13T17:12:10.941Z - Closed a connection. Number of open connections: 13
+[NX Daemon Server] - 2025-01-13T17:12:10.943Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-01-13T17:12:10.943Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2025-01-13T17:12:10.945Z - Time taken for 'total for creating and serializing project graph' 0.18058300018310547ms
+[NX Daemon Server] - 2025-01-13T17:12:10.946Z - Done responding to the client project-graph
+[NX Daemon Server] - 2025-01-13T17:12:10.946Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 3.
+[NX Daemon Server] - 2025-01-13T17:12:10.959Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-01-13T17:12:10.959Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2025-01-13T17:12:10.960Z - Time taken for 'total for creating and serializing project graph' 0.1215829849243164ms
+[NX Daemon Server] - 2025-01-13T17:12:10.962Z - Done responding to the client project-graph
+[NX Daemon Server] - 2025-01-13T17:12:10.962Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 3.
+[NX Daemon Server] - 2025-01-13T20:12:11.070Z - There are 13 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2025-01-13T23:12:11.134Z - There are 13 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2025-01-14T02:12:11.161Z - There are 13 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2025-01-14T05:12:11.155Z - There are 13 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2025-01-14T08:12:11.267Z - There are 13 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2025-01-14T11:12:11.319Z - There are 13 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2025-01-14T11:41:55.420Z - Closed a connection. Number of open connections: 12
