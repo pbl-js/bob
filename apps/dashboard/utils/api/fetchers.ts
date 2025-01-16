@@ -1,7 +1,5 @@
 import {
-  ComponentSchema,
   ComponentSchemaResponse,
-  PageBlueprint,
   PageBlueprint_GetRequest,
   PageContentDetails_Response,
   PageContent_GetResponse,
@@ -37,9 +35,7 @@ export async function getPageBlueprints(): Promise<PageBlueprint_GetRequest | un
   return res.json();
 }
 
-export async function getPageContentList(
-  blueprintId: string
-): Promise<PageContent_GetResponse | undefined> {
+export async function getPageContentList(blueprintId: string): Promise<PageContent_GetResponse | undefined> {
   try {
     console.log('getPageContentList is called');
     const url = new URL('http://localhost:8000/api/page-content');
@@ -63,9 +59,7 @@ export async function getPageContentList(
   }
 }
 
-export async function getPageContentDetails(
-  pageContentId: string
-): Promise<PageContentDetails_Response | undefined> {
+export async function getPageContentDetails(pageContentId: string): Promise<PageContentDetails_Response | undefined> {
   try {
     console.log('getPageContentDetails is called');
     const url = new URL('http://localhost:8000/api/page-content-details');

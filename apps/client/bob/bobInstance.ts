@@ -21,6 +21,7 @@ export class BOB {
   static registerComponent(
     name: RegisteredComponent['name'],
     // TODO: Maybe its possible to replace this any with generic propsSchema
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component: ComponentType<any>,
     propsSchema: RegisteredComponent['propsSchema']
   ): void {

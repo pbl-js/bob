@@ -1,15 +1,16 @@
 import { Input } from '@ui/components/ui/input';
 import { Label } from '@ui/components/ui/label';
 import { Switch } from '@ui/components/ui/switch';
+import React from 'react';
 import {
+  ComponentContent,
+  PageContentRequest,
   DataFieldContent,
   DataFieldContent_Object,
   DataFieldSchema,
   DataFieldSchema_Object,
-} from 'libs/types/src/lib/dataField';
-import React from 'react';
-import { ComponentContent, PageContentRequest } from '@types';
-import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
+} from '@types';
+import { objectPropSchemaWrapperStyles } from '@dashboard/app/editor/[contentId]/components/RightPanel/styles';
 import { cn } from '@ui/utils';
 
 export default function ObjectPropSchemaEditor({

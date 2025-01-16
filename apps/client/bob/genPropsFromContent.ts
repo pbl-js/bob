@@ -1,4 +1,4 @@
-import { DataFieldContent, DataFieldContentArray } from '../../../libs/types/src';
+import { DataFieldContent, DataFieldContentArray } from '@types';
 
 function propGenerator(prop: DataFieldContent) {
   if (prop.type === 'string') {

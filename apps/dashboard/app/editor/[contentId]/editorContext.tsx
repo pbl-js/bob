@@ -1,5 +1,4 @@
 'use client';
-import { ComponentRectData, SectionRectData } from '@types';
 import { createContext, useContext, useReducer } from 'react';
 
 type EditorContextAction =

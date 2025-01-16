@@ -2,7 +2,6 @@
 import { ComponentSchema, PageContentDetails_Response } from '@types';
 import React from 'react';
 import { receiveMessage } from './receivePostMessage';
-import { postMessage_pageContentData } from './postMessage/pageContentData';
 
 export type IFrameComunicator_ClientProps = {
   registeredComponents: ComponentSchema[];

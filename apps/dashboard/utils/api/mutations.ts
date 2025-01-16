@@ -120,7 +120,7 @@ export async function updateComponentsFromPageContent({
 }: PageContentUpdateComponents_Request) {
   console.log('updateComponentsFromPageContent');
   try {
-    const res = await fetch('http://localhost:8000/api/page-content/update-components', {
+    await fetch('http://localhost:8000/api/page-content/update-components', {
       method: 'POST',
       body: JSON.stringify({
         pageContentId,

@@ -5,7 +5,7 @@ import { deletePageContent } from '../../utils/api/mutations';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { EDITOR_PAGE } from '../../utils/routes';
-import { PageContentRequest } from '../../../../libs/types/src';
+import { PageContentRequest } from '@types';
 
 type Props = {
   pageContentItem: PageContentRequest;
