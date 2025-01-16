@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { RectDataProvider, useRectData } from './rectDataContext';
 import { useIframeCommunicator } from './useIframeComunicator';
 import clsx from 'clsx';

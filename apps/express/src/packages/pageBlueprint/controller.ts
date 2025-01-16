@@ -1,13 +1,6 @@
 import { Express } from 'express';
 import { client } from '../../packages/db/mongo';
-import {
-  ComponentSchema,
-  PageBlueprint,
-  PageBlueprint_MongoModel,
-  dataFieldSchemaArraySchema,
-  pageBlueprintSchema,
-} from '@types';
-import { z } from 'zod';
+import { PageBlueprint, PageBlueprint_MongoModel, pageBlueprintSchema } from '@types';
 import { PAGE_BLUEPRINT_COLLECTION } from '../db/collections';
 
 export async function pageBlueprintController(app: Express) {
@@ -16,9 +9,7 @@ export async function pageBlueprintController(app: Express) {
       const myDB = client.db('mongotron');
       const pageBlueprintCollection = myDB.collection(PAGE_BLUEPRINT_COLLECTION);
 
-      const result = (await pageBlueprintCollection
-        .find({})
-        .toArray()) as unknown as PageBlueprint_MongoModel;
+      const result = (await pageBlueprintCollection.find({}).toArray()) as unknown as PageBlueprint_MongoModel;
 
       return result;
     };

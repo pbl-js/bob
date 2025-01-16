@@ -1,6 +1,5 @@
 import React from 'react';
 import { getRegisteredComponents } from '../../utils/api/fetchers';
-import clsx from 'clsx';
 import { RegisteredComponentItem } from './RegisteredComponentItem';
 
 type Props = {

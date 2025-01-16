@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { PageBlueprintsListing } from '../../components/PageBlueprintsListing/PageBlueprintsListing';
 
 export default async function Home({ children }: { children: React.ReactNode }) {

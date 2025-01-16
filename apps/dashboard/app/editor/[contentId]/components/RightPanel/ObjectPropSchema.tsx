@@ -10,8 +10,8 @@ import {
 import { Button } from '@ui/components/ui/button';
 import { Label } from '@ui/components/ui/label';
 import React from 'react';
-import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
-import ObjectPropSchemaEditor from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchemaEditor';
+import { objectPropSchemaWrapperStyles } from '@dashboard/app/editor/[contentId]/components/RightPanel/styles';
+import ObjectPropSchemaEditor from '@dashboard/app/editor/[contentId]/components/RightPanel/ObjectPropSchemaEditor';
 
 export function ObjectPropSchema({
   propSchema,

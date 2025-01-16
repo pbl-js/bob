@@ -37,7 +37,7 @@ export type PageContentRequest = PageContent & {
 };
 
 // TODO: Omit components
-export type PageContent_GetResponse = PageContentModel[];
+export type PageContent_GetResponse = PageContentRequest[];
 
 export type PageContentDetails_Response = PageContentRequest;
 

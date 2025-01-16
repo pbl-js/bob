@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import React from 'react';
-import { BobRect, PageContentRequest } from '../../../../libs/types/src';
+import { BobRect, PageContentRequest } from '@types';
 import { useDndMonitor, useDroppable } from '@dnd-kit/core';
 import { addComponentToPageContent } from '../../utils/api/mutations';
 import { ActiveDragData } from '../../utils/dragLib/types';
@@ -10,7 +10,7 @@ export function DroppableSection({ rectData, pageContent }: { rectData: BobRect;
   const { top, bottom, left, right, height, width } = rectData;
   const style = { top, bottom, left, right, height, width };
 
-  const { state: editorState, dispatch: editorDispatch } = useEditorContext();
+  const { dispatch: editorDispatch } = useEditorContext();
 
   const droppableSection = useDroppable({
     id: `rect-section-drop-area`,

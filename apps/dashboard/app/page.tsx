@@ -1,7 +1,3 @@
-import { RegisteredComponentListing } from '../components/RegisteredComponentsListing/RegisteredComponentListing';
-import { IframeComunicator } from '../components/iframeCommunicator/IframeCommunicator';
-import clsx from 'clsx';
-import { PageBlueprintsListing } from '../components/PageBlueprintsListing/PageBlueprintsListing';
 import Link from 'next/link';
 import { CONTENT_PAGE } from '../utils/routes';
 

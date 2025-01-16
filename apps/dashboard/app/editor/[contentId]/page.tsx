@@ -6,12 +6,10 @@ import { PageProps } from '../../../utils/types/types';
 import { getPageContentDetails, getRegisteredComponents } from '../../../utils/api/fetchers';
 import { redirect } from 'next/navigation';
 import { CONTENT_PAGE } from '../../../utils/routes';
-import { Logger } from '../../../components/Logger/Logger';
 import { RectLayer } from '../../../components/RectLayer/RectLayer';
 import { EditorContextProvider } from './editorContext';
 import { RightPanel } from './components/RightPanel/RightPanel';
 import { DeleteLayerButton } from './components/DeleteLayerButton/DeleteLayerButton';
-import { DndContext } from '@dnd-kit/core';
 import DraggableContext from './DraggableContext';
 import { DraggingOverlay } from '../../../components/DraggingOverlay/DraggingOverlay';
 

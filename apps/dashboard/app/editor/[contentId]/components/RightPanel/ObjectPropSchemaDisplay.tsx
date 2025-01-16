@@ -6,8 +6,6 @@ import {
   DataFieldSchema,
 } from '@types';
 import { Button } from '@ui/components/ui/button';
-import { Label } from '@ui/components/ui/label';
-import { objectPropSchemaWrapperStyles } from 'apps/dashboard/app/editor/[contentId]/components/RightPanel/styles';
 import clsx from 'clsx';
 import React from 'react';
 

@@ -1,20 +1,12 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useEditorContext } from '../../editorContext';
-import {
-  ComponentContent,
-  ComponentSchemaResponse,
-  DataFieldContent,
-  PageContentModel,
-  PageContentRequest,
-} from '@types';
-import clsx from 'clsx';
+import { ComponentSchemaResponse, DataFieldContent, PageContentRequest } from '@types';
 import { postMessage_pageContentData } from '../../../../../components/iframeCommunicator/postMessage/pageContentData';
 import { updateComponentsFromPageContent } from '../../../../../utils/api/mutations';
 import { Switch } from '@ui/components/ui/switch';
 import { Label } from '@ui/components/ui/label';
 import { Input } from '@ui/components/ui/input';
-import { Button } from '@ui/components/ui/button';
 import { updateComponents } from './utils';
 import { ObjectPropSchema } from './ObjectPropSchema';
 

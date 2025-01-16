@@ -2,7 +2,7 @@ import React from 'react';
 import { receiveMessage } from './receivePostMessage';
 import { useRectData } from './rectDataContext';
 import { postMessage_pageContentData } from '../iframeCommunicator/postMessage/pageContentData';
-import { PageContentModel, PageContentRequest } from '@types';
+import { PageContentRequest } from '@types';
 import { postMessage_scrollPosition } from '../iframeCommunicator/postMessage/scrollPosition';
 
 export const useIframeCommunicator = (

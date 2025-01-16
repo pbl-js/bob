@@ -1,4 +1,4 @@
-import { ComponentSchemaResponse } from '../../../../libs/types/src';
+import { ComponentSchemaResponse } from '@types';
 
 export type ActiveDragData_RegisteredComponent = {
   type: 'registered-component';

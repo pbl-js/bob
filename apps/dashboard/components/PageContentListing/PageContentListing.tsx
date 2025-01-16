@@ -1,6 +1,5 @@
 import React from 'react';
 import { getPageContentList } from '../../utils/api/fetchers';
-import clsx from 'clsx';
 import { PageContentItem } from './PageContentItem.c';
 
 type PageContentListingProps = {

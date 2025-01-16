@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentRectData, ComponentSchemaResponse, PageContentRequest } from '../../../../libs/types/src';
+import { ComponentRectData, ComponentSchemaResponse, PageContentRequest } from '@types';
 import { useEditorContext } from '../../app/editor/[contentId]/editorContext';
 import clsx from 'clsx';
 import { useDndMonitor, useDroppable } from '@dnd-kit/core';
@@ -19,7 +19,7 @@ export function RectComponent({
 }) {
   const { state: editorState, dispatch: editorDispatch } = useEditorContext();
   const isComponentSelected = editorState.selectedBobComponentId === componentRectData.componentId;
-  const { top, bottom, left, right, height, width } = componentRectData.rectData;
+  const { height, width } = componentRectData.rectData;
   const style = {
     // top,
     //  bottom,
