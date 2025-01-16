@@ -3,7 +3,7 @@ import { client } from '../db/mongo';
 import { ComponentContentModel, ComponentSchemaResponse, PageBlueprint, PageContentModel } from '@types';
 import { z } from 'zod';
 import { COMPONENT_BLUEPRINT_COLLECTION, PAGE_BLUEPRINT_COLLECTION, PAGE_CONTENT_COLLECTION } from '../db/collections';
-import { ObjectId } from 'mongodb';
+import { ObjectId, PushOperator } from 'mongodb';
 import { genDefaultProps } from '../../utils/genDefaultProps';
 import { ArrayElement } from '../../utils/arrayElement';
 import { notEmpty } from '../../utils/notEmpty';
@@ -200,12 +200,9 @@ export async function pageContentController(app: Express) {
             { arrayFilters: [{ 't._id': new ObjectId(component._id) }], session }
           );
         }
+        const pushedObject: PushOperator<ComponentContentModel> = { $push: { components: componentToInsert } };
 
-        await pageContentCollection.updateOne(
-          { _id: new ObjectId(body.pageContentId) },
-          { $push: { components: componentToInsert } },
-          { session }
-        );
+        await pageContentCollection.updateOne({ _id: new ObjectId(body.pageContentId) }, pushedObject, { session });
       });
 
       res.json({ componentId: componentToInsert._id });
