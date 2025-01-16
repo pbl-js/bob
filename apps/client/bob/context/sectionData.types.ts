@@ -30,7 +30,7 @@ export interface BuilderSectionDataAction_OpenComunication {
 export interface BuilderSectionDataAction_SetPageContent {
   type: SectionDataActionEnum.SET_PAGE_CONTENT;
   payload: {
-    pageContent: PageContent;
+    pageContent: PageContentRequest;
   };
 }
 

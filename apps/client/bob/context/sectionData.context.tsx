@@ -2,9 +2,9 @@ import { createContext, useContext, useReducer } from 'react';
 import { builderSectionDataReducer } from './sectionData.reducer';
 
 // import { BOB } from '../../utils/bob';
-import { SectionDataContext } from './sectionData.types';
+import { SectionDataContext as SectionDataContextType } from './sectionData.types';
 
-export const initialState: SectionDataContext = {
+export const initialState: SectionDataContextType = {
   state: {
     draft: undefined,
     isComunicationOpen: false,
