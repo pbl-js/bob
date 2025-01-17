@@ -13,6 +13,8 @@ import { DeleteLayerButton } from './components/DeleteLayerButton/DeleteLayerBut
 import DraggableContext from './DraggableContext';
 import { DraggingOverlay } from '../../../components/DraggingOverlay/DraggingOverlay';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home({ params: { contentId } }: PageProps<{ contentId?: string }>) {
   if (!contentId) redirect(CONTENT_PAGE);
 
