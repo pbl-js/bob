@@ -40,5 +40,5 @@
     "@nx/react": { "application": { "babel": true }, "library": {} },
     "@nx/next": { "application": { "style": "css", "linter": "eslint" } }
   },
-  "nxCloudId": "678a394925758e24400c6143"
+  "nxCloudId": "678ad520bb35520bdee5d1ff"
 }
