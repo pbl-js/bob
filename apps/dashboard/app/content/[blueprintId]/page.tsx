@@ -7,6 +7,8 @@ type HomeProps = {
   searchParams: unknown;
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home({ params }: HomeProps) {
   const pageBlueprints = await getPageBlueprints();
   const matchedPageBlueprint = pageBlueprints?.find((el) => el._id === params.blueprintId);
